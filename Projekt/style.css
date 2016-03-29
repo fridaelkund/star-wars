@@ -1,0 +1,14 @@
+   
+img{
+    position: relative;
+    -webkit-animation-name: moveimg; 
+    -webkit-animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+}
+@-webkit-keyframes moveimg {
+    0%   {left:0px; top:0px; scale(0,0)}
+    100% {left:100%; top:0px; -webkit-transform: rotate(15deg);}
+
+}
