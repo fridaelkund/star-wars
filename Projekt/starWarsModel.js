@@ -1,4 +1,4 @@
-var FruitModel = function() {
+var StarWarsModel = function() {
 	var observersArray = [];
 
 	var whoAmI = {"sum": [0], "name": []};

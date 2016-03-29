@@ -1,6 +1,6 @@
 $(function() {
 
-	var model = new FruitModel();
-	var view = new FruitView($(".container"), model);
+	var model = new StarWarsModel();
+	var view = new StarWarsTestView($(".container"), model);
 
 });

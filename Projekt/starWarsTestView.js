@@ -1,5 +1,5 @@
 //DinnerView1 Object constructor
-var FruitView = function (container, model) {
+var StarWarsTestView = function (container, model) {
 
 	model.addObserver(this);
 	var personList = model.getPerson();
