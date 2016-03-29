@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- ng-app="star-wars" -->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Star Wars</title>
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Angular JavaScript including routing and resource modules  -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+
+
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/starWarsModel.js"></script>
+    <script src="js/starWarsTestView.js"></script>
+
+  </head>
+
+  <body>
+    <h1>Star Wars <small> Which character are you? </small></h1>
+    <img src="images/r2.png">
+    
+    <div class="container">
+        <div class="row">
+            
+            <div ng-view></div>
+
+        </div>
+    </div>
+
+  </body>
+</html>
+
