@@ -4,10 +4,15 @@ StarWarsApp.config(['$routeProvider',
 	function($routeProvider) { 
 		$routeProvider.
 			when('/home', {
-				templateUrl: 'partials/start-view.html'
+				templateUrl: 'partials/start-view.html',
+				controller: 'getPersonCtrl'
+			}).
+			when('/name', {
+				templateUrl: 'partials/name-view.html',
+				controller: 'inputCtrl'
 			}).
 			otherwise({
-				redirectTo: '/home'
+				redirectTo: '/name'
 			});
 	}]);
 
