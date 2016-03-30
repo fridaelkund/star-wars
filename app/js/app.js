@@ -1,12 +1,15 @@
 var StarWarsApp = angular.module('StarWars', ['ngRoute', 'ngResource']);
 
-StarWarsApp.config([
-	function() { 
+StarWarsApp.config(['$routeProvider',
+	function($routeProvider) { 
 		$routeProvider.
-			when('/home',{
-				templateUrl:'partials/start-view.html'
+			when('/home', {
+				templateUrl: 'partials/start-view.html'
 			}).
 			otherwise({
-				redirectTo:'/home'
+				redirectTo: '/home'
 			});
-	}])
+	}]);
+
+
+

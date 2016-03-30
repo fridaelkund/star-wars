@@ -44,4 +44,6 @@ StarWarsApp.factory('StarModel',function ($resource){
 		console.log(whoAmI.name);
 
 	}
+
+	return this;
 });
