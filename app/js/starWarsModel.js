@@ -10,13 +10,17 @@ StarWarsApp.factory('StarModel',function ($resource){
 		return whoAmI.person
 	}
 
-	this.addToProfile = function(){
-	// Samma för alla eller olika, input etc etc etc 
+	this.addToProfile = function(field, value){
+		profile[field] = value;
+		console.log(profile[field])
+	}
+
+	this.returnProfile = function(){
+		console.log(profile);
 	}
 
 
 	this.findPlanet = function(){
-
 	}
 	this.matchMaking = function(personList){
 		

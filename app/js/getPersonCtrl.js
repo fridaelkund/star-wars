@@ -1,8 +1,5 @@
 StarWarsApp.controller('getPersonCtrl', function($scope, StarModel){
 
-
-
-
 $scope.match=function(){
 	StarModel.getPerson.get({},function(data){
 		$scope.person=data.results;
@@ -13,7 +10,6 @@ $scope.match=function(){
 	});
 	
 }
-
 
 
 
