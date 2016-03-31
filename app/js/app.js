@@ -11,8 +11,16 @@ StarWarsApp.config(['$routeProvider',
 				templateUrl: 'partials/name-view.html',
 				controller: 'inputCtrl'
 			}).
+			when('/hair', {
+				templateUrl: 'partials/hair-view.html',
+				controller: 'inputCtrl'
+			}).
+			when('/result', {
+				templateUrl: 'partials/result.html',
+				controller: 'inputCtrl'
+			}).
 			otherwise({
-				redirectTo: '/name'
+				redirectTo: '/hair'
 			});
 	}]);
 
