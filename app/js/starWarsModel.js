@@ -22,11 +22,12 @@ StarWarsApp.factory('StarModel',function ($resource){
 
 	this.findPlanet = function(){
 	}
+
 	this.matchMaking = function(personList){
 		
 		console.log("2", personList);
 		var sum = 0; 
-		for(x = 0; x < 10; x++){
+		for(x in personList){
 		if(personList[x].eye_color == profile.eye){
 			sum += 1;
 		}
@@ -49,6 +50,15 @@ StarWarsApp.factory('StarModel',function ($resource){
 		console.log(whoAmI.person);
 
 	}
+
+	this.find_hair = function(personList){
+		console.log(personList)
+		var hairlist = []; 
+		for(x in personList){
+			console.log(personList[x].hair_color);
+			}
+		}
+		
 
 	this.returnPerson=function(){
 		return this.getPerson;

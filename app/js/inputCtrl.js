@@ -11,6 +11,4 @@ $scope.submitHairEyeHeight=function(hair, eye, height){
 	StarModel.addToProfile('height', height)
 	}
 
-
-
 });

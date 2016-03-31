@@ -3,10 +3,19 @@
 <div class="col-md-12" id="start-view">
 	<div class="col-md-3"></div>
 	<div class="col-md-6" id="hairInput">
-		<input type="text" class="form-control" placeholder="Hair color..." ng-model="hair">
+		<h1>hair</h1>
+		<button type="button" class="form-control" ng-model="hair">Blonde</button>
+		<button type="button" class="form-control" ng-model="hair">Brown</button>
+		<button type="button" class="form-control" ng-model="hair">None</button>
+		<button type="button" class="form-control" ng-model="hair">Möller</button>
+
+
 		<input type="text" class="form-control" placeholder="Eye color..." ng-model="eye">
 		<input type="text" class="form-control" placeholder="Height..." ng-model="height">
   		<a ng-href="#/result"><input type="submit" value="Submit" ng-click="submitHairEyeHeight(hair, eye, height)"></a>
 	</div>
 	<div class="col-md-3"></div>
+
+
 </div>
+
