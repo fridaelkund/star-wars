@@ -1,9 +1,9 @@
  
 body{
 	background-image: url("images/space.jpg");
-
-
+  color:white;
  }
+
 img{
     position: relative;
     -webkit-animation-name: moveimg; 
@@ -32,8 +32,8 @@ img{
    90%{left: 1400px; top:500px; -webkit-transform: rotate(20deg)}
    95%{left: 1400px; top:-500px; -webkit-transform: rotate(0deg)}
    100%{left:120px; top:0px;}
-
 }
+
 #result-view{
 	background-color: #000033;
 	background: rgba(0, 0, 51);
@@ -45,4 +45,30 @@ img{
 	height: 100%;
 	width: 100%;
 	font-size: 25px;
+}
+
+
+/* INPUT VIEW */
+
+#input-view{
+  text-align: center;
+}
+
+#input-view button{ 
+  width:100px;
+  margin-top:10px;
+}
+
+#input-view input{
+  margin-top:10px;
+}
+
+#height-input{
+  width: 100px;
+  margin:auto;
+  margin-top:20px;
+}
+
+.input-row{ 
+  height:100px;
 }
