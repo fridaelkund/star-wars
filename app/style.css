@@ -1,19 +1,48 @@
  
- 
+body{
+	background-image: url("images/space.jpg");
+
+
+ }
 img{
     position: relative;
     -webkit-animation-name: moveimg; 
-    -webkit-animation-duration: 9s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+    -webkit-animation-duration: 10s;
+    animation-iteration-count: 1;
     animation-timing-function: ease-in-out;
 }
 @-webkit-keyframes moveimg {
-    0%   {left:0px; top:0px; scale(0,0)}
-    100% {left:100%; top:0px; -webkit-transform: rotate(15deg);}
+/*    0%   {left:120px; top:0px;}
+    25% {left:1400px; top:0px; }
+    50% {left: 1400px; top:500px;}
+    75% {left:120px; top:500px;}
+    100% {left:120px; top:0px;}*/
+
+   0%   {left:120px; top:0px;}
+   25% {left:1400px; top:0px;}
+   50% {left: 1400px; top:500px;}
+   59% {-webkit-transform: rotate(0deg)}   
+   60% {left: 1400px; top:500px; -webkit-transform: rotate(-20deg)}
+   63% {left: 1400px; top:500px; -webkit-transform: rotate(20deg)}
+   66%{left: 1400px; top:500px; -webkit-transform: rotate(-20deg)}
+   69%{left: 1400px; top:500px; -webkit-transform: rotate(20deg)}
+   72% {left: 1400px; top:500px; -webkit-transform: rotate(-20deg)}
+   76% {left: 1400px; top:500px; -webkit-transform: rotate(20deg)}
+   80%{left: 1400px; top:500px; -webkit-transform: rotate(-20deg)}
+   90%{left: 1400px; top:500px; -webkit-transform: rotate(20deg)}
+   95%{left: 1400px; top:-500px; -webkit-transform: rotate(0deg)}
+   100%{left:120px; top:0px;}
 
 }
-
-#hairInput{
-
+#result-view{
+	background-color: #000033;
+	background: rgba(0, 0, 51);
+	background: rgba(0, 0, 51, 0.7);
+	color: white;
+	padding: 200px;
+	text-align: center;
+	border-radius: 10px;
+	height: 100%;
+	width: 100%;
+	font-size: 25px;
 }
