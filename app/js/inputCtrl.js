@@ -9,8 +9,8 @@ $scope.submitHairEyeHeight=function(hair, eye, height){
 	StarModel.addToProfile('hair', hair)
 	StarModel.addToProfile('eye', eye)
 	StarModel.addToProfile('height', height)
-
-	StarModel.returnProfile();
 	}
+
+
 
 });
