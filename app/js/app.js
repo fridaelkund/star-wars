@@ -17,7 +17,7 @@ StarWarsApp.config(['$routeProvider',
 			}).
 			when('/result', {
 				templateUrl: 'partials/result.html',
-				controller: 'inputCtrl'
+				controller: 'getPersonCtrl'
 			}).
 			otherwise({
 				redirectTo: '/home'
