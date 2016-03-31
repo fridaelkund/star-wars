@@ -20,7 +20,7 @@ StarWarsApp.config(['$routeProvider',
 				controller: 'inputCtrl'
 			}).
 			otherwise({
-				redirectTo: '/hair'
+				redirectTo: '/home'
 			});
 	}]);
 
