@@ -1,0 +1,22 @@
+#input-view{
+	text-align: center;
+}
+
+#input-view button{ 
+	width:100px;
+	margin-top:10px;
+}
+
+#input-view input{
+	margin-top:10px;
+}
+
+#height-input{
+	width: 100px;
+	margin:auto;
+	margin-top:20px;
+}
+
+.input-row{ 
+	height:100px;
+}

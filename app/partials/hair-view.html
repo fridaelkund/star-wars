@@ -1,18 +1,36 @@
 <ng-include ng-controller='inputCtrl'></ng-include>
 
-<div class="col-md-12" id="start-view">
+<div class="col-md-12" id="input-view">
 	<div class="col-md-3"></div>
-	<div class="col-md-6" id="hairInput">
-		<h1>hair</h1>
-		<button type="button" class="form-control" ng-model="hair">Blonde</button>
-		<button type="button" class="form-control" ng-model="hair">Brown</button>
-		<button type="button" class="form-control" ng-model="hair">None</button>
-		<button type="button" class="form-control" ng-model="hair">Möller</button>
 
+	<div class="col-md-6" id="input">
+		
+		<h3> Select hair color: </h3>
+		<div class="input-row row ">
+			<div class="col-md-3"><button type="button" class="form-control hair-btn" ng-click="inputHair('blond')">Blond</button></div>
+			<div class="col-md-3"><button type="button" class="form-control hair-btn" ng-click="inputHair('brown')">Brown</button></div>
+			<div class="col-md-3"><button type="button" class="form-control hair-btn" ng-click="inputHair('none')">None</button></div>
+			<div class="col-md-3"><button type="button" class="form-control hair-btn" ng-click="inputHair('n/a')">Möller</button></div>
+		</div>
 
-		<input type="text" class="form-control" placeholder="Eye color..." ng-model="eye">
-		<input type="text" class="form-control" placeholder="Height..." ng-model="height">
-  		<a ng-href="#/result"><input type="submit" value="Submit" ng-click="submitHairEyeHeight(hair, eye, height)"></a>
+		<h3> Select eye color: </h3>
+		<div class="row input-row">
+			<div class="col-md-3"> <button type="button" class="form-control eye-btn" ng-click="inputEye('blue')">Blue</button></div>
+			<div class="col-md-3"><button type="button" class="form-control eye-btn" ng-click="inputEye('brown')">Brown</button></div>
+			<div class="col-md-3"><button type="button" class="form-control eye-btn" ng-click="inputEye('green')">Green</button></div>
+			<div class="col-md-3"><button type="button" class="form-control eye-btn" ng-click="inputEye('red')">Red</button></div>
+		</div>
+		
+		<h3> Select height: </h3>
+		<div class="row input-row">
+  			<input type="text" id="height-input" class="form-control" ng-model="height"/>
+		</div>
+
+  			<div class="col-md-4"></div>
+	  		<div class="col-md-4"><a ng-href="#/result"><input type="submit" value="Submit" class="form-control" ng-click="submitHeight(eye)"></a></div>
+			<div class="col-md-4"></div>
+  		</div>
+
 	</div>
 	<div class="col-md-3"></div>
 
