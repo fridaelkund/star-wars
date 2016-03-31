@@ -1,14 +1,13 @@
 <ng-include ng-controller='inputCtrl'></ng-include>
 
-<div class="col-md-12" id="input-view">
-	<div class="col-md-3"></div>
-
-	<div class="col-md-6" id="input">
-		
+	<div id="input-view">
 		<h3> Select hair color: </h3>
 		<div class="input-row row ">
 			<div class="col-md-3"><button type="button" class="form-control hair-btn" ng-click="inputHair('blond')">Blond</button></div>
 			<div class="col-md-3"><button type="button" class="form-control hair-btn" ng-click="inputHair('brown')">Brown</button></div>
+			<div class="col-md-3"><button type="button" class="form-control hair-btn" ng-click="inputHair('none')">None</button></div>
+			<div class="col-md-3"><button type="button" class="form-control hair-btn" ng-click="inputHair('n/a')">Möller</button></div>
+					<div class="col-md-3"><button type="button" class="form-control hair-btn" ng-click="inputHair('brown')">Brown</button></div>
 			<div class="col-md-3"><button type="button" class="form-control hair-btn" ng-click="inputHair('none')">None</button></div>
 			<div class="col-md-3"><button type="button" class="form-control hair-btn" ng-click="inputHair('n/a')">Möller</button></div>
 		</div>
@@ -29,11 +28,7 @@
   			<div class="col-md-4"></div>
 	  		<div class="col-md-4"><a ng-href="#/result"><input type="submit" value="Submit" class="form-control" ng-click="submitHeight(eye)"></a></div>
 			<div class="col-md-4"></div>
-  		</div>
-
-	</div>
-	<div class="col-md-3"></div>
-
-
 </div>
+
+
 

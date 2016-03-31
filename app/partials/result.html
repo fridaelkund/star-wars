@@ -1,12 +1,7 @@
 <ng-include ng-controller='getPersonCtrl'></ng-include>
 
-
-<div class="col-md-12" id="result-view" ng-init="match()">
-	<div class="col-md-3"></div>
-	<div class="col-md-6">
+ <div id="resultView" class="padding-200" ng-init="match()">
 		<p>{{whoAmI.name}}<p>
-		<a href="#/home" class="btn btn-primary" type="button">Nej, jag vill göra om testet!</a> <!-- Gör så att det börjar om ordentligt, just nu blir den bara Luke Skywalker hela tiden...-->
+		<a href="#/home" class="btn btn-primary" type="button" ng-click="">Nej, jag vill göra om testet!</a> <!-- Gör så att det börjar om ordentligt, just nu blir den bara Luke Skywalker hela tiden...-->
 
-	</div>
-	<div class="col-md-3"></div>
 </div>
