@@ -34,6 +34,17 @@ img{
    100%{left:120px; top:0px;}
 }
 
+h3{
+  font-size: 36px;
+}
+
+p{
+  font-size: 20px;
+}
+
+#procent{
+  margin-top: 50px;
+}
 .mittenRuta{
 	background: rgba(0, 0, 51, 0.7);
 	color: white;
@@ -46,12 +57,14 @@ img{
 }
 
 .padding-200{
-  margin-top:200px;
+  margin-top:150px;
 }
 
 /* INPUT VIEW */
 #input-view{
   margin:100px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 #input-view button{ 
@@ -71,4 +84,78 @@ img{
 
 .input-row{ 
   height:100px;
+}
+#nameInput{
+  width: 200px;
+  margin: auto;
+  color: #000033;
+  background-color: white;
+}
+
+#height-input{
+  background-color: white;
+  color: #000033;
+}
+
+#nextButton{
+  margin-top: 100px;
+  width: 200px;
+  background-color: white;
+  color: #000033;
+}
+
+#nextButton:hover{
+  background-color: #cccccc;
+}
+
+#againButton{
+  background-color: white;
+  color: #000066;
+}
+
+#againButton:hover{
+  background-color: #cccccc;
+}
+
+#startButton{
+  background-color: white;
+  color: #000066;
+}
+
+#startButton:hover{
+  background-color: #cccccc;
+}
+.hair-btn{
+  width: 150px;
+}
+
+.eye-btn{
+  width: 150px;
+}
+
+#submit-btn{
+  width: 150px;
+}
+
+#submit-btn:hover{
+  background-color: #cccccc;
+}
+
+.hair-btn:hover, :focus{
+  background-color: #000033;
+}
+
+.eye-btn:hover, :focus{
+  background-color: #000033;
+}
+
+#val{
+  border: 1px solid white;
+}
+
+#profileInfo{
+  border: 1px solid white;
+}
+#starInfo{
+  border: 1px solid white;
 }

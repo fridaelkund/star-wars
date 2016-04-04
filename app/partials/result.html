@@ -1,7 +1,26 @@
 <ng-include ng-controller='getPersonCtrl'></ng-include>
 
  <div id="resultView" class="padding-200" ng-init="match()">
-		<p>{{whoAmI.name}}<p>
-		<a href="#/home" class="btn btn-primary" type="button" ng-click="">Nej, jag vill göra om testet!</a> <!-- Gör så att det börjar om ordentligt, just nu blir den bara Luke Skywalker hela tiden...-->
+		<h3>Congrats! You look like {{whoAmI.name}}<h3>
+		<div id="info row">
+			<div class="col-md-4" id="profileInfo">
+				You
+				<p>Name: {{profil.name}}</p>
+				<p>Haircolor: {{profil.hair}}</p>
+				<p>Eyecolor: {{profil.eye}}</p>
+				<p>Height: {{profil.height}} cm</p>
+			</div>
+			<div class="col-md-4" id="procent">
+				<p>{{proc}} % alike </p>
+			</div>
+			<div class="col-md-4" id="starInfo">
+				Look-a-like
+				<p>Name: {{whoAmI.name}}</p>
+				<p>Haircolor: {{whoAmI.hair_color}}</p>
+				<p>Eyecolor: {{whoAmI.eye_color}}</p>
+				<p>Height: {{whoAmI.height}} cm </p>
+			</div>
+		</div>
+		<a href="#/home" class="btn btn-primary" type="button" id="againButton" ng-click="restart()">Oh no! Please, let me take the test again!</a> 
 
 </div>

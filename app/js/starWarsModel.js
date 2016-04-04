@@ -1,7 +1,7 @@
 StarWarsApp.factory('StarModel',function ($resource){
 
-	var whoAmI = {"sum": [0], "person": []};
-	var profile = {"name": [], "eye": [], "hair": [], "height": []};
+	var whoAmI = {"sum": [0], "person": [], "proc": 0};
+	var profile = {"name": "", "eye": "", "hair": "", "height": ""};
 
 	this.getPerson = $resource('http://swapi.co/api/people/');
 
@@ -17,12 +17,12 @@ StarWarsApp.factory('StarModel',function ($resource){
 	}
 
 	this.returnProfile = function(){
-		console.log(profile);
+		return profile;
 	}
 
 	this.clearAll = function(){
-		whoAmI = {"sum": [0], "person": []};
-		profile = {"name": [], "eye": [], "hair": [], "height": []};
+	whoAmI = {"sum": [0], "person": []};
+	profile = {"name": "", "eye": "", "hair": "", "height": ""};
 	}
 
 	this.findPlanet = function(){
@@ -42,13 +42,16 @@ StarWarsApp.factory('StarModel',function ($resource){
 		if(personList[x].hair_color == profile.hair){
 			sum += 1;
 		}
-		if(personList[x].heigth == profile.height){
+		if(personList[x].height == profile.height){
 			sum += 1;
 		}
 
 		if(whoAmI.sum <= sum){
 		whoAmI.sum = sum;
 		whoAmI.person = personList[x];
+		whoAmI.proc = (sum /= 4) *100;
+		console.log(whoAmI.proc);
+		console.log("sum", sum);
 		}
 		sum = 0;
 	}
@@ -57,6 +60,12 @@ StarWarsApp.factory('StarModel',function ($resource){
 
 	}
 		
+
+	this.getProcent = function(){
+		console.log("pp", whoAmI.proc)
+		return whoAmI.proc
+
+	}
 
 	this.returnPerson=function(){
 		return this.getPerson;

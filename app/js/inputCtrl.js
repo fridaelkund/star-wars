@@ -17,5 +17,6 @@ $scope.inputHeight=function(height){
 	StarModel.addToProfile('height', height)
 }
 
+$scope.profil = StarModel.returnProfile();
 
 });
