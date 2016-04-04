@@ -3,7 +3,7 @@
  <div id="resultView" class="padding-200" ng-init="match()">
 		<h3>Congrats! You look like {{whoAmI.name}}<h3>
 		<div id="info row">
-			<div class="col-md-4" id="profileInfo">
+			<div class="col-md-4 box-border">
 				You
 				<p>Name: {{profil.name}}</p>
 				<p>Haircolor: {{profil.hair}}</p>
@@ -13,7 +13,7 @@
 			<div class="col-md-4" id="procent">
 				<p>{{proc}} % alike </p>
 			</div>
-			<div class="col-md-4" id="starInfo">
+			<div class="col-md-4 box-border">
 				Look-a-like
 				<p>Name: {{whoAmI.name}}</p>
 				<p>Haircolor: {{whoAmI.hair_color}}</p>
@@ -21,6 +21,6 @@
 				<p>Height: {{whoAmI.height}} cm </p>
 			</div>
 		</div>
-		<a href="#/home" class="btn btn-primary" type="button" id="againButton" ng-click="restart()">Oh no! Please, let me take the test again!</a> 
+		<a href="#/home" class="btn" type="button" ng-click="restart()">Oh no! Please, let me take the test again!</a> 
 
 </div>

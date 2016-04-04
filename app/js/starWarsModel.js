@@ -7,13 +7,11 @@ StarWarsApp.factory('StarModel',function ($resource){
 
 
 	this.returnWhoIAm = function(){
-		console.log("innan return who", whoAmI);
 		return whoAmI.person
 	}
 
 	this.addToProfile = function(field, value){
 		profile[field] = value;
-		console.log(profile[field])
 	}
 
 	this.returnProfile = function(){
@@ -29,8 +27,6 @@ StarWarsApp.factory('StarModel',function ($resource){
 	}
 
 	this.matchMaking = function(personList){
-		console.log("profil innan match", profile);
-		console.log("2", personList);
 		var sum = 0; 
 		for(x=0; x<10; x++){
 		if(personList[x].eye_color == profile.eye){
@@ -45,26 +41,19 @@ StarWarsApp.factory('StarModel',function ($resource){
 		if(personList[x].height == profile.height){
 			sum += 1;
 		}
-
 		if(whoAmI.sum <= sum){
 		whoAmI.sum = sum;
 		whoAmI.person = personList[x];
 		whoAmI.proc = (sum /= 4) *100;
-		console.log(whoAmI.proc);
-		console.log("sum", sum);
 		}
 		sum = 0;
 	}
-		console.log("profil",profile);
-		console.log(whoAmI.person);
 
 	}
 		
 
 	this.getProcent = function(){
-		console.log("pp", whoAmI.proc)
 		return whoAmI.proc
-
 	}
 
 	this.returnPerson=function(){
