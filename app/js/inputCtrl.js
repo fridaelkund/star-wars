@@ -1,7 +1,13 @@
 StarWarsApp.controller('inputCtrl', function($scope, StarModel){
 
 $scope.inputName=function(query){
+	if(query==null){
+		alert("Please fill in your name!");
+		return ;
+	}
+	else{
 	StarModel.addToProfile('name', query)
+}
 }
 
 
