@@ -1,13 +1,25 @@
-<ng-include ng-controller='colorCtrl'></ng-include>
+<!-- <ng-include ng-controller='colorCtrl'></ng-include> -->
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+<script>
+	function changeColor(color){
+		document.getElementById("clicker").style.fill = color;
+	}
+</script>
+
 <svg height="100" width="100">
   <circle id="clicker" cx="50" cy="50" r="40" fill="blue" ng-click="changeColor()" />
   	<svg height="100" width="100">
-  		<circle cx="50" cy="50" r="20" fill="red"/>
+  		<circle cx="50" cy="50" r="10" fill="black"/>
   		</svg>
 </svg>
-    <button ng-click="changeColor('red');">Red</button>
-    <button ng-click="changeColor('green');">Green</button>
-    <button ng-click="changeColor('blue');">Blue</button>
+    <button onclick="changeColor('red');">Red</button>
+    <button onclick="changeColor('green');">Green</button>
+    <button onclick="changeColor('blue');">Blue</button>
+
+</body>
 
 <!-- <!DOCTYPE html>
 <html>
