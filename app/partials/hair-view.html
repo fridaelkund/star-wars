@@ -10,19 +10,7 @@
 
 	<div class="scroll">
         <div class="wide">  
-            <div class="circle form-control" ng-click="inputHair('blond')">Blonde</div> 
-            <div class="circle form-control" ng-click="inputHair('brown')">Brown</div> 
-            <div class="circle"></div> 
-            <div class="circle"></div> 
-            <div class="circle"></div> 
-            <div class="circle"></div> 
-            <div class="circle"></div> 
-            <div class="circle"></div> 
-            <div class="circle"></div> 
-            <div class="circle"></div> 
-            <div class="circle"></div> 
-            <div class="circle"></div> 
-            <div class="circle"></div> 
+            <div  ng-repeat="eyecol in eyecols" class="circle form-control" style="background-color:{{eyecol}}" ng-click="inputHair(eyecol)" >{{eyecol}}</div> 
         </div>
     </div>
 	

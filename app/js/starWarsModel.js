@@ -5,6 +5,7 @@ StarWarsApp.factory('StarModel',function ($resource, $http){
 
 	this.getPerson = $resource('http://swapi.co/api/people/');
 
+	this.eyecol = ["blue", "brown", "red", "green", "black", "white", "grey", "orange", "purple", "pink", "magenta"];
 
 	this.returnWhoIAm = function(){
 		return whoAmI.person

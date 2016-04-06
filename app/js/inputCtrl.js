@@ -24,5 +24,8 @@ $scope.inputHeight=function(height){
 }
 
 $scope.profil = StarModel.returnProfile();
+   
+$scope.eyecols=StarModel.eyecol;
 
 });
+

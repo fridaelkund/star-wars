@@ -144,13 +144,13 @@ p{
 margin-top:20px;
 padding-top:20px;
 height:150px;
-width:1000px;
+width:730px;
 overflow-x:scroll;
 white-space: nowrap;
 }
 
 .wide{ 
-  width:200%;
+  width:1500px;
   height:130px;
 }
 
