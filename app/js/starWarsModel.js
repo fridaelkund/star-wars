@@ -1,6 +1,6 @@
 StarWarsApp.factory('StarModel',function ($resource, $http){
 
-	var whoAmI = {"sum": [0], "person": [], "proc": 0};
+	var whoAmI = {"sum": [0], "person": [], "proc": 0, "planet": ""};
 	var profile = {"name": "", "eye": "", "hair": "", "height": ""};
 
 	this.getPerson = $resource('http://swapi.co/api/people/');
@@ -19,7 +19,7 @@ StarWarsApp.factory('StarModel',function ($resource, $http){
 	}
 
 	this.clearAll = function(){
-	whoAmI = {"sum": [0], "person": []};
+	whoAmI = {"sum": [0], "person": [], "planet": ""};
 	profile = {"name": "", "eye": "", "hair": "", "height": ""};
 	}
 
@@ -44,16 +44,17 @@ StarWarsApp.factory('StarModel',function ($resource, $http){
 		if(whoAmI.sum <= sum){
 		whoAmI.sum = sum;
 		whoAmI.person = personList[x];
-		whoAmI.proc = (sum /= 4) *100;
+		whoAmI.proc = (sum /= 4) * 100;
 		}
 		sum = 0;
-	$http.get(personList[x].homeworld).then(function(data){
-		console.log("JA", data.data.name)}, function(data){ 
+		
+		$http.get(personList[x].homeworld).then(function(data){
+		whoAmI.planet = data.data.name;
+		}, function(data){ 
 		console.log("NEJ", data)
-	});
-	
-	}
-}
+		});
+		}
+		}
 	this.getProcent = function(){
 		return whoAmI.proc
 	}

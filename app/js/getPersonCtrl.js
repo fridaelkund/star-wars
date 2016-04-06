@@ -15,10 +15,6 @@ $scope.match=function(){
 	
 }
 
-
-
-
-
 $scope.restart = function(){
 	StarModel.clearAll();
 }
