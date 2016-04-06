@@ -1,4 +1,4 @@
-StarWarsApp.factory('StarModel',function ($resource){
+StarWarsApp.factory('StarModel',function ($resource, $http){
 
 	var whoAmI = {"sum": [0], "person": [], "proc": 0};
 	var profile = {"name": "", "eye": "", "hair": "", "height": ""};
@@ -47,11 +47,13 @@ StarWarsApp.factory('StarModel',function ($resource){
 		whoAmI.proc = (sum /= 4) *100;
 		}
 		sum = 0;
+	$http.get(personList[x].homeworld).then(function(data){
+		console.log("JA", data.data.name)}, function(data){ 
+		console.log("NEJ", data)
+	});
+	
 	}
-
-	}
-		
-
+}
 	this.getProcent = function(){
 		return whoAmI.proc
 	}

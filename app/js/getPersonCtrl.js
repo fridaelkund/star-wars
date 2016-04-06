@@ -7,12 +7,17 @@ $scope.match=function(){
 		StarModel.matchMaking($scope.person);
 		$scope.whoAmI=StarModel.returnWhoIAm();
 		$scope.proc = StarModel.getProcent();
-		console.log("klart")
+
+		console.log("klart");
 	}, function(data){
 		console.log("nope");
 	});
 	
 }
+
+
+
+
 
 $scope.restart = function(){
 	StarModel.clearAll();
