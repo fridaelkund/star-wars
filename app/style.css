@@ -158,7 +158,8 @@ white-space: nowrap;
 }
 
 #me-view{
-  background: rgba(0, 100, 100, 0.5);
+  /*background: rgba(0, 100, 100, 0.5);*/
+  background-color: yellow;
   color:white;
   height:500px;
 }
