@@ -23,7 +23,14 @@ $scope.findPlanets = function(){
 }
 
 $scope.moveToPlanet = function(){
-	console.log("moved here")
+	$scope.whoAmI = StarModel.returnWhoIAm();
+	$scope.result = StarModel.compete($scope.whoAmI.proc);
+	if ($scope.result == 1){
+		console.log("You won");
+	}
+	else{
+		console.log("Planet won");
+		}
 }
 
 $scope.showMessage = function(){

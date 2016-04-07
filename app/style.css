@@ -40,9 +40,10 @@ h3{
 p{
   font-size: 20px;
 }
-
+button{
+  padding-bottom: 100px;
+}
 /* BOX DESIGN */ 
-
 .box-border{
   border: 1px solid white;
 }

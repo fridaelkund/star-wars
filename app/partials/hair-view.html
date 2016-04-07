@@ -8,26 +8,26 @@
 		<p>Eyecolor: {{profil.eye}}</p>
 	</div> -->
 
-	<a href="#/profile" class="btn" type="button" style="float:right;" ng-click="">SPARA</a>
+	<a href="#/planet" class="btn" type="button" style="float:right;" ng-click="match()">SPARA</a>
 
 	<h3> Select hair color: </h3>
 
 	<div class="scroll">
         <div class="wide">  
-            <div  ng-repeat="(col, hex) in haircols" class="circle form-control" style="background-color:{{hex}}" ng-click="inputHair(col, hex)"></div> 
+            <div  ng-repeat="(col, hex) in haircols" class="circle form-control" style="background-color:{{hex}}" ng-click="inputHair(col)"></div> 
         </div>
     </div>
 	
 	<h3> Select eye color: </h3>
 	<div class="scroll">
         <div class="wide">  
-            <div  ng-repeat="(col, hex) in eyecols" class="circle form-control" style="background-color:{{hex}}" ng-click="inputEye(col, hex)"></div> 
+            <div  ng-repeat="(col, hex) in eyecols" class="circle form-control" style="background-color:{{hex}}" ng-click="inputEye(col)"></div> 
         </div>
     </div>
 	
 	<h3> Select height: </h3>
 	<div class="row input-row">
-	<input type="number" id="height-input" class="form-control" name=100 ng-model="height" ng-change="inputHeight(height)">
+	<input type="number" id="height-input" class="form-control" ng-model="height" ng-change="inputHeight(height)">
 	</div>
 
 </div>

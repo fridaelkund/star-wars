@@ -63,5 +63,17 @@ StarWarsApp.factory('StarModel',function ($resource, $http){
 		return this.getPerson;
 	}
 
+	this.compete = function(proc){
+		var yourOdds = proc / 100;
+		var results = [1, 0]; 
+		var computersOdds = Math.random();
+	
+		if(computersOdds<yourOdds){
+			return results[0];
+		}			
+		return results[1];
+		}
+
+
 	return this;
 });
