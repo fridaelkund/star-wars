@@ -1,0 +1,16 @@
+
+<ng-include ng-controller="planetsCtrl"></ng-include>
+<div class="row">
+<div class="col-md-8" ng-init="findPlanets()">
+
+	<h3> These are all the planets </h3>
+	<p> It's recommended that you start on the green planet </p>
+	<div class="universe" ng-repeat="planet in planets">
+		<div id="planet" ng-style="matchedPlanet === planet && {'color': 'green'}">
+			<p ng-click="moveToPlanet()">{{planet.name}}</p>
+		</div>
+    </div>
+</div>
+
+<ng-include src="'partials/me.html'" ng-controller="planetsCtrl"></ng-include>
+

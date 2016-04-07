@@ -15,6 +15,10 @@ StarWarsApp.config(['$routeProvider',
 				templateUrl: 'partials/hair-view.html',
 				controller: 'inputCtrl'
 			}).
+			when('/planet', {
+				templateUrl: 'partials/planets.html',
+				controller: 'planetsCtrl'
+			}).
 			when('/result', {
 				templateUrl: 'partials/result.html',
 				controller: 'getPersonCtrl'
