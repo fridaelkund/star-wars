@@ -137,10 +137,6 @@ overflow-x:scroll;
 white-space: nowrap;
 }
 
-#header{
-  height:100px;
-}
-
 .wide{ 
   width:800px;
   height:60px;
@@ -165,6 +161,39 @@ white-space: nowrap;
 }
 
 
+#menu{
+  height:50px;
+  background-color: white;
+  font-size:20px;
+  padding-left:100px;
+  padding-top:10px;
+  color:black;
+}
+
+#menu a{
+  margin:10px;
+}
+
+#header{
+  height:100px;
+  padding-top:10px;
+  text-align: center;
+}
+
+#header h1{
+  padding:0px;
+  margin:0px;
+}
+
+#header p{
+  margin:0px;
+  padding:0px;
+  font-size: 8px;
+}
+
+#info{
+  padding-top:20px;
+}
 
 
 
