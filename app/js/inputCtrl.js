@@ -1,14 +1,8 @@
 StarWarsApp.controller('inputCtrl', function($scope, StarModel){
 
-$scope.currentheight = "100";
-$scope.currentfeet = "280";
-	
-console.log($scope.currentfeet);
-console.log($scope.currentheight);
 
 $scope.inputName=function(query){
 	if(query==null){
-		alert("Please fill in your name!");
 		return ;
 	}
 	else{
@@ -17,27 +11,29 @@ $scope.inputName=function(query){
 }
 
 $scope.inputHair=function(color, hex){
-	StarModel.addToProfile('hair', color)
-	$scope.currenthair = hex;
+	StarModel.addToProfile('hair', color);
+	var profile = StarModel.returnProfile();
+	$scope.currenthair = StarModel.haircol[color]
 }
 
 $scope.inputEye=function(eye, hex){
 	StarModel.addToProfile('eye', eye)
-	$scope.currenteye = hex;
+	var profile = StarModel.returnProfile();
+	$scope.currenteye = profile.eye;
 }
 
 $scope.inputHeight=function(height){
-	StarModel.addToProfile('height', height)
-	$scope.currentfeet = String(height+180);
-	$scope.currentheight = String(height);
-	console.log($scope.currentfeet);
-	console.log($scope.currentheight);
+	StarModel.addToProfile('height', height);
+	console.log(height);
+
 }
 
 $scope.profil = StarModel.returnProfile();
    
 $scope.eyecols=StarModel.eyecol;
 $scope.haircols = StarModel.haircol;
+
+console.log(StarModel.haircol["blond"])
 
 });
 

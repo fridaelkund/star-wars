@@ -23,6 +23,10 @@ StarWarsApp.config(['$routeProvider',
 				templateUrl: 'partials/result.html',
 				controller: 'getPersonCtrl'
 			}).
+			when('/profile', {
+				templateUrl: 'partials/profile.html',
+				controller: 'profileCtrl'
+			}).
 			otherwise({
 				redirectTo: '/home'
 			});

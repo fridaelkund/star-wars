@@ -7,6 +7,9 @@
 		<p>Haircolor: {{profil.hair}}</p>
 		<p>Eyecolor: {{profil.eye}}</p>
 	</div> -->
+
+	<a href="#/profile" class="btn" type="button" style="float:right;" ng-click="">SPARA</a>
+
 	<h3> Select hair color: </h3>
 
 	<div class="scroll">
@@ -24,15 +27,9 @@
 	
 	<h3> Select height: </h3>
 	<div class="row input-row">
-			<input type="number" id="height-input" class="form-control" ng-model="height">
+	<input type="number" id="height-input" class="form-control" name=100 ng-model="height" ng-change="inputHeight(height)">
 	</div>
 
- 	<div class="row input-row">
-  		<div class="col-md-5">
-
-			<input type="submit" value="Submit" class="form-control btn" ng-click="inputHeight(height)">
-		</div>
-	</div>
 </div>
 
 <ng-include src="'partials/me.html'" ng-controller="inputCtrl"></ng-include>
