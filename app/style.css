@@ -1,5 +1,4 @@
- 
-body{
+ body{
 	background-image: url("images/space.jpg");
   color:white;
  }
@@ -35,7 +34,7 @@ img{
 }
 
 h3{
-  font-size: 36px;
+  font-size: 20px;
 }
 
 p{
@@ -46,17 +45,6 @@ p{
 
 .box-border{
   border: 1px solid white;
-}
-
-.mittenRuta{
-	background: rgba(0, 0, 51, 0.7);
-	color: white;
-	text-align: center;
-  margin: 0px;
-	border-radius: 10px;
-	height: 500px;
-	font-size: 25px;
-  width: 100%;
 }
 
 .padding-200{
@@ -141,27 +129,48 @@ p{
 
 .scroll
 {
-margin-top:20px;
-padding-top:20px;
-height:150px;
-width:730px;
+margin-top:10px;
+padding-top:10px;
+height:80px;
+width:500px;
 overflow-x:scroll;
 white-space: nowrap;
 }
 
+#header{
+  height:100px;
+}
+
 .wide{ 
-  width:1500px;
-  height:130px;
+  width:800px;
+  height:60px;
 }
 
 .circle{
-  width:100px;
-  height:100px;
-  border-radius:50px;
+  width:50px;
+  height:50px;
+  border-radius:25px;
   font-size:20px;
   background:#ffffff;
   float:left;
   margin-left:10px;
   margin-right:10px;
 }
+
+#me-view{
+  background: rgba(0, 100, 100, 0.5);
+  color:white;
+  height:500px;
+}
+
+
+
+
+
+
+
+
+
+
+
 

@@ -26,6 +26,9 @@ $scope.inputHeight=function(height){
 $scope.profil = StarModel.returnProfile();
    
 $scope.eyecols=StarModel.eyecol;
+$scope.haircols = StarModel.haircol;
+
+console.log($scope.haircols["blue"]);
 
 });
 
