@@ -43,13 +43,23 @@ $scope.moveToPlanet = function(planet){
 	$scope.result = StarModel.compete($scope.whoAmI.proc);
 	if ($scope.result == 1){
 		StarModel.addPlanet(planet);
-
+		$scope.changeColor=function(){
+			return{
+			 "background-color": "green"
+			}
+			;}
 		//Det som ej funkar är att byta färg och visa vad som händer på skärmen, 
 		//där kanske strukturen i html-koden behöver tänkas om
 		console.log("You won");
 	}
 	else{
+		$scope.changeColor=function(){
+		return {
+			"background-color": "red"
+		}
+		;}
 		console.log("Planet won");
+
 		//Om planeten vinner kanske alla planeter ska tas bort från "planeter jag vunnit"-listan
 		}
 }

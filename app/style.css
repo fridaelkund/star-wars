@@ -234,5 +234,6 @@ input[type=range]::-webkit-slider-thumb {
   text-align: center;
   padding-top: 22px;
   margin-bottom: 10px;
+  background-color: blue;
 
 }
