@@ -1,16 +1,24 @@
-<ng-include ng-controller='profileCtrl'></ng-include>
-
 <div class="row">
 <div class="col-md-8">
 
 <a href="#/hair" class="btn" type="button">Change look</a>
 
-<h3> My planets </h3>
+<h3> I look like </h3>
+
+<p>{{looklike.person.name}}</p>
+<p>{{looklike.planet}}</p>
+<p>{{looklike.proc}}</p>
+
+
+<h3> My imperium </h3>
+
+<p ng-repeat="planet in myplanets">{{planet.name}}</p>
+
+<h3> Left to conquer </h3>
+
 
 
 
 </div>
-
 <ng-include src="'partials/me.html'" ng-controller="inputCtrl"></ng-include>
-
 </div>

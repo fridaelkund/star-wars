@@ -4,6 +4,11 @@ StarWarsApp.controller('inputCtrl', function($scope, StarModel){
 $scope.eyecols=StarModel.eyecol;
 $scope.haircols = StarModel.haircol;
 
+$scope.location = window.location;
+
+console.log($scope.location);
+
+
 // Kollar om det finns ögonfärg, hårfärg och längd i profilen redan.
 // Lägger defaultvärden om så är fallet, annars hämtar värden från profil och uppdaterar i SVGn.
 
@@ -11,11 +16,13 @@ if(StarModel.returnProfile().hair == ""){
 	$scope.temp_hairhex = "none";
 }
 else{
+	$scope.temp_hair = StarModel.returnProfile().hair;
 	$scope.temp_hairhex = StarModel.haircol[StarModel.returnProfile().hair];
 };
 
 if(StarModel.returnProfile().eye == ""){}
 else{
+	$scope.temp_eye = StarModel.returnProfile().eye;
 	$scope.temp_eyehex = StarModel.eyecol[StarModel.returnProfile().eye]	
 };
 
