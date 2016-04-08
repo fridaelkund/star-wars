@@ -7,10 +7,10 @@
 	<p> It's recommended that you start on the green planet </p>
 	<div class="universe col-md-4" ng-repeat="planet in planets">
 		<div class="planet">
-			<button type="button" class="btn btn-default" name="planetButton" ng-style="matchedPlanet === planet && {'background-color': 'green'}" ng-click="moveToPlanet(planet)">{{planet.name}}</button>
+			<div class="planety" name="planetButton" ng-style="matchedPlanet === planet&&{'background-color':'green'}" ng-click="moveToPlanet(planet)">{{planet.name}}</div>
 		</div>
     </div>
 </div>
 
-<ng-include src="'partials/me.html'" ng-controller="planetsCtrl"></ng-include>
+<ng-include src="'partials/me.html'" ng-controller="inputCtrl"></ng-include>
 

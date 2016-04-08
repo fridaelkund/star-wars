@@ -1,37 +1,34 @@
-<ng-include ng-controller='inputCtrl'></ng-include>
-
 <div class="row">
 <div class="col-md-8">
-<!--	<div class="box-border">
-		<p>Hello {{profil.name}}</p>
-		<p>Haircolor: {{profil.hair}}</p>
-		<p>Eyecolor: {{profil.eye}}</p>
-	</div> -->
 
-	<a href="#/planet" class="btn" type="button" style="float:right;" ng-click="match()">SPARA</a>
+	<a href="#/profile" class="btn" type="button" ng-click="save()">SPARA</a>
 
 	<h3> Select hair color: </h3>
 
 	<div class="scroll">
         <div class="wide">  
-            <div  ng-repeat="(col, hex) in haircols" class="circle form-control" style="background-color:{{hex}}" ng-click="inputHair(col)"></div> 
+            <div  ng-repeat="(col, hex) in haircols" class="circle form-control" style="background-color:{{hex}}" ng-click="showHair(col)"></div> 
         </div>
     </div>
 	
 	<h3> Select eye color: </h3>
 	<div class="scroll">
         <div class="wide">  
-            <div  ng-repeat="(col, hex) in eyecols" class="circle form-control" style="background-color:{{hex}}" ng-click="inputEye(col)"></div> 
+            <div  ng-repeat="(col, hex) in eyecols" class="circle form-control" style="background-color:{{hex}}" ng-click="showEye(col)"></div> 
         </div>
     </div>
 	
 	<h3> Select height: </h3>
-	<div class="row input-row">
-	<input type="number" id="height-input" class="form-control" ng-model="height" ng-change="inputHeight(height)">
-	</div>
+<!--	<div class="row input-row">
+	<input type="number" id="height-input" min="45" max="230" defaultValue="111" class="form-control" ng-model="height" ng-change="showHeight(height)">
+	</div> -->
 
+	<div class="row">
+	<output for="height-input" id="height">100</output>
+	<input type="range" min="45" max="200" value="100" id="height-input" step="1" ng-model="height" ng-change="showHeight(height)">
+	</div>
 </div>
 
-<ng-include src="'partials/me.html'" ng-controller="inputCtrl"></ng-include>
+<ng-include src="'partials/me.html'"></ng-include>
 
 </div>
