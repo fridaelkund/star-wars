@@ -6,6 +6,18 @@ StarWarsApp.factory('StarModel',function ($resource, $http){
 	this.getPerson = $resource('http://swapi.co/api/people/');
 	this.getPlanets = $resource("http://swapi.co/api/planets/");
 
+	this.saveLocal = function(){
+		localStorage.setItem(profile.name, JSON.stringify(profile));
+	}
+
+	this.getAllLocals = function(){
+		var allLocals = [];
+		for(i in localStorage){
+			allLocals.push(JSON.parse(localStorage.getItem([i])));
+		}
+		return allLocals;
+	}
+
 	this.returnWhoIAm = function(){
 		return whoAmI
 	}

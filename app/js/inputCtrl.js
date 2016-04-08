@@ -48,9 +48,9 @@ $scope.save=function(){
 	StarModel.addToProfile('hair', $scope.temp_hair);
 	StarModel.addToProfile('eye', $scope.temp_eye);	
 	StarModel.addToProfile('height', $scope.temp_height);
+	StarModel.saveLocal();
 	$scope.match();
 }
-
 
 // Visar valt namn, hår/ögonfärg eller längd. Sparar ej i profil. 
 
