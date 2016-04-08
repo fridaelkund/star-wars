@@ -19,20 +19,31 @@ $scope.findPlanets = function(){
 
 //Matchar planeten för den man är mest lik med rätt planet så att rätt planet kan rekommenderas
 $scope.matchPlanet = function(planets){
+	$scope.whoAmI = StarModel.returnWhoIAm();
 	for (x=0; x<planets.length; x++){
 		//Hämtar whoAmI för att kunna använda planeten
-		$scope.whoAmI = StarModel.returnWhoIAm();
-
-		console.log($scope.whoAmI.planet);
 		//om planetens namn stämmer den planeten man är "mest lik" så är det en match
 		if (planets[x].name == $scope.whoAmI.planet){
+
 			$scope.matchedPlanet = planets[x];
-			console.log("match", $scope.matchedPlanet);
 		}
 		//Annats händer inget
 		else{}
 	}
 }
+
+$scope.whatclass = function(planet){
+	console.log('HÄR');
+	planetsclass = StarModel.returnWonPlanets() 
+	for(i in planetsclass){
+		console.log('här2', planet.name, planetsclass[i].name);
+		if (planet.name == planetsclass[i].name){
+			return "wonplanet"
+		}
+	}	
+	return "lostplanet"
+
+};
 
 
 //Funktion som körs när man klickar på en planet och den har den planet man klickar på som input (tror jag)
@@ -43,21 +54,13 @@ $scope.moveToPlanet = function(planet){
 	$scope.result = StarModel.compete($scope.whoAmI.proc);
 	if ($scope.result == 1){
 		StarModel.addPlanet(planet);
-		$scope.changeColor=function(planet){
-			return{
-			 "background-color": "green"
-			}
-			;}
 		//Det som ej funkar är att byta färg och visa vad som händer på skärmen, 
 		//där kanske strukturen i html-koden behöver tänkas om
 		console.log("You won");
+		$scope.whatclass();
 	}
 	else{
-		$scope.changeColor=function(planet){
-		return {
-			"background-color": "red"
-		}
-		;}
+		$scope.whatclass();
 		console.log("Planet won");
 
 		//Om planeten vinner kanske alla planeter ska tas bort från "planeter jag vunnit"-listan
@@ -65,4 +68,3 @@ $scope.moveToPlanet = function(planet){
 }
 
 });
-

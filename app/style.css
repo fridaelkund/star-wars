@@ -235,5 +235,16 @@ input[type=range]::-webkit-slider-thumb {
   padding-top: 22px;
   margin-bottom: 10px;
   background-color: blue;
+}
 
+.greenplanet{
+  background-color: green;
+}
+
+.wonplanet{
+  background-color: #000000;
+}
+
+.lostplanet{
+  background-color: blue;
 }
