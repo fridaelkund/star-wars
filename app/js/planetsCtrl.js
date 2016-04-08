@@ -43,7 +43,7 @@ $scope.moveToPlanet = function(planet){
 	$scope.result = StarModel.compete($scope.whoAmI.proc);
 	if ($scope.result == 1){
 		StarModel.addPlanet(planet);
-		$scope.changeColor=function(){
+		$scope.changeColor=function(planet){
 			return{
 			 "background-color": "green"
 			}
@@ -53,7 +53,7 @@ $scope.moveToPlanet = function(planet){
 		console.log("You won");
 	}
 	else{
-		$scope.changeColor=function(){
+		$scope.changeColor=function(planet){
 		return {
 			"background-color": "red"
 		}
