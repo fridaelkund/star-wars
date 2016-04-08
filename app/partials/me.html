@@ -1,5 +1,14 @@
 <div class="col-md-4" id="me-view">
 
+<div ng-show="location.hash === '#/profile'">
+  <a href="#/hair" class="btn" type="button">Change look</a>
+</div>
+
+<div ng-show="location.hash === '#/hair'">
+  <a href="#/profile" class="btn" type="button" ng-click="save()">Spara</a>
+</div>
+
+
 <svg height="400" width="500">	
   <svg height="400" width="500">
   <ellipse cx="130" cy={{temp_feet}} rx="8" ry="15" fill="black"/>
@@ -16,9 +25,5 @@
   	<circle cx="162" cy="210" r="5" fill="black"/>
   </svg>
 </svg>
-
-<div ng-hide="location === '#/profile'">
-  HEJ 
-</div>
 
 </div>

@@ -7,4 +7,3 @@ $scope.myplanets = StarModel.returnWonPlanets();
 console.log("planeter", $scope.myplanets);
 
 });
-

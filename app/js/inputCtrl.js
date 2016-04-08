@@ -73,6 +73,7 @@ $scope.match=function(){
 		$scope.whoAmI=StarModel.returnWhoIAm();
 		$scope.proc = StarModel.getProcent();
 		console.log("match")
+		StarModel.saveObject();
 	}, function(data){
 		console.log("Match error");
 	});	
