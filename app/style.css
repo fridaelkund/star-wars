@@ -227,7 +227,12 @@ input[type=range]::-webkit-slider-thumb {
 /* SLUT PÅ SLIDER */ 
 
 .planety{
-  height:50px;
-  width:50px;
-  border-radius:25px;
+  height:70px;
+  width:70px;
+  border-radius:50%;
+  border-color: white;
+  text-align: center;
+  padding-top: 22px;
+  margin-bottom: 10px;
+
 }
