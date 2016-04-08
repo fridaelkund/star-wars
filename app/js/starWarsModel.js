@@ -2,7 +2,7 @@ StarWarsApp.factory('StarModel',function ($resource, $http){
 
 	var whoAmI = {"sum": [0], "person": "", "proc": 0, "planet": "Alderaan"};
 	var profile = {"name": "", "eye": "", "hair": "", "height": ""};
-
+	var planetsIWon = [];
 	this.getPerson = $resource('http://swapi.co/api/people/');
 	this.getPlanets = $resource("http://swapi.co/api/planets/");
 
@@ -24,6 +24,7 @@ StarWarsApp.factory('StarModel',function ($resource, $http){
 	this.clearAll = function(){
 	whoAmI = {"sum": [0], "person": "", "proc":0, "planet": "Alderaan"};
 	profile = {"name": "", "eye": "", "hair": "", "height": ""};
+	planetsIWon = [];
 	}
 
 	this.matchMaking = function(personList){
@@ -62,7 +63,18 @@ StarWarsApp.factory('StarModel',function ($resource, $http){
 	this.returnPerson=function(){
 		return this.getPerson;
 	}
+	//Lägger till planet i "planeter som spelaren har vunnit"
+	this.addPlanet = function(planet){
+		planetsIWon.push({"name":planet.name});
+		console.log(planetsIWon);
+	}
 
+	//Returnerar lista med planeter som spelaren vunnit
+	this.returnWonPlanets = function(){
+		return planetsIWon;
+	}
+
+	// tävlingsfunktion som avgör om spelaren vinner eller inte
 	this.compete = function(proc){
 		var yourOdds = proc / 100;
 		var results = [1, 0]; 
