@@ -1,7 +1,7 @@
 StarWarsApp.factory('StarModel',function ($resource, $http){
 
 	var whoAmI = {"sum": [0], "person": "", "proc": 0, "planet": "Alderaan"};
-	var profile = {"name": "Josefine", "eye": "", "hair": "", "height": ""};
+	var profile = {"name": "", "eye": "", "hair": "", "height": ""};
 	var planetsIWon = [];
 	this.getPerson = $resource('http://swapi.co/api/people/');
 	this.getPlanets = $resource("http://swapi.co/api/planets/");
