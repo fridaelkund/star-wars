@@ -34,6 +34,7 @@ $scope.save=function(){
 	StarModel.addToProfile('hair', $scope.temp_hair);
 	StarModel.addToProfile('eye', $scope.temp_eye);	
 	StarModel.addToProfile('height', $scope.temp_height);
+	$scope.match();
 }
 
 
@@ -64,6 +65,7 @@ $scope.match=function(){
 		StarModel.matchMaking($scope.person);
 		$scope.whoAmI=StarModel.returnWhoIAm();
 		$scope.proc = StarModel.getProcent();
+		console.log("match")
 	}, function(data){
 		console.log("Match error");
 	});	
