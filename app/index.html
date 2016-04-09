@@ -15,35 +15,34 @@
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components\angular-modal-service\dst\angular-modal-service.min.js"></script>  
+
     
     <script src="js/app.js"></script>
     <script src="js/starWarsModel.js"></script>
+
+    <script src="js/menuCtrl.js"></script>
+
     <script src="js/getPersonCtrl.js"></script>
     <script src="js/inputCtrl.js"></script>
     <script src="js/planetsCtrl.js"></script>
     <script src="js/profileCtrl.js"></script>
-    <script src="js/selectCtrl.js"></script>
 
+    <script src="js/selectCtrl.js"></script>
 
   </head>
 
   <body>
+    <div class="container-fluid">  
+
     <div id="header">
-    <h1>Star Wars <br/><small> Which character do YOU look like?</small></h1>
-    <p>And can pretend to be and then kill them and take over their planet</p>
+    <h1>Star Wars <br/><small>Ett spel med lite luddiga regler</small></h1>
     </div>
 
-    <div id="menu">
-    <a href="#/start">Start</a>
-    <span>/</span>
-    <a href="#/profile">Profile</a>
-    <span>/</span>
-    <a href="#/planet">Planets</a>
-    </div>
- <!--   <img src="images/cinema.png">-->
-    
-    <div class="container">            
+        <div class="container">
+ <!--   <img src="images/cinema.png">-->   
             <div ng-view></div>
+        </div>
     </div>
 
   </body>

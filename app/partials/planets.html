@@ -1,18 +1,18 @@
+<ng-include src="'partials/menu-view.html'" ng-controller="menuCtrl"></ng-include>
 
 <ng-include ng-controller="planetsCtrl"></ng-include>
-<div class="row">
-<div class="col-md-8" ng-init="findPlanets()">
 
-	<h3> These are all the planets </h3>
-	<p> It's recommended that you start on the green planet </p>
+<div class="row">
+
+<div class="col-md-8" ng-init="findPlanets()">
+	<p> Select which planet to conquer. </p>
+	<p style="font-size:12pt;"> Tip! Since you look like {{whoAmI.person.name}} start with his home, {{whoAmI.planet}}.</p>
 	<div class="universe col-md-4" ng-repeat="planet in planets">
 		<div class="planet">
-			<div class="planety" id="{{planet.name}}" name="planetButton" ng-style="changeColor(planet)" ng-click="moveToPlanet(planet)" ng-class='whatclass(planet)'>
+			<div class="planety" id="{{planet.name}}" name="planetButton" ng-style="changeColor(planet)" ng-click="clickplanet(planet)" ng-class='whatclass(planet)'>
 			{{planet.name}}</div>
 		</div>
     </div>
 </div>
 
-<ng-include src="'partials/me.html'" ng-controller="inputCtrl"></ng-include>
-
-<!--matchedPlanet === planet&&{'background-color':'green'}  -->
+<ng-include src="'partials/me.html'" ng-controller="inputCtrl"></ng-include> 

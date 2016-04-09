@@ -1,24 +1,28 @@
-<p ng-repeat="loc in allLocals">
-HEJ
-{{loc.name}}
+<ng-include src="'partials/menu-view.html'" ng-controller="menuCtrl"></ng-include>
 
-<svg height="400" width="500">	
+<div class="row">
+
+<div class="col-md-3 saved-figures" ng-repeat="loc in allLocals" ng-click="getProfile(loc)">
+
+<svg height="300" width="250">	
   <svg height="400" width="500">
-  <ellipse cx="130" cy="280" rx="8" ry="15" fill="black"/>
-  <ellipse cx="170"cy="280" rx="8" ry="15" fill="black"/>
+  <ellipse cx="130" cy="230" rx="8" ry="15" fill="black"/>
+  <ellipse cx="170"cy="230" rx="8" ry="15" fill="black"/>
   </svg>
-  <svg><rect x="100" y="180" rx="20" ry="20" width="100" height={{loc.height}} fill="white" stroke-width:5/></svg>
-  <svg height="200" width="500">
-  <circle cx="150" cy="200" r="60" fill={{loc.hair}}/>	
+  <svg><rect x="75" y="130" rx="20" ry="20" width="100" height={{loc.height}} fill="white" stroke-width:5/></svg>
+  <svg height="150" width="500">
+  <circle cx="125" cy="150" r="60" fill={{haircols[loc.hair]}}/>	
   </svg>
   <svg height="400" width="500">
-    <circle cx="138" cy="210" r="10" fill={{loc.eye}}/>
-  	<circle cx="138" cy="210" r="5" fill="black"/>
-  	<circle cx="162" cy="210" r="10" fill={{loc.eye}}/>
-  	<circle cx="162" cy="210" r="5" fill="black"/>
+    <circle cx="113" cy="160" r="10" fill={{eyecols[loc.eye]}}/>
+  	<circle cx="113" cy="160" r="5" fill="black"/>
+  	<circle cx="137" cy="160" r="10" fill={{eyecols[loc.eye]}}/>
+  	<circle cx="137" cy="160" r="5" fill="black"/>
   </svg>
+  <p>{{loc.name}}</p>
+
 </svg>
 
+</div>
 
-
-</p>
+</div>

@@ -1,5 +1,6 @@
 StarWarsApp.controller('planetsCtrl', function($scope, StarModel){
 
+$scope.whoIAm = StarModel.returnWhoIAm();
 
 //Hämtar alla planeter som finns (OBS! Nej hämtar bara 10 nu)
 $scope.findPlanets = function(){
@@ -14,7 +15,6 @@ $scope.findPlanets = function(){
 	}, function(data){
 		console.log("nope");
 	});
-	
 }
 
 //Matchar planeten för den man är mest lik med rätt planet så att rätt planet kan rekommenderas
@@ -24,7 +24,6 @@ $scope.matchPlanet = function(planets){
 		//Hämtar whoAmI för att kunna använda planeten
 		//om planetens namn stämmer den planeten man är "mest lik" så är det en match
 		if (planets[x].name == $scope.whoAmI.planet){
-
 			$scope.matchedPlanet = planets[x];
 		}
 		//Annats händer inget
@@ -33,18 +32,20 @@ $scope.matchPlanet = function(planets){
 }
 
 $scope.whatclass = function(planet){
-	console.log('HÄR');
 	planetsclass = StarModel.returnWonPlanets() 
 	for(i in planetsclass){
-		console.log('här2', planet.name, planetsclass[i].name);
 		if (planet.name == planetsclass[i].name){
 			return "wonplanet"
 		}
 	}	
 	return "lostplanet"
-
 };
 
+$scope.clickplanet = function(planet){
+	console.log("i planet")
+	$scope.planetpopup = true;
+	$scope.pname = planet;
+}
 
 //Funktion som körs när man klickar på en planet och den har den planet man klickar på som input (tror jag)
 //Om man vinner så läggs planeten till i listan med planeter man vunnit. 
@@ -62,7 +63,6 @@ $scope.moveToPlanet = function(planet){
 	else{
 		$scope.whatclass();
 		console.log("Planet won");
-
 		//Om planeten vinner kanske alla planeter ska tas bort från "planeter jag vunnit"-listan
 		}
 }
