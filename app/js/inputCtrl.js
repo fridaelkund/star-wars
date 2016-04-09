@@ -6,8 +6,6 @@ $scope.haircols = StarModel.haircol;
 
 $scope.location = window.location;
 
-console.log($scope.location);
-
 // Kollar om det finns ögonfärg, hårfärg och längd i profilen redan.
 // Lägger defaultvärden om så är fallet, annars hämtar värden från profil och uppdaterar i SVGn.
 
@@ -48,7 +46,7 @@ $scope.save=function(){
 	StarModel.addToProfile('hair', $scope.temp_hair);
 	StarModel.addToProfile('eye', $scope.temp_eye);	
 	StarModel.addToProfile('height', $scope.temp_height);
-	StarModel.saveLocal();
+	StarModel.saveLocalProfile();
 	$scope.match();
 }
 
@@ -83,7 +81,6 @@ $scope.match=function(){
 		StarModel.matchMaking($scope.person);
 		$scope.whoAmI=StarModel.returnWhoIAm();
 		$scope.proc = StarModel.getProcent();
-		console.log("match")
 	}, function(data){
 		console.log("Match error");
 	});	

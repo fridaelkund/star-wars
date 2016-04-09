@@ -2,21 +2,11 @@ StarWarsApp.factory('StarModel',function ($resource, $http){
 
 	var whoAmI = {"sum": [0], "person": "", "proc": 0, "planet": "Alderaan"};
 	var profile = {"name": "", "eye": "", "hair": "", "height": ""};
-	var planetsIWon = [];
+	var wonPlanets = [];
+	var lostPlanets = [];
 	this.getPerson = $resource('http://swapi.co/api/people/');
 	this.getPlanets = $resource("http://swapi.co/api/planets/");
 
-	this.saveLocal = function(){
-		localStorage.setItem(profile.name, JSON.stringify(profile));
-	}
-
-	this.getAllLocals = function(){
-		var allLocals = [];
-		for(i in localStorage){
-			allLocals.push(JSON.parse(localStorage.getItem([i])));
-		}
-		return allLocals;
-	}
 
 	this.returnWhoIAm = function(){
 		return whoAmI
@@ -31,9 +21,10 @@ StarWarsApp.factory('StarModel',function ($resource, $http){
 	}
 
 	this.clearAll = function(){
-	whoAmI = {"sum": [0], "person": "", "proc":0, "planet": "Alderaan"};
+	whoAmI = {"sum": [0], "person": "", "proc":0, "planet": ""};
 	profile = {"name": "", "eye": "", "hair": "", "height": ""};
-	planetsIWon = [];
+	wonPlanets = [];
+	lostPlanets = [];
 	}
 
 	this.matchMaking = function(personList){
@@ -61,10 +52,10 @@ StarWarsApp.factory('StarModel',function ($resource, $http){
 		$http.get(personList[x].homeworld).then(function(data){
 		whoAmI.planet = data.data.name;
 		}, function(data){ 
-		console.log("NEJ", data)
 		});
 		}
-		}
+	}
+	
 	this.getProcent = function(){
 		return whoAmI.proc
 	}
@@ -73,17 +64,32 @@ StarWarsApp.factory('StarModel',function ($resource, $http){
 		return this.getPerson;
 	}
 	//Lägger till planet i "planeter som spelaren har vunnit"
-	this.addPlanet = function(planet){
-		planetsIWon.push({"name":planet.name});
-		console.log(planetsIWon);
+	this.addWonPlanet = function(planet){
+		wonPlanets.push({"name":planet.name});
+	}
+
+	this.addLostPlanet= function(planet){
+		lostPlanets.push({"name":planet.name})
 	}
 
 	//Returnerar lista med planeter som spelaren vunnit
 	this.returnWonPlanets = function(){
-		return planetsIWon;
+		return wonPlanets;
 	}
 
-	// tävlingsfunktion som avgör om spelaren vinner eller inte
+	this.returnLostPlanets = function(){
+		return lostPlanets;
+	}
+
+
+	this.savePlanets = function(){
+		var temp = JSON.parse(localStorage.getItem(profile.name));
+		temp["wonPlanets"] = wonPlanets;
+		temp["lostPlanets"] = lostPlanets;
+		localStorage.setItem(profile.name, JSON.stringify(temp));		
+	}
+
+// Tävlingsfunktion som avgör om spelaren vinner eller inte
 	this.compete = function(proc){
 		var yourOdds = proc / 100;
 		var results = [1, 0]; 
@@ -95,6 +101,19 @@ StarWarsApp.factory('StarModel',function ($resource, $http){
 		return results[1];
 		}
 
+// Sparar och hämtar alla lokalt sparade profiler 
+
+	this.getLocalProfiles = function(){
+		var allLocals = [];
+		for(i in localStorage){
+			allLocals.push(JSON.parse(localStorage.getItem([i])));
+		}
+		return allLocals;
+	}
+
+	this.saveLocalProfile = function(){
+		localStorage.setItem(profile.name, JSON.stringify(profile));
+	}
 
 	this.eyecol = 
 		{"blue": "#1a75ff", 

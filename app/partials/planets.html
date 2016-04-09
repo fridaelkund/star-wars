@@ -2,17 +2,25 @@
 
 <ng-include ng-controller="planetsCtrl"></ng-include>
 
-<div class="row">
+<div class="row" ng-show="'{{profil.name}}' === ''") style="padding-top:100px; padding-left:20px;">
+<p>You cant play planets without a character!</p>
+
+<a href="#/hair" class="btn" id="next-btn" type="button" ng-click="">CREATE NEW CHARACTER</a>
+<a href="#/select" class="btn" id="next-btn" type="button" ng-click="">SELECT OLD CHARACTER</a>
+
+</div>
+
+<div class="row" ng-hide="'{{profil.name}}' === ''">
 
 <div class="col-md-8" ng-init="findPlanets()">
-	<p> Select which planet to conquer. </p>
+	<p> Select which planet to conquer by clicking it. </p>
 	<p style="font-size:12pt;"> Tip! Since you look like {{whoAmI.person.name}} start with his home, {{whoAmI.planet}}.</p>
-	<div class="universe col-md-4" ng-repeat="planet in planets">
-		<div class="planet">
-			<div class="planety" id="{{planet.name}}" name="planetButton" ng-style="changeColor(planet)" ng-click="clickplanet(planet)" ng-class='whatclass(planet)'>
-			{{planet.name}}</div>
-		</div>
+	<div class="universe col-md-3" ng-repeat="planet in planets">
+		<div class="planety" id="{{planet.name}}" name="planetButton" ng-style="changeColor(planet)" ng-click="moveToPlanet(planet)" ng-class='whatclass(planet)' data-toggle="popover" data-placement="right" data-content="Du har {{whoAmI.proc}} procents chans att vinna" data-trigger="hover">{{planet.name}}</div>
     </div>
 </div>
 
 <ng-include src="'partials/me.html'" ng-controller="inputCtrl"></ng-include> 
+
+</div>
+ 

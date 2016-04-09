@@ -1,6 +1,9 @@
-StarWarsApp.controller('menuCtrl', function($scope, StarModel){
+StarWarsApp.controller('menuCtrl', function($scope, $location, StarModel){
 
 $scope.profil = StarModel.returnProfile();
-console.log("profil", $scope.profil);
+
+$scope.path = $location.$$path;
+
+console.log($scope.path)
 
 });

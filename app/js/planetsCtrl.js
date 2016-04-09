@@ -1,21 +1,23 @@
 StarWarsApp.controller('planetsCtrl', function($scope, StarModel){
 
 $scope.whoIAm = StarModel.returnWhoIAm();
+$scope.profil = StarModel.returnProfile();
 
 //Hämtar alla planeter som finns (OBS! Nej hämtar bara 10 nu)
 $scope.findPlanets = function(){
-	console.log("start");
 	StarModel.getPlanets.get({},function(data){
 	$scope.planets=data.results;
 
 	//Kallar på matchPlanet för att matcha en planet med den planet där den man är mest lik bor
 	$scope.matchPlanet($scope.planets);
-
-	console.log("klart", $scope.planets);
 	}, function(data){
 		console.log("nope");
 	});
 }
+
+$scope.$on('$routeChangeStart', function() { 
+   StarModel.savePlanets();
+ });
 
 //Matchar planeten för den man är mest lik med rätt planet så att rätt planet kan rekommenderas
 $scope.matchPlanet = function(planets){
@@ -32,20 +34,19 @@ $scope.matchPlanet = function(planets){
 }
 
 $scope.whatclass = function(planet){
-	planetsclass = StarModel.returnWonPlanets() 
-	for(i in planetsclass){
-		if (planet.name == planetsclass[i].name){
+	for(i in StarModel.returnWonPlanets()){
+		if (planet.name == StarModel.returnWonPlanets()[i].name){
 			return "wonplanet"
 		}
 	}	
-	return "lostplanet"
+	for(i in StarModel.returnLostPlanets()){
+		if(planet.name == StarModel.returnLostPlanets()[i].name){
+			return "lostplanet"
+		}
+	}
+	return "normalplanet"
 };
 
-$scope.clickplanet = function(planet){
-	console.log("i planet")
-	$scope.planetpopup = true;
-	$scope.pname = planet;
-}
 
 //Funktion som körs när man klickar på en planet och den har den planet man klickar på som input (tror jag)
 //Om man vinner så läggs planeten till i listan med planeter man vunnit. 
@@ -53,18 +54,33 @@ $scope.moveToPlanet = function(planet){
 	$scope.myPlanets = StarModel.returnWonPlanets();
 	$scope.whoAmI = StarModel.returnWhoIAm();
 	$scope.result = StarModel.compete($scope.whoAmI.proc);
+
 	if ($scope.result == 1){
-		StarModel.addPlanet(planet);
-		//Det som ej funkar är att byta färg och visa vad som händer på skärmen, 
-		//där kanske strukturen i html-koden behöver tänkas om
+		StarModel.addWonPlanet(planet);
 		console.log("You won");
-		$scope.whatclass();
+		$scope.whatclass(planet);
 	}
 	else{
-		$scope.whatclass();
+		StarModel.addLostPlanet(planet);
+		$scope.whatclass(planet);
 		console.log("Planet won");
-		//Om planeten vinner kanske alla planeter ska tas bort från "planeter jag vunnit"-listan
-		}
+	}
 }
 
-});
+})
+
+.directive('toggle', function(){
+  return {
+    restrict: 'A',
+    link: function(scope, element, attrs){
+      if (attrs.toggle=="popover"){
+        $(element).popover({
+        	html: true,
+        	content: function() {
+        		return ('#popoverContent').html();
+        	}
+        });
+      }
+    }
+  };
+})

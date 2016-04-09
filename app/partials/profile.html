@@ -1,20 +1,30 @@
 <ng-include src="'partials/menu-view.html'" ng-controller="menuCtrl"></ng-include>
+<div class="row" ng-show="'{{profil.name}}' === ''") style="padding-top:100px; padding-left:20px;">
+<p>You have no character yet!</p>
 
-<div class="row">
+<a href="#/hair" class="btn" id="next-btn" type="button" ng-click="">CREATE NEW CHARACTER</a>
+<a href="#/select" class="btn" id="next-btn" type="button" ng-click="">SELECT OLD CHARACTER</a>
+
+</div>
+
+<div class="row" ng-hide="'{{profil.name}}' === ''">
 <div class="col-md-8">
 
-<h3> I look like </h3>
-
-<p>{{looklike.person.name}}</p>
-<p>{{looklike.planet}}</p>
-<p>{{looklike.proc}}</p>
-
+<p> You look {{looklike.proc}} % like {{looklike.person.name}} from {{looklike.planet}}</p>
 
 <h3> My imperium </h3>
+<div ng-if="!wonplanets.length">
+	<p>No planets won yet!</p>
+	<a href="#/planet" class="btn" id="next-btn" type="button" ng-click="">Play now!</a>
+</div>
 
-<p ng-repeat="planet in myplanets">{{planet.name}}</p>
+<br/>
+<p ng-repeat="planet in wonplanets">{{planet.name}}</p>
 
-<h3> Left to conquer </h3>
+<h3> Lost planets </h3>
+
+
+<p ng-repeat="planet in lostplanets">{{planet.name}}</p>
 
 </div>
 <ng-include src="'partials/me.html'" ng-controller="inputCtrl"></ng-include>

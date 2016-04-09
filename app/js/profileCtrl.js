@@ -1,9 +1,13 @@
 StarWarsApp.controller('profileCtrl', function($scope, StarModel){
 
+$scope.profil = StarModel.returnProfile();
+
 $scope.looklike = StarModel.returnWhoIAm();
 
-$scope.myplanets = StarModel.returnWonPlanets();
+$scope.wonplanets = StarModel.returnWonPlanets();
 
-console.log("planeter", $scope.myplanets);
+console.log($scope.wonplanets[0]);
+
+$scope.lostplanets = StarModel.returnLostPlanets();
 
 });
