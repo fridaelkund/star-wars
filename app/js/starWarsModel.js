@@ -1,15 +1,19 @@
 StarWarsApp.factory('StarModel',function ($resource, $http){
 
-	var whoAmI = {"sum": [0], "person": "", "proc": 0, "planet": "Alderaan"};
+	var whoAmI = [];
 	var profile = {"name": "", "eye": "", "hair": "", "height": ""};
 	var wonPlanets = [];
 	var lostPlanets = [];
+	var allPlanets = [];
 	this.getPerson = $resource('http://swapi.co/api/people/');
 	this.getPlanets = $resource("http://swapi.co/api/planets/");
 
 
 	this.returnWhoIAm = function(){
 		return whoAmI
+	}
+	this.returnPlanets = function(){
+		return allPlanets;
 	}
 
 	this.addToProfile = function(field, value){
@@ -42,20 +46,26 @@ StarWarsApp.factory('StarModel',function ($resource, $http){
 		if(personList[x].height == profile.height){
 			sum += 1;
 		}
-		if(whoAmI.sum <= sum){
-		whoAmI.sum = sum;
-		whoAmI.person = personList[x];
-		whoAmI.proc = (sum /= 4) * 100;
-		}
-		sum = 0;
 		
-		$http.get(personList[x].homeworld).then(function(data){
-		whoAmI.planet = data.data.name;
-		}, function(data){ 
-		});
+		whoAmI.push({"sum": sum, "person": personList[x], "proc": (sum/=4)*100});
+	
+		console.log(whoAmI);
+		sum = 0;
+	
 		}
 	}
-	
+	this.planetMatch = function(){
+		for(x=0; x<whoAmI.length; x++){
+			$http.get(whoAmI[x].person.homeworld).then(function(data){
+				//bor någon matchad person på den här planet?
+				//om ja
+			allPlanets.push({"planetName":data.data.name});
+			//om inte
+			//kill planet
+			}, function(data){ 
+			});
+		}
+	}
 	this.getProcent = function(){
 		return whoAmI.proc
 	}

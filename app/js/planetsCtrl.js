@@ -11,7 +11,7 @@ $scope.findPlanets = function(){
 	//Kallar på matchPlanet för att matcha en planet med den planet där den man är mest lik bor
 	$scope.matchPlanet($scope.planets);
 	}, function(data){
-		console.log("nope");
+		console.log("nope"); 
 	});
 }
 

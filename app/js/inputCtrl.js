@@ -9,9 +9,7 @@ $scope.location = window.location;
 // Kollar om det finns ögonfärg, hårfärg och längd i profilen redan.
 // Lägger defaultvärden om så är fallet, annars hämtar värden från profil och uppdaterar i SVGn.
 
-if(StarModel.returnProfile().hair == ""){
-	$scope.temp_hairhex = "none";
-}
+if(StarModel.returnProfile().hair == ""){}
 else{
 	$scope.temp_hair = StarModel.returnProfile().hair;
 	$scope.temp_hairhex = StarModel.haircol[StarModel.returnProfile().hair];

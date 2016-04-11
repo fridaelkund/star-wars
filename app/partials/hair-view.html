@@ -1,4 +1,4 @@
-<ng-include src="'partials/menu-view.html'" ng-controller="menuCtrl"></ng-include>
+<ng-include src="'partials/menu-view.html'"></ng-include>
 
 <div class="row">
 <div class="col-md-8">
@@ -26,13 +26,11 @@
 	<input type="range" min="45" max="200" value="100" id="height-input" step="1" ng-model="height" ng-change="showHeight(height)">
 	</div>
 
-<div ng-show="location.hash === '#/hair'">
   <a href="#/profile" class="btn" type="button" ng-click="save()">Spara</a>
-</div>
 
 </div>
 
 
-<ng-include src="'partials/me.html'" ng-controller="inputCtrl"></ng-include>
+<ng-include src="'partials/me.html'"></ng-include>
 
 </div>
