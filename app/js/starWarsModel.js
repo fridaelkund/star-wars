@@ -25,7 +25,7 @@ StarWarsApp.factory('StarModel',function ($resource, $http){
 	}
 
 	this.clearAll = function(){
-	whoAmI = {"sum": [0], "person": "", "proc":0, "planet": ""};
+	whoAmI = [];
 	profile = {"name": "", "eye": "", "hair": "", "height": ""};
 	wonPlanets = [];
 	lostPlanets = [];
@@ -48,7 +48,12 @@ StarWarsApp.factory('StarModel',function ($resource, $http){
 		}
 		
 		whoAmI.push({"sum": sum, "person": personList[x], "proc": (sum/=4)*100});
-	
+		$http.get(whoAmI[x].person.homeworld).then(function(data){
+			console.log("data",data.data.name);
+			allPlanets.push({"planetName":data.data.name});
+			console.log("allPlan", allPlanets);
+			}, function(data){ 
+			});
 		console.log(whoAmI);
 		sum = 0;
 	
