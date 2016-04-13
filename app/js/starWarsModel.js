@@ -5,7 +5,14 @@ StarWarsApp.factory('StarModel',function ($resource, $http){
 	var wonPlanets = [];
 	var lostPlanets = [];
 	var allPlanets = [];
-	this.getPerson = $resource('http://swapi.co/api/people/');
+
+
+	this.getP = function(nr){
+	var getPerson = $resource(nr);
+	return getPerson 
+	};
+
+
 	this.getPlanets = $resource("http://swapi.co/api/planets/");
 
 
