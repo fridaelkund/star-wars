@@ -73,15 +73,34 @@ $scope.showHeight=function(height){
 // Matchingsfunktion som kollar vem man är lik av Star Wars-gubbarna. 
 
 $scope.match=function(){
-	StarModel.getCharacter.get({},function(data){
-	$scope.character = data.results;
-	StarModel.matchMaking($scope.character);
-	$scope.lookAlikes=StarModel.returnlookAlikes();
-	$scope.proc = StarModel.returnProcent();
+	console.log("start");
+	$scope.getData('http://swapi.co/api/people/');
+};
+
+var character = [];
+
+$scope.getData =function(k){
+	console.log("start get");
+	StarModel.getP(k).get({},function(data){
+		character = character.concat(data.results);
+		console.log(character)
+		if(data.next === null){
+			StarModel.matchMaking(character);
+			$scope.lookAlikes=StarModel.returnlookAlikes();
+			console.log("lookAlikes", $scope.lookAlikes);
+			$scope.proc = StarModel.returnProcent();
+		}
+		else{
+			$scope.getData(data.next)
+		}
 	}, function(data){
 		console.log("Match error");
-		})
+	});	
+
+
 };
+
+
 
 $scope.inputName=function(query){
 	if(query==null){

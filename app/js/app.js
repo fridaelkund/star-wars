@@ -4,8 +4,7 @@ StarWarsApp.config(['$routeProvider',
 	function($routeProvider) { 
 		$routeProvider.
 			when('/home', {
-				templateUrl: 'partials/start-view.html',
-				controller: 'getPersonCtrl'
+				templateUrl: 'partials/start-view.html'
 			}).
 			when('/hair', {
 				templateUrl: 'partials/hair-view.html',
