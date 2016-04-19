@@ -14,6 +14,7 @@ StarWarsApp.factory('StarModel',function ($resource, $http){
 
 
 	this.getPlanets = $resource("http://swapi.co/api/planets/");
+	this.getPerson = $resource("http://swapi.co/api/people/");
 
 
 	this.returnWhoIAm = function(){
@@ -60,12 +61,9 @@ StarWarsApp.factory('StarModel',function ($resource, $http){
 		//vad händer om sum =0?
 		whoAmI.push({"sum": sum, "person": personList[x], "proc": (sum/=4)*100});
 		$http.get(whoAmI[x].person.homeworld).then(function(data){
-			console.log("data",data.data.name);
 			allPlanets.push({"planetName":data.data.name});
-			console.log("allPlan", allPlanets);
 			}, function(data){ 
 			});
-		console.log(whoAmI);
 		sum = 0;
 	
 		}

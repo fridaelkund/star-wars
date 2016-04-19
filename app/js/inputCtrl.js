@@ -74,11 +74,14 @@ $scope.showHeight=function(height){
 
 $scope.match=function(){
 	console.log("start");
-	$scope.getData('http://swapi.co/api/people/');
-
+	StarModel.getPerson.get({},function(data){
+	$scope.person = data.results;
 	StarModel.matchMaking($scope.person);
 	$scope.whoAmI=StarModel.returnWhoIAm();
 	$scope.proc = StarModel.getProcent();
+	}, function(data){
+		console.log("Match error");
+		})
 };
 
 $scope.person = [];

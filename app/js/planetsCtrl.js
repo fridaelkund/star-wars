@@ -36,17 +36,16 @@ $scope.whatclass = function(planet){
 //Funktion som körs när man klickar på en planet och den har den planet man klickar på som input (tror jag)
 //Om man vinner så läggs planeten till i listan med planeter man vunnit. 
 $scope.moveToPlanet = function(planet){
-	console.log(planet.name);
 	$scope.allPlanets = StarModel.returnPlanets();
-	console.log("Pö", $scope.allPlanets)
+	console.log("planeter", $scope.allPlanets);
 	$scope.whoAmI = StarModel.returnWhoIAm();
-
 	for(a=0; a<$scope.allPlanets.length; a++){
-		console.log("p", $scope.whoAmI[a].proc)
-		$scope.proc = $scope.whoAmI[a].proc
+		$scope.proc = $scope.whoAmI[a].proc;
+		console.log("proc", $scope.proc);
 		if ($scope.allPlanets[a].planetName == planet.name){
 			//funkar inte men typ nåt sånt här borde det bli
 		$scope.result = StarModel.compete($scope.proc);
+		console.log("resultat", $scope.result);
 		}
 		else{
 			console.log("nej");
@@ -54,13 +53,13 @@ $scope.moveToPlanet = function(planet){
 	}
 
 	if ($scope.result == 1){
-		StarModel.addWonPlanet(planet);
+		//StarModel.addWonPlanet(planet);
 		console.log("You won");
-		$scope.whatclass(planet);
+		//$scope.whatclass(planet);
 	}
 	else{
-		StarModel.addLostPlanet(planet);
-		$scope.whatclass(planet);
+		//StarModel.addLostPlanet(planet);
+		//$scope.whatclass(planet);
 		console.log("Planet won");
 	}
 }
