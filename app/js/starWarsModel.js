@@ -15,6 +15,18 @@ StarWarsApp.factory('StarModel',function ($resource, $http){
 	this.getCharacter = $resource("http://swapi.co/api/people/");
 
 
+	this.planetandperson = function(planets){
+		for(x=0; x<lookAlikes.length; x++){
+			for(i=0; i<planets.length; i++){
+			if(lookAlikes[x].homeworld == planets[i].url){
+				lookAlikes[x].push({"PlanetName": planets[i]})
+			}	
+
+			}
+		}
+	console.log(lookAlikes);
+	} 
+
 	this.returnlookAlikes = function(){
 		return lookAlikes;
 	}
@@ -59,13 +71,15 @@ StarWarsApp.factory('StarModel',function ($resource, $http){
 		
 		//SE ÖVER DETTA, går det att lägga planet i lookAlikes istället?
 		lookAlikes.push({"person": allCharacter[x], "proc": (lookAlikePoints/=4)*100});
-		$http.get(lookAlikes[x].person.homeworld).then(function(data){
-			allPlanets.push({"planetName":data.data.name});
-			}, function(data){ 
-			});
 		lookAlikePoints = 0;
 		}
 	}
+
+	this.HEJ = function(){
+		for(x=0; x<lookAlikes.length; x++){
+		lookAlikes[x].planet = allPlanets[x];
+		}
+	};
 
 	this.returnProcent = function(){
 		return lookAlikes.proc;

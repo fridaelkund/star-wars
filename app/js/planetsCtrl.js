@@ -1,17 +1,19 @@
 StarWarsApp.controller('planetsCtrl', function($scope, StarModel){
 
-$scope.lookAlikes = StarModel.returnlookAlikes();
 $scope.profil = StarModel.returnProfile();
+
 
 //Hämtar alla planeter som finns (OBS! Nej hämtar bara 10 nu)
 $scope.findPlanets = function(){
 	StarModel.getPlanets.get({},function(data){
 	$scope.planets=data.results;
-	console.log("JA");
+	StarModel.planetandperson($scope.planets);
 	}, function(data){
 	console.log("nope"); 
 	});
+	console.log("Hsta", StarModel.returnlookAlikes())
 }
+
 
 $scope.$on('$routeChangeStart', function() { 
    StarModel.savePlanets();
@@ -37,8 +39,7 @@ $scope.whatclass = function(planet){
 //Om man vinner så läggs planeten till i listan med planeter man vunnit. 
 $scope.moveToPlanet = function(planet){
 	$scope.allPlanets = StarModel.returnPlanets();
-	console.log("planeter", $scope.allPlanets);
-	$scope.lookAlikes = StarModel.returnlookAlikes();
+	console.log("planeter", $scope.allPlanets);	
 	for(a=0; a<$scope.allPlanets.length; a++){
 		$scope.proc = $scope.lookAlikes[a].proc;
 		console.log("proc", $scope.proc);
