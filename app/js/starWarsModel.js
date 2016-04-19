@@ -6,10 +6,10 @@ StarWarsApp.factory('StarModel',function ($resource, $http){
 	var lostPlanets = [];
 	var allPlanets = [];
 
-	// this.getP = function(nr){
-	// var getPerson = $resource(nr);
-	// return getPerson 
-	// };
+ this.getP = function(nr){
+	 var getPerson = $resource(nr);
+	 return getPerson 
+	 };
 
 	this.getPlanets = $resource("http://swapi.co/api/planets/");
 	this.getCharacter = $resource("http://swapi.co/api/people/");
@@ -18,9 +18,13 @@ StarWarsApp.factory('StarModel',function ($resource, $http){
 	this.planetandperson = function(planets){
 		for(x=0; x<lookAlikes.length; x++){
 			for(i=0; i<planets.length; i++){
-			if(lookAlikes[x].homeworld == planets[i].url){
-				lookAlikes[x].push({"PlanetName": planets[i]})
+			if(lookAlikes[x].person.homeworld == planets[i].url){
+				console.log("match")
+				lookAlikes[x].planet = planets[i].name
 			}	
+			else{
+				lookAlikes[x].planet = "No planet"
+			}
 
 			}
 		}

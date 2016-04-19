@@ -11,7 +11,7 @@ $scope.findPlanets = function(){
 	}, function(data){
 	console.log("nope"); 
 	});
-	console.log("Hsta", StarModel.returnlookAlikes())
+	$scope.lookAlikes = StarModel.returnlookAlikes()
 }
 
 
