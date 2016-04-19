@@ -49,7 +49,6 @@ button{
   padding-bottom: 100px;
 }
 
-
 #procent{
   margin-top: 50px;
 }
@@ -113,21 +112,22 @@ white-space: nowrap;
 
 .menu{
   width:100%;
-  height:30px;
-  background: rgba(255, 255, 255, 0.3);
-  font-size:15px;
-  padding-top:5px;
-  padding-left:20px;
+  height:50px;
+  background: rgba(255, 255, 255, 0.1);
+  font-size:20px;
+  padding-top:10px;
+  padding-left: 50px;
   color:black;
 }
 
 .menu a{
   color:white;
+  padding: 10px;
 }
 
 #header{
-  height:100px;
-  padding-top:10px;
+  height:150px;
+  padding-top:30px;
   text-align: center;
 }
 
@@ -143,9 +143,35 @@ white-space: nowrap;
 }
 
 #info{
-  padding-top:20px;
+  padding-top: 100px;
+  padding-left: 400px;
+}
+#info p{
+  font-size: 20px;
 }
 
+
+/*#leftButton{
+  padding-left: 350px;
+}*/
+
+/*#leftButton a{
+  padding: 10px;
+  height: 40px;
+  font-weight: bold;
+
+}*/
+
+
+#rightButton{
+  padding-left: 450px;
+}
+
+#rightButton a{
+  padding: 10px;
+  height: 40px;
+  font-weight: bold;
+}
 /* SLIDER, HITTAT http://www.cssportal.com/style-input-range/ */
 
 input[type=range] {
