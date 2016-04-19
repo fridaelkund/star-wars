@@ -1,24 +1,22 @@
 StarWarsApp.factory('StarModel',function ($resource, $http){
 
-	var whoAmI = [];
+	var lookAlikes = [];
 	var profile = {"name": "", "eye": "", "hair": "", "height": ""};
 	var wonPlanets = [];
 	var lostPlanets = [];
 	var allPlanets = [];
 
-
-	this.getP = function(nr){
-	var getPerson = $resource(nr);
-	return getPerson 
-	};
-
+	// this.getP = function(nr){
+	// var getPerson = $resource(nr);
+	// return getPerson 
+	// };
 
 	this.getPlanets = $resource("http://swapi.co/api/planets/");
-	this.getPerson = $resource("http://swapi.co/api/people/");
+	this.getCharacter = $resource("http://swapi.co/api/people/");
 
 
-	this.returnWhoIAm = function(){
-		return whoAmI
+	this.returnlookAlikes = function(){
+		return lookAlikes;
 	}
 	this.returnPlanets = function(){
 		return allPlanets;
@@ -33,60 +31,50 @@ StarWarsApp.factory('StarModel',function ($resource, $http){
 	}
 
 	this.clearAll = function(){
-	whoAmI = [];
+	lookAlikes = [];
 	profile = {"name": "", "eye": "", "hair": "", "height": ""};
 	wonPlanets = [];
 	lostPlanets = [];
+	allPlanets = [];
+
 	}
 
-	this.matchMaking = function(personList){
-		var sum = 0; 
-		for(x=0; x<10; x++){
-		if(personList[x].eye_color == profile.eye){
-			sum += 1;
+	// Matchar profil med starwars-karaktärer och ju fler liknande 
+	//karaktärsdrag desto fler poäng samlas
+	this.matchMaking = function(allCharacter){
+		var lookAlikePoints = 0; 
+		for(x=0; x<allCharacter.length; x++){
+		if(allCharacter[x].eye_color == profile.eye){
+			lookAlikePoints += 1;
 		}
-		if(personList[x].name == profile.name){
-			sum += 1;
+		if(allCharacter[x].name == profile.name){
+			lookAlikePoints += 1;
 		}
-		if(personList[x].hair_color == profile.hair){
-			sum += 1;
+		if(allCharacter[x].hair_color == profile.hair){
+			lookAlikePoints += 1;
 		}
-		if(personList[x].height == profile.height){
-			sum += 1;
+		if(allCharacter[x].height == profile.height){
+			lookAlikePoints += 1;
 		}
 		
-		//OKEJ, tanke. planeten som matchar hamnar på samma position i sin lista som personen som bor där
-		//i och med att vi går igenom person för person och hittar dess planet
-		//Tror detta är lättast att använda sig av för att slippa matcha igen och igen 
-		//vad händer om sum =0?
-		whoAmI.push({"sum": sum, "person": personList[x], "proc": (sum/=4)*100});
-		$http.get(whoAmI[x].person.homeworld).then(function(data){
+		//SE ÖVER DETTA, går det att lägga planet i lookAlikes istället?
+		lookAlikes.push({"person": allCharacter[x], "proc": (lookAlikePoints/=4)*100});
+		$http.get(lookAlikes[x].person.homeworld).then(function(data){
 			allPlanets.push({"planetName":data.data.name});
 			}, function(data){ 
 			});
-		sum = 0;
-	
+		lookAlikePoints = 0;
 		}
 	}
-	this.planetMatch = function(){
-		for(x=0; x<whoAmI.length; x++){
-			$http.get(whoAmI[x].person.homeworld).then(function(data){
-				//bor någon matchad person på den här planet?
-				//om ja
-			allPlanets.push({"planetName":data.data.name});
-			//om inte
-			//kill planet
-			}, function(data){ 
-			});
-		}
-	}
-	this.getProcent = function(){
-		return whoAmI.proc
+
+	this.returnProcent = function(){
+		return lookAlikes.proc;
 	}
 
 	this.returnPerson=function(){
 		return this.getPerson;
 	}
+
 	//Lägger till planet i "planeter som spelaren har vunnit"
 	this.addWonPlanet = function(planet){
 		wonPlanets.push({"name":planet.name});
@@ -127,7 +115,7 @@ StarWarsApp.factory('StarModel',function ($resource, $http){
 
 // Sparar och hämtar alla lokalt sparade profiler 
 
-	this.getLocalProfiles = function(){
+	this.getLocalStorage = function(){
 		var allLocals = [];
 		for(i in localStorage){
 			allLocals.push(JSON.parse(localStorage.getItem([i])));
@@ -135,7 +123,7 @@ StarWarsApp.factory('StarModel',function ($resource, $http){
 		return allLocals;
 	}
 
-	this.saveLocalProfile = function(){
+	this.saveLocalStorage = function(){
 		localStorage.setItem(profile.name, JSON.stringify(profile));
 	}
 

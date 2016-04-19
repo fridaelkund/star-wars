@@ -2,11 +2,11 @@ StarWarsApp.controller('getPersonCtrl', function($scope, StarModel){
 
 $scope.match=function(){
 	console.log("start");
-	StarModel.getPerson.get({},function(data){
-		$scope.person=data.results;
-		StarModel.matchMaking($scope.person);
-		$scope.whoAmI=StarModel.returnWhoIAm();
-		$scope.proc = StarModel.getProcent();
+	StarModel.getCharacter.get({},function(data){
+		$scope.character=data.results;
+		StarModel.matchMaking($scope.character);
+		$scope.lookAlikes=StarModel.returnlookAlikes();
+		$scope.proc = StarModel.returnProcent();
 
 		console.log("klart");
 	}, function(data){

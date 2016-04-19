@@ -1,6 +1,6 @@
 StarWarsApp.controller('planetsCtrl', function($scope, StarModel){
 
-$scope.whoIAm = StarModel.returnWhoIAm();
+$scope.lookAlikes = StarModel.returnlookAlikes();
 $scope.profil = StarModel.returnProfile();
 
 //Hämtar alla planeter som finns (OBS! Nej hämtar bara 10 nu)
@@ -38,9 +38,9 @@ $scope.whatclass = function(planet){
 $scope.moveToPlanet = function(planet){
 	$scope.allPlanets = StarModel.returnPlanets();
 	console.log("planeter", $scope.allPlanets);
-	$scope.whoAmI = StarModel.returnWhoIAm();
+	$scope.lookAlikes = StarModel.returnlookAlikes();
 	for(a=0; a<$scope.allPlanets.length; a++){
-		$scope.proc = $scope.whoAmI[a].proc;
+		$scope.proc = $scope.lookAlikes[a].proc;
 		console.log("proc", $scope.proc);
 		if ($scope.allPlanets[a].planetName == planet.name){
 			//funkar inte men typ nåt sånt här borde det bli

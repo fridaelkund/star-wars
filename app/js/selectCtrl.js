@@ -1,6 +1,6 @@
 StarWarsApp.controller('selectCtrl', function($scope, $location, StarModel){
 
-$scope.allLocals = StarModel.getLocalProfiles();
+$scope.allLocals = StarModel.getLocalStorage();
 
 $scope.eyecols=StarModel.eyecol;
 $scope.haircols = StarModel.haircol;
@@ -22,11 +22,11 @@ $scope.getProfile=function(loc){
 };
 
 $scope.match=function(){
-	StarModel.getPerson.get({},function(data){
-		$scope.person=data.results;
-		StarModel.matchMaking($scope.person);
-		$scope.whoAmI=StarModel.returnWhoIAm();
-		$scope.proc = StarModel.getProcent();
+	StarModel.getCharacter.get({},function(data){
+		$scope.character=data.results;
+		StarModel.matchMaking($scope.character);
+		$scope.lookAlikes=StarModel.returnlookAlikes();
+		$scope.proc = StarModel.returnProcent();
 	}, function(data){
 		console.log("Match error");
 	});	

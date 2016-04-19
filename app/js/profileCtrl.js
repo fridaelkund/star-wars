@@ -2,7 +2,7 @@ StarWarsApp.controller('profileCtrl', function($scope, StarModel){
 
 $scope.profil = StarModel.returnProfile();
 
-$scope.looklike = StarModel.returnWhoIAm();
+$scope.lookAlikes = StarModel.returnlookAlikes();
 
 $scope.wonplanets = StarModel.returnWonPlanets();
 

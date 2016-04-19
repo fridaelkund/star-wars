@@ -11,93 +11,73 @@ $scope.location = window.location;
 
 if(StarModel.returnProfile().hair == ""){}
 else{
-	$scope.temp_hair = StarModel.returnProfile().hair;
-	$scope.temp_hairhex = StarModel.haircol[StarModel.returnProfile().hair];
+	$scope.avatar_hair = StarModel.returnProfile().hair;
+	$scope.avatar_hairhex = StarModel.haircol[StarModel.returnProfile().hair];
 };
 
 if(StarModel.returnProfile().eye == ""){}
 else{
-	$scope.temp_eye = StarModel.returnProfile().eye;
-	$scope.temp_eyehex = StarModel.eyecol[StarModel.returnProfile().eye]	
+	$scope.avatar_eye = StarModel.returnProfile().eye;
+	$scope.avatar_eyehex = StarModel.eyecol[StarModel.returnProfile().eye]	
 };
 
 if(StarModel.returnProfile().height == ""){
-	$scope.temp_height = 100;
-	$scope.temp_feet = $scope.temp_height+180;
+	$scope.avatar_height = 100;
+	$scope.avatar_feet = $scope.avatar_height+180;
 }
 else{
-	$scope.temp_height = StarModel.returnProfile().height;	
-	$scope.temp_feet = parseInt($scope.temp_height)+180;
+	$scope.avatar_height = StarModel.returnProfile().height;	
+	$scope.avatar_feet = parseInt($scope.avatar_height)+180;
 };
 
 if(StarModel.returnProfile().name == ""){
-	$scope.temp_name = "Snickers";
+	$scope.avatar_name = "Snickers";
 }
 else{
-	$scope.temp_name = StarModel.returnProfile().name;	
+	$scope.avatar_name = StarModel.returnProfile().name;	
 };
 
 // Funktion för att spara sin profil. Uppdaterar profile i model. 
 
 $scope.save=function(){
-	StarModel.addToProfile('name', $scope.temp_name);
-	StarModel.addToProfile('hair', $scope.temp_hair);
-	StarModel.addToProfile('eye', $scope.temp_eye);	
-	StarModel.addToProfile('height', $scope.temp_height);
-	StarModel.saveLocalProfile();
+	StarModel.addToProfile('name', $scope.avatar_name);
+	StarModel.addToProfile('hair', $scope.avatar_hair);
+	StarModel.addToProfile('eye', $scope.avatar_eye);	
+	StarModel.addToProfile('height', $scope.avatar_height);
+	StarModel.saveLocalStorage();
 	$scope.match();
 }
 
 // Visar valt namn, hår/ögonfärg eller längd. Sparar ej i profil. 
 
 $scope.showName = function(name){
-	$scope.temp_name = name;
+	$scope.avatar_name = name;
 }
 
 $scope.showHair=function(color){
-	$scope.temp_hair = color;
-	$scope.temp_hairhex = StarModel.haircol[color];
+	$scope.avatar_hair = color;
+	$scope.avatar_hairhex = StarModel.haircol[color];
 }
 
 $scope.showEye=function(eye){
-	$scope.temp_eye = eye;
-	$scope.temp_eyehex = StarModel.eyecol[eye];
+	$scope.avatar_eye = eye;
+	$scope.avatar_eyehex = StarModel.eyecol[eye];
 }
 
 $scope.showHeight=function(height){
 	document.querySelector('#height').value = height;
-	$scope.temp_height = height;
-	$scope.temp_feet = parseInt(height)+180;
+	$scope.avatar_height = height;
+	$scope.avatar_feet = parseInt(height)+180;
 }
 
 // Matchingsfunktion som kollar vem man är lik av Star Wars-gubbarna. 
 
 $scope.match=function(){
-	console.log("start");
-	StarModel.getPerson.get({},function(data){
-	$scope.person = data.results;
-	StarModel.matchMaking($scope.person);
-	$scope.whoAmI=StarModel.returnWhoIAm();
-	$scope.proc = StarModel.getProcent();
-	}, function(data){
-		console.log("Match error");
-		})
-};
-
-$scope.person = [];
-
-$scope.getData =function(k){
-	console.log("start get");
-	StarModel.getP(k).get({},function(data){
-		console.log($scope.d)
-		$scope.person = $scope.person.concat(data.results);
-		console.log($scope.person, data.next)
-		if(data.next === null){
-			return
-		}
-		else{
-			$scope.getData(data.next)
-		}
+	StarModel.getCharacter.get({},function(data){
+	$scope.character = data.results;
+	StarModel.matchMaking($scope.character);
+	$scope.lookAlikes=StarModel.returnlookAlikes();
+	$scope.proc = StarModel.returnProcent();
 	}, function(data){
 		console.log("Match error");
 		})
