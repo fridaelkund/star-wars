@@ -53,13 +53,13 @@ $scope.moveToPlanet = function(planet){
 	}
 
 	if ($scope.result == 1){
-		//StarModel.addWonPlanet(planet);
+		StarModel.addWonPlanet(planet);
 		console.log("You won");
-		//$scope.whatclass(planet);
+		$scope.whatclass(planet);
 	}
 	else{
-		//StarModel.addLostPlanet(planet);
-		//$scope.whatclass(planet);
+		StarModel.addLostPlanet(planet);
+		$scope.whatclass(planet);
 		console.log("Planet won");
 	}
 }
