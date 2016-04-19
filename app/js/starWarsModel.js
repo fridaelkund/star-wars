@@ -47,6 +47,10 @@ StarWarsApp.factory('StarModel',function ($resource, $http){
 			sum += 1;
 		}
 		
+		//OKEJ, tanke. planeten som matchar hamnar på samma position i sin lista som personen som bor där
+		//i och med att vi går igenom person för person och hittar dess planet
+		//Tror detta är lättast att använda sig av för att slippa matcha igen och igen 
+		//vad händer om sum =0?
 		whoAmI.push({"sum": sum, "person": personList[x], "proc": (sum/=4)*100});
 		$http.get(whoAmI[x].person.homeworld).then(function(data){
 			console.log("data",data.data.name);

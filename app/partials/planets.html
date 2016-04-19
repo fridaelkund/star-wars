@@ -16,7 +16,7 @@
 	<p> Select which planet to conquer by clicking it. </p>
 	<p style="font-size:12pt;"> Tip! Since you look like {{whoAmI.person.name}} start with his home, {{whoAmI.planet}}.</p>
 	<div class="universe col-md-3" ng-repeat="planet in planets">
-		<div class="planety" id="{{planet.name}}" name="planetButton" ng-click="moveToPlanet(planet)" ng-class='whatclass(planet)' data-toggle="popover" data-placement="right" data-content="Du har {{whoAmI.proc}} procents chans att vinna" data-trigger="hover">{{planet.name}}</div>
+		<div class="planety" id="{{planet.name}}" name="planetButton" ng-click="moveToPlanet(planet)" ng-class='whatclass(planet)' data-toggle="popover" data-placement="right" data-content="Du har {{proc}} procents chans att vinna" data-trigger="hover">{{planet.name}}</div>
     </div>
 </div>
 
