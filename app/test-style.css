@@ -1,9 +1,8 @@
  body{
-  background-image: url("images/space.jpg");
-  color:white;
+ /* background-image: url("images/space.jpg");*/
  }
 
-img{
+/*img{
     position: relative;
     -webkit-animation-name: moveimg; 
     -webkit-animation-duration: 10s;
@@ -15,7 +14,7 @@ img{
     25% {left:1400px; top:0px; }
     50% {left: 1400px; top:500px;}
     75% {left:120px; top:500px;}
-    100% {left:120px; top:0px;}*/
+    100% {left:120px; top:0px;}
 
    0%   {left:120px; top:0px;}
    25% {left:1400px; top:0px;}
@@ -31,45 +30,33 @@ img{
    90%{left: 1400px; top:500px; -webkit-transform: rotate(20deg)}
    95%{left: 1400px; top:-500px; -webkit-transform: rotate(0deg)}
    100%{left:120px; top:0px;}
+}*/ 
+
+
+@font-face{
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+  color:white;
 }
 
 h3{
   font-size: 20px;
+  color:white;
 }
 
 p{
-  font-size: 20px;
-}
-button{
-  padding-bottom: 100px;
-}
-/* BOX DESIGN */ 
-.box-border{
-  border: 1px solid white;
+  font-size: 15px;
+  color:white;
 }
 
-.padding-200{
-  margin-top:150px;
+button{
+  padding-bottom: 100px;
 }
 
 #procent{
   margin-top: 50px;
-}
-
-/* INPUT VIEW */
-#input-view{
-  margin:100px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-#input-view button{ 
-  width:100px;
-  margin-top:10px;
-}
-
-#input-view input{
-  margin-top:10px;
 }
 
 /* INPUT FIELDS */ 
@@ -85,13 +72,6 @@ button{
   background-color: white;
 }
 
-#height-input{
-  background-color: white;
-  color: #000033;
-}
-
-/* BUTTONS */ 
-
 .btn{
   background-color: white;
   color: #000066;
@@ -99,27 +79,6 @@ button{
 
 .btn:hover{ 
   background-color: #cccccc;
-}
-
-#next-btn{
-  margin-top: 100px;
-  width: 200px;
-}
-
-.hair-btn{
-  width: 150px;
-}
-
-.eye-btn{
-  width: 150px;
-}
-
-.hair-btn:hover, :focus{
-  background-color: #000033;
-}
-
-.eye-btn:hover, :focus{
-  background-color: #000033;
 }
 
 .scroll
@@ -149,48 +108,31 @@ white-space: nowrap;
 }
 
 #me-view{
-  background: rgba(0, 100, 100, 0.5);
   color:white;
   height:500px;
 }
 
+/*#leftButton{
+  padding-left: 350px;
+}*/
 
-#menu{
-  height:50px;
-  background-color: white;
-  font-size:20px;
-  padding-left:100px;
-  padding-top:10px;
-  color:black;
+/*#leftButton a{
+  padding: 10px;
+  height: 40px;
+  font-weight: bold;
+
+}*/
+
+
+#rightButton{
+  padding-left: 450px;
 }
 
-#menu a{
-  margin:10px;
+#rightButton a{
+  padding: 10px;
+  height: 40px;
+  font-weight: bold;
 }
-
-#header{
-  height:100px;
-  padding-top:10px;
-  text-align: center;
-}
-
-#header h1{
-  padding:0px;
-  margin:0px;
-}
-
-#header p{
-  margin:0px;
-  padding:0px;
-  font-size: 8px;
-}
-
-#info{
-  padding-top:20px;
-}
-
-
-
 /* SLIDER, HITTAT http://www.cssportal.com/style-input-range/ */
 
 input[type=range] {
@@ -227,8 +169,133 @@ input[type=range]::-webkit-slider-thumb {
 /* SLUT PÅ SLIDER */ 
 
 .planety{
-  height:50px;
-  width:50px;
-  border-radius:25px;
+  height:70px;
+  width:70px;
+  border-radius:50%;
+  border-color: white;
+  text-align: center;
+  padding-top: 22px;
+  margin-bottom: 10px;
+  background-color: blue;
+  color:black;
 }
+
+.greenplanet{
+  background-color: white;
+}
+
+.wonplanet{
+  background-color: green;
+}
+
+.lostplanet{
+  background-color: red;
+}
+
+.normalplanet{
+  background-color: blue;
+}
+
+.saved-figures{
+  text-align:center;
+  border:1px solid white;
+  margin-top:10px;
+  margin-left:5px;
+  margin-right:5px;
+}
+
+.planet-popup{
+  position: relative; 
+  z-index:1;
+}
+
+
+/* MENY FIX */ 
+
+.menu{
+  width:100%;
+  height:40px;
+  font-size:14px;
+  padding-top:10px;
+  color:black;
+  text-transform: uppercase;
+}
+
+.menu a{
+  color:white;
+  margin-top: 20px;
+}
+
+.menu-item{
+  padding-top:20px;
+  height:60px;
+}
+
+.active{
+    text-decoration: underline;
+}
+
+.linje{
+  border-bottom: 0.2px white solid;
+}
+
+.menu #planet{
+  margin-top:10px;
+  text-align:center;
+  margin:auto;
+  padding:auto;
+}
+
+#startView{
+ min-height:800px;
+ min-width:1000px;
+ margin:0px;
+ padding:0px;
+ background-image: url(images/startimage.jpg);
+ background-size: cover;
+}
+
+#startViewIntro{
+  padding-top: 100px;
+  text-align: center;
+}
+
+
+#startView p{
+  font-size: 20px;
+}
+
+
+.round-button {
+  width:25%;
+}
+
+.round-button-circle {
+  width: 100%;
+  height:0;
+  padding-bottom: 100%;
+  border-radius: 50%;
+  overflow:hidden;
+  background: #4679BD; 
+  box-shadow: 0 0 3px gray;
+}
+.round-button-circle:hover {
+  background:#30588e;
+}
+.round-button a {
+    display:block;
+    float:left;
+    width:100%;
+    padding-top:50%;
+    padding-bottom:50%;
+    line-height:1em;
+    margin-top:-0.5em;
+    text-align:center;
+    color:#e2eaf3;
+    font-family:Verdana;
+    font-size:1.2em;
+    font-weight:bold;
+    text-decoration:none;
+}
+
 

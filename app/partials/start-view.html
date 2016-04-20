@@ -1,22 +1,20 @@
-<ng-include src="'partials/menu-view.html'" ng-controller="menuCtrl"></ng-include>
+<!-- <ng-include src="'partials/menu-view.html'" ng-controller="menuCtrl"></ng-include>-->
+<div ng-controller="startCtrl" ng-init="fetchPlanets()">
 
-<div ng-controller="startCtrl" ng-init="fetchPlanets()"></div>
+<div id="startView" class="container-fluid">
+	<div  class="col-md-12">
+		<div class="row">
+		<div class="col-md-3"></div>
 
-<div class="col-md-12" id="info">
-	<p>Imagine you could go under cover to take over 
-		<br/>
-		every planet in the Star Wars universe... </p>
-	<h1>This is how it works</h1>
-	<p> 
-	1. Create a character
-	<br/>
-	2. Fight over planets in the Star Wars Universe
-
-	</p>
+		<div class="col-md-6" id="startViewIntro">
+		<h1>time to conquer the universe</h1>
+		<div class="round-button"><div class="round-button-circle"><a href="#/hair" class="round-button">PLAY</a></div></div>
+		</div>
+	
+		<div class="col-md-3"></div>
+		</div>
+	</div>
 </div>
 <!-- <div class="col-md-6" id="leftButton">
 <a href="#/select" class="btn" id="old-character" type="button" ng-click="">MY CHARACTERS</a>
 </div> -->
-<div class="col-md-12" id="rightButton">
-	<a href="#/hair" class="btn" id="new-character" type="button" ng-click="">NEW CHARACTER</a>
-</div>

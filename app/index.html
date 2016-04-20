@@ -7,7 +7,7 @@
     <title>Star Wars</title>
 
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="test-style.css">
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -33,16 +33,10 @@
   </head>
 
   <body>
-    <div class="container-fluid">  
-
-    <div id="header">
-    <h1>Star Wars War<br/><small>When you look like a Star Wars character, be that character!</small></h1>
-    </div>
-
-        <div class="container" style="background:rgba(0, 0, 58, 0.3); min-height:500px">
- <!--   <img src="images/cinema.png">-->   
+    <div class="container-fluid" style="padding:0px;margin:0px;">  
+ <!--       <img src="images/cinema.png">-->   
             <div ng-view></div>
-        </div>
+
     </div>
 
   </body>
