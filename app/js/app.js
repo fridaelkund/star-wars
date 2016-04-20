@@ -30,6 +30,9 @@ StarWarsApp.config(['$routeProvider',
 				templateUrl: 'partials/test.html',
 				controller: 'testCtrl'
 			}).
+			when('/universe', {
+				templateUrl: 'partials/universe.html'
+			}).
 			otherwise({
 				redirectTo: '/home'
 			});
