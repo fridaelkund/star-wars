@@ -1,20 +1,139 @@
-StarWarsApp.factory('StarModel',function ($resource, $http){
+StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 
 	var lookAlikes = [];
 	var profile = {"name": "", "eye": "", "hair": "", "height": ""};
 	var wonPlanets = [];
 	var lostPlanets = [];
 	var allPlanets = [];
+	var habitantsOnPlanets = [];
 
- this.getP = function(nr){
-	 var getPerson = $resource(nr);
-	 return getPerson 
-	 };
+	var tempData = [];
+	var q = null; // The deferrer object which we define later.
+
+    // The main function which builds the tempData
+    // variable from the _previous_ call!
+    var fetchFromUrl = function(url, data) {
+        if (data !== null) {
+        	console.log("Adding data to tempData:", data);
+        	tempData = tempData.concat(data);
+        }
+        // Make request! (Jedi style preferably)
+        var tempReq = $http({
+        	method: 'GET',
+        	url: url
+        });
+        // We must wait for the response as we need the next url!
+        tempReq.then(function successCallback(response) {
+        	var results = response.data.results;
+        	console.log("Got this data:", results);
+
+        	// Check if we have a next page
+        	if (response.data.next !== null) {
+			// Oh yes. We have data. Big data.
+			console.log("More is available at", response.data.next);
+			// Call again with the results as data input to build the
+			// tempData result array with
+			fetchFromUrl(response.data.next, results);
+		} else {
+			// We have no more data to fetch! Resolve the promise.
+			// (The wookie has served us all data we need. We thank
+			// him/her and tell our system that the data is ready!)
+        	console.log("No more data!", tempData);
+        	q.resolve(tempData);
+        }
+        });
+       };
+        
+    this.fetchAll = function(url) {
+        data = []; // Reset the array.
+        q = $q.defer(); // Defined it!
+
+        // Start with null as data!
+        fetchFromUrl(url, null);
+        console.log(q.promise)
+        return q.promise;
+       };
+
+    this.addPlanets = function(planets){
+    	console.log("Time to addPlanets")
+    	for(i in planets){
+    		habitantsOnPlanets.push({"planet": planets[i], "habitants": []})
+    	}
+    	console.log("All planets:", habitantsOnPlanets)
+    }
+
+    this.addPeople = function(people){
+    	console.log("Time to addPeople")
+    	for(i in people){
+    		for(j in habitantsOnPlanets){
+    			if(people[i].homeworld == habitantsOnPlanets[j].planet.url){
+    				habitantsOnPlanets[j].habitants.push(people[i]);
+    			}
+    		}
+    	}
+    	console.log("All planets have habitants!", habitantsOnPlanets)
+    }
 
 	this.getPlanets = $resource("http://swapi.co/api/planets/");
 	this.getCharacter = $resource("http://swapi.co/api/people/");
 
 
+	this.returnHabitantsOnPlanets = function(planets){
+		return habitantsOnPlanets;
+	}
+
+	// Matchar profil med starwars-karaktärer och ju fler liknande 
+	//karaktärsdrag desto fler poäng samlas
+
+	this.matchMaking = function(){
+		console.log("Start match making!")
+		for(i in habitantsOnPlanets){
+			console.log("In habitants on planets", habitantsOnPlanets[i])
+			var tempPerson= null
+			var tempPoints = 0
+			
+			for(j in habitantsOnPlanets[i].habitants){
+				console.log("In habitants")
+				var lookAlikePoints = 0;
+				
+				if(habitantsOnPlanets[i].habitants[j].eye_color == profile.eye){
+					lookAlikePoints += 1;
+				}
+				if(habitantsOnPlanets[i].habitants[j].name == profile.name){
+					lookAlikePoints += 1;
+				}
+				if(habitantsOnPlanets[i].habitants[j].hair_color == profile.hair){
+					lookAlikePoints += 1;
+				}
+				if(habitantsOnPlanets[i].habitants[j].height == profile.height){
+					lookAlikePoints += 1;
+				}
+				
+				console.log(lookAlikePoints);
+
+				if(tempPoints < lookAlikePoints){
+					tempPerson = habitantsOnPlanets[i].habitants[j];
+					tempPoints = lookAlikePoints;
+				}
+			}
+
+			habitantsOnPlanets[i].lookAlike = {"bestMatch":tempPerson, "points":(tempPoints/=4)*100};	
+		}
+		console.log("We have a match", habitantsOnPlanets)
+	};
+
+
+	this.addWonPlanet = function(planet){
+		wonPlanets.push({"planet":planet});
+	}
+
+	this.addLostPlanet= function(planet){
+		lostPlanets.push({"planet":planet})
+	}
+
+
+
+// SKA NOG BORT 
 	this.planetandperson = function(planets){
 		for(x=0; x<lookAlikes.length; x++){
 			for(i=0; i<planets.length; i++){
@@ -30,6 +149,7 @@ StarWarsApp.factory('StarModel',function ($resource, $http){
 		}
 	console.log(lookAlikes);
 	} 
+
 
 	this.returnlookAlikes = function(){
 		return lookAlikes;
@@ -55,29 +175,6 @@ StarWarsApp.factory('StarModel',function ($resource, $http){
 
 	}
 
-	// Matchar profil med starwars-karaktärer och ju fler liknande 
-	//karaktärsdrag desto fler poäng samlas
-	this.matchMaking = function(allCharacter){
-		var lookAlikePoints = 0; 
-		for(x=0; x<allCharacter.length; x++){
-		if(allCharacter[x].eye_color == profile.eye){
-			lookAlikePoints += 1;
-		}
-		if(allCharacter[x].name == profile.name){
-			lookAlikePoints += 1;
-		}
-		if(allCharacter[x].hair_color == profile.hair){
-			lookAlikePoints += 1;
-		}
-		if(allCharacter[x].height == profile.height){
-			lookAlikePoints += 1;
-		}
-		
-		//SE ÖVER DETTA, går det att lägga planet i lookAlikes istället?
-		lookAlikes.push({"person": allCharacter[x], "proc": (lookAlikePoints/=4)*100});
-		lookAlikePoints = 0;
-		}
-	}
 
 	this.HEJ = function(){
 		for(x=0; x<lookAlikes.length; x++){
@@ -94,13 +191,7 @@ StarWarsApp.factory('StarModel',function ($resource, $http){
 	}
 
 	//Lägger till planet i "planeter som spelaren har vunnit"
-	this.addWonPlanet = function(planet){
-		wonPlanets.push({"name":planet.name});
-	}
 
-	this.addLostPlanet= function(planet){
-		lostPlanets.push({"name":planet.name})
-	}
 
 	//Returnerar lista med planeter som spelaren vunnit
 	this.returnWonPlanets = function(){
@@ -144,6 +235,7 @@ StarWarsApp.factory('StarModel',function ($resource, $http){
 	this.saveLocalStorage = function(){
 		localStorage.setItem(profile.name, JSON.stringify(profile));
 	}
+
 
 	this.eyecol = 
 		{"blue": "#1a75ff", 

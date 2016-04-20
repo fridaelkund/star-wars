@@ -2,70 +2,72 @@ StarWarsApp.controller('planetsCtrl', function($scope, StarModel){
 
 $scope.profil = StarModel.returnProfile();
 
-
-//Hämtar alla planeter som finns (OBS! Nej hämtar bara 10 nu)
-$scope.findPlanets = function(){
-	StarModel.getPlanets.get({},function(data){
-	$scope.planets=data.results;
-	StarModel.planetandperson($scope.planets);
-	}, function(data){
-	console.log("nope"); 
-	});
-	$scope.lookAlikes = StarModel.returnlookAlikes()
-}
-
-
 $scope.$on('$routeChangeStart', function() { 
    StarModel.savePlanets();
  });
 
+$scope.getPlanets = function(){
+	$scope.ourPlanets = [];
+
+	$scope.habitantsOnPlanets = StarModel.returnHabitantsOnPlanets();
+	for(i in $scope.habitantsOnPlanets){
+		if($scope.habitantsOnPlanets[i].lookAlike.points !== 0){
+			$scope.ourPlanets.push($scope.habitantsOnPlanets[i])
+		}
+	}
+	console.log("this is all planets with habitants", $scope.ourPlanets)
+}
+
+//Funktion som körs när man klickar på en planet och den har den planet man klickar på som input (tror jag)
+//Om man vinner så läggs planeten till i listan med planeter man vunnit. 
+$scope.moveToPlanet = function(planet){
+	$scope.result = StarModel.compete(planet.lookAlike.points)
+	
+	console.log($scope.result)
+
+	for(i in StarModel.returnWonPlanets()){
+		if(planet == StarModel.returnWonPlanets()[i].planet){
+			console.log("You already won! :)")
+			return
+			}
+		}
+	for(i in StarModel.returnLostPlanets()){
+		if(planet == StarModel.returnLostPlanets()[i].planet){
+			console.log("You already lost! :(")
+			return
+			}
+		}		
+
+	if ($scope.result == 1){
+		StarModel.addWonPlanet(planet);
+		console.log("You won", planet);
+		$scope.whatclass(planet);
+
+	} else{
+
+		StarModel.addLostPlanet(planet);
+		console.log("You lost!", planet);
+		$scope.whatclass(planet);
+	}
+};
+
 
 $scope.whatclass = function(planet){
 	for(i in StarModel.returnWonPlanets()){
-		if (planet.name == StarModel.returnWonPlanets()[i].name){
+		if (planet.planet.name == StarModel.returnWonPlanets()[i].planet.planet.name){
 			return "wonplanet"
 		}
 	}	
 	for(i in StarModel.returnLostPlanets()){
-		if(planet.name == StarModel.returnLostPlanets()[i].name){
+		if(planet.planet.name == StarModel.returnLostPlanets()[i].planet.planet.name){
 			return "lostplanet"
 		}
 	}
 	return "normalplanet"
 };
 
-
-//Funktion som körs när man klickar på en planet och den har den planet man klickar på som input (tror jag)
-//Om man vinner så läggs planeten till i listan med planeter man vunnit. 
-$scope.moveToPlanet = function(planet){
-	$scope.allPlanets = StarModel.returnPlanets();
-	console.log("planeter", $scope.allPlanets);	
-	for(a=0; a<$scope.allPlanets.length; a++){
-		$scope.proc = $scope.lookAlikes[a].proc;
-		console.log("proc", $scope.proc);
-		if ($scope.allPlanets[a].planetName == planet.name){
-			//funkar inte men typ nåt sånt här borde det bli
-		$scope.result = StarModel.compete($scope.proc);
-		console.log("resultat", $scope.result);
-		}
-		else{
-			console.log("nej");
-		}
-	}
-
-	if ($scope.result == 1){
-		StarModel.addWonPlanet(planet);
-		console.log("You won");
-		$scope.whatclass(planet);
-	}
-	else{
-		StarModel.addLostPlanet(planet);
-		$scope.whatclass(planet);
-		console.log("Planet won");
-	}
-}
-
 })
+
 
 .directive('toggle', function(){
   return {

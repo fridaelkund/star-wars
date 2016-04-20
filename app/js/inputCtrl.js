@@ -45,7 +45,7 @@ $scope.save=function(){
 	StarModel.addToProfile('eye', $scope.avatar_eye);	
 	StarModel.addToProfile('height', $scope.avatar_height);
 	StarModel.saveLocalStorage();
-	$scope.match();
+	StarModel.matchMaking();
 }
 
 // Visar valt namn, hår/ögonfärg eller längd. Sparar ej i profil. 
@@ -70,38 +70,6 @@ $scope.showHeight=function(height){
 	$scope.avatar_feet = parseInt(height)+180;
 }
 
-// Matchingsfunktion som kollar vem man är lik av Star Wars-gubbarna. 
-
-$scope.match=function(){
-	console.log("start");
-	$scope.getData('http://swapi.co/api/people/');
-};
-
-var character = [];
-
-$scope.getData =function(k){
-	console.log("start get");
-	StarModel.getP(k).get({},function(data){
-		character = character.concat(data.results);
-		console.log(character)
-		if(data.next === null){
-			StarModel.matchMaking(character);
-			$scope.lookAlikes=StarModel.returnlookAlikes();
-			console.log("lookAlikes", $scope.lookAlikes);
-			$scope.proc = StarModel.returnProcent();
-		}
-		else{
-			$scope.getData(data.next)
-		}
-	}, function(data){
-		console.log("Match error");
-	});	
-
-
-};
-
-
-
 $scope.inputName=function(query){
 	if(query==null){
 		return ;
@@ -110,6 +78,8 @@ $scope.inputName=function(query){
 	StarModel.addToProfile('name', query)
 	}
 }
+
+// Matchingsfunktion som kollar vem man är lik av Star Wars-gubbarna. 
 
 
 });
