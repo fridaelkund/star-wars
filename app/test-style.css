@@ -291,8 +291,6 @@ filter: brightness(10%);
   /*Detta ska endast ske om planeten är vunnen sen */ 
   -webkit-filter: brightness(150%); /* Chrome, Safari, Opera */
   filter: brightness(150%);
-
-
 }
 
 .plany{
@@ -363,18 +361,18 @@ transform: translateX(-50%);
 .white_content {
         display: none;
         position: absolute;
-        top: 25%;
-        left: 25%;
-        width: 50%;
-        height: 100%;
+        top: 10%;
+        left: 12%;
+        width: 76%;
+        height: 80%;
         padding: 16px;
-        border: 16px solid orange;
         background-color: white;
         z-index:1002;
         overflow: auto;
+        text-align: 
     }
 
-.light-show{
-  display:block;
-}
+.planet_info{
+  height:500px;
 
+}

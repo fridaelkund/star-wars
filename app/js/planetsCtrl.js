@@ -2,15 +2,14 @@ StarWarsApp.controller('planetsCtrl', function($scope, StarModel){
 
 $scope.profil = StarModel.returnProfile();
 
+console.log("I PLANETCTRL")
+
 $scope.$on('$routeChangeStart', function() { 
    StarModel.savePlanets();
  });
 
-$scope.time == "nottime"
-
 $scope.getPlanets = function(){
 	$scope.ourPlanets = [];
-
 	$scope.habitantsOnPlanets = StarModel.returnHabitantsOnPlanets();
 	for(i in $scope.habitantsOnPlanets){
 		if($scope.habitantsOnPlanets[i].lookAlike.points !== 0){
@@ -18,7 +17,9 @@ $scope.getPlanets = function(){
 		}
 	}
 	console.log("this is all planets with habitants", $scope.ourPlanets)
+	console.log("Here's a planet", $scope.ourPlanets[0])
 }
+
 
 //Funktion som körs när man klickar på en planet och den har den planet man klickar på som input (tror jag)
 //Om man vinner så läggs planeten till i listan med planeter man vunnit. 
@@ -70,9 +71,16 @@ $scope.whatclass = function(planet){
 
 
 
-$scope.popup = function(){
-	TweenMax.to('#light', 4, {autoAlpha: 1, display:'block'});
+$scope.open_popup = function(planet){
+	$scope.popup_name = planet.name;
+	angular.element('#light').css('display', 'block');
+	angular.element('#fade').css('display', 'block');
 };
+
+$scope.close_popup = function(){
+	angular.element('#light').css('display', 'none');
+	angular.element('#fade').css('display', 'none');
+}
 
 })
 

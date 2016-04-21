@@ -1,32 +1,29 @@
 <ng-include src="'partials/menu-view.html'"></ng-include>
 
-<div class="row" style="height:100%">
- <div class="col-md-12 planeten" style="height:100%">
-			
+<div style="height:100%" class="col-md-12" ng-init="getPlanets()">
+<div class="row">
 
-<div class="col-md-1 plany" ng-click="popup()"></div>
-<div class="col-md-1 plany" ng-click="popup()"></div>
-<div class="col-md-1 plany" ng-click="popup()"></div>
-<div class="col-md-1 plany" ng-click="popup()"></div>
-<div class="col-md-1 plany" ng-click="popup()"></div>
-<div class="col-md-1 plany" ng-click="popup()"></div>
-<div class="col-md-1 plany" ng-click="popup()"></div>
-<div class="col-md-1 plany" ng-click="popup()"></div>
-<div class="col-md-1 plany" ng-click="popup()"></div>
-<div class="col-md-1 plany" ng-click="popup()"></div>
-
-
-<div id="light" class="white_content">
-	<div class="col-md-2"> Innehåll
+ <div class="col-md-1 planeten" ng-repeat="planet in ourPlanets" style="height:100%">
+		<div class="plany" ng-click="open_popup(planet.planet)"></div>
+	</div>
 </div>
+</div>
+
+<div id="light" ng-click="close_popup()" class="white_content planet_info col-md-12">
+	<div class="row">
+	<h2> {{popup_name}}</h2>
+	<div class="col-md-3"></div>
+	<div class="col-md-6"><img src="josplanet.png" alt="planet" height="300" width="300"></div>
+	<div class="col-md-3"></div>
+	</div>
 </div>
    
 
 
 <div id="fade" class="black_overlay"></div>
 
-		</div>
 	</div>
+</div>
 
 
 
