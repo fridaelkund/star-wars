@@ -16,9 +16,10 @@
 	<div class="row" ng-hide="'{{profil.name}}' === ''">
 		<div class="col-md-8">
 		<h3> My imperium </h3>
-		<div class="col-md-1" ng-repeat="p in allPlanets">
+		<div class="col-md-1" ng-repeat="p in wonplanets">
 			<div name="planetButton" ng-class='whatclass(p)'>
 				<img src="josplanet.png" width="30px" height="30px">
+				<p>{{p.planet.planet.name}}</p>
 			</div>
 		</div>
 	</div>
