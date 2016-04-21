@@ -5,7 +5,8 @@
 	<audio id="audio1" src="startwars2.mp3"></audio>
 	<div id="introplanet" ng-click="byt()"><img src="images/planet.png" style="width:140px"/></div>
 	<h1 id="introtext">time to conquer the universe</h1>
-	<a id="introplay" class="btn" ng-click="to_play()">PLAY</a>
+	<a ng-hide="loading" id="introplay" class="btn" ng-click="byt()">PLAY</a>
+	<p ng-show="loading">First time here? Loading data...</p>
 </div>
 
 </div>

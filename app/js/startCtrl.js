@@ -4,6 +4,21 @@ $scope.data = [];
 var planetUrl = "http://swapi.co/api/planets/"
 var peopleUrl = "http://swapi.co/api/people/"
 
+// Starting on page load. Checking if user has our api-response in local storage.
+// If so, fetching the data from local storage. If not, calling the API and fetching 
+// people and planets through our model. 
+$scope.loading = function(){
+	$scope.loading = true;
+	StarModel.checkLocalStorage()
+	if(StarModel.checkLocalStorage() === true){
+	$scope.fetchPlanets();
+}
+else{
+	StarModel.returnPlanetsFromLocal();
+	$scope.loading = false;
+	}
+};
+
 
 $scope.fetchPlanets = function(){
 	console.log("I fetch planets")
@@ -20,25 +35,14 @@ $scope.fetchPeople = function(){
 	StarModel.fetchAll(peopleUrl).then(function(response){
 		$scope.people = response;
 		StarModel.addPeople($scope.people);
-		console.log("UTE")
 		StarModel.savePlanetsLocalStorage();
+		$scope.loading = false;
+		$scope.to_play();
+
 	})
 };
 
-$scope.loading = function(){
-	document.getElementById('audio1').play(startwars);
-	var hej = StarModel.checkLocalStorage()
-	console.log(hej);
-	if(StarModel.checkLocalStorage() === true){
-	$scope.fetchPlanets();
-}
-else{
-	StarModel.returnPlanetsFromLocal();
-	}
-};
-
 $scope.to_play = function(){
-	console.log("I to play")
 	TweenMax.to("#introplanet", 1, {y:-200, 'delay':0.5});
 	TweenMax.to("#introtext", 1, {'opacity':0, 'scale':0});
 };
