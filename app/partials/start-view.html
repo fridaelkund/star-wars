@@ -1,5 +1,5 @@
-<!-- <ng-include src="'partials/menu-view.html'" ng-controller="menuCtrl"></ng-include>-->
-<div ng-controller="startCtrl" ng-init="loading()"><ng-include src="'partials/play.html'" ng-controller="menuCtrl" ng-show="show"></ng-include>
+
+<div ng-controller="startCtrl" ng-init="loading()">
 
 <div id="startView" class="container-fluid">
 	<div  class="col-md-12">
@@ -8,11 +8,9 @@
 		<div class="col-md-6" id="startViewIntro">
 		<h1 id="introtext">time to conquer the universe</h1>
 
-		<div id="loading" ng-class="{'finish-load': people}" style="color:white;"> LOADING <audio id="audio1" src="startwars.mp3"></audio> </div>
+		<div id="loading" ng-class="{'finish-load': people}" style="color:white;"> LOADING </div>
 
-		<a href="#/play" class="btn" ng-click="play(startwars.mp3)">PLAY</a></div>
-
-		<div class="test"><img src="images/spaceship.png" style="height:200px;width:200px;"></div>
+		<a href="#/play"class="btn">PLAY</a>
 		</div>
 	
 		</div>
