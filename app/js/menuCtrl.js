@@ -4,9 +4,11 @@ $scope.profil = StarModel.returnProfile();
 
 $scope.path = $location.$$path;
 
-$scope.location=window.location;
-
-console.log($scope.path);
-
+$scope.animateMenu = function(){
+	if($scope.path === '/home'){
+	TweenMax.from('#leftMenu', 0.8, {'x':'-100%', 'delay':2})
+	TweenMax.from('#rightMenu', 0.8, {'x':'100%', 'delay':2})
+	}
+};
 
 });

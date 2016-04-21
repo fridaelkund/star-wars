@@ -3,41 +3,45 @@
  }
 
 /*img{
-    position: relative;
-    -webkit-animation-name: moveimg; 
-    -webkit-animation-duration: 10s;
-    animation-iteration-count: 1;
-    animation-timing-function: ease-in-out;
-}*/
+  position: relative;
+  -webkit-animation-name: moveimg; 
+  -webkit-animation-duration: 10s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+}
 
 @-webkit-keyframes moveimg {
-/*    0%   {left:120px; top:0px;}
-    25% {left:1400px; top:0px; }
-    50% {left: 1400px; top:500px;}
-    75% {left:120px; top:500px;}
-    100% {left:120px; top:0px;}*/
+  0%   {left:120px; top:0px;}
+  25% {left:1400px; top:0px; }
+  50% {left: 1400px; top:500px;}
+  75% {left:120px; top:500px;}
+  100% {left:120px; top:0px;}
 
-   0%   {left:120px; top:0px;}
-   25% {left:1400px; top:0px;}
-   50% {left: 1400px; top:500px;}
-   59% {-webkit-transform: rotate(0deg)}   
-   60% {left: 1400px; top:500px; -webkit-transform: rotate(-20deg)}
-   63% {left: 1400px; top:500px; -webkit-transform: rotate(20deg)}
-   66%{left: 1400px; top:500px; -webkit-transform: rotate(-20deg)}
-   69%{left: 1400px; top:500px; -webkit-transform: rotate(20deg)}
-   72% {left: 1400px; top:500px; -webkit-transform: rotate(-20deg)}
-   76% {left: 1400px; top:500px; -webkit-transform: rotate(20deg)}
-   80%{left: 1400px; top:500px; -webkit-transform: rotate(-20deg)}
-   90%{left: 1400px; top:500px; -webkit-transform: rotate(20deg)}
-   95%{left: 1400px; top:-500px; -webkit-transform: rotate(0deg)}
-   100%{left:120px; top:0px;}
-}
+  0%   {left:120px; top:0px;}
+  25% {left:1400px; top:0px;}
+  50% {left: 1400px; top:500px;}
+  59% {-webkit-transform: rotate(0deg)}   
+  60% {left: 1400px; top:500px; -webkit-transform: rotate(-20deg)}
+  63% {left: 1400px; top:500px; -webkit-transform: rotate(20deg)}
+  66%{left: 1400px; top:500px; -webkit-transform: rotate(-20deg)}
+  69%{left: 1400px; top:500px; -webkit-transform: rotate(20deg)}
+  72% {left: 1400px; top:500px; -webkit-transform: rotate(-20deg)}
+  76% {left: 1400px; top:500px; -webkit-transform: rotate(20deg)}
+  80%{left: 1400px; top:500px; -webkit-transform: rotate(-20deg)}
+  90%{left: 1400px; top:500px; -webkit-transform: rotate(20deg)}
+  95%{left: 1400px; top:-500px; -webkit-transform: rotate(0deg)}
+  100%{left:120px; top:0px;}
+}*/
+/* CONTAINERS */ 
 .container{
   height: 90%;
-
-
 }
 
+.container-fluid{
+  height:100%;
+}
+
+/* TEXT */ 
 h1 {
   color:white;
 }
@@ -51,30 +55,8 @@ p{
   font-size: 15px;
   color:white;
 }
-button{
-  padding-bottom: 100px;
-}
 
-#procent{
-  margin-top: 50px;
-}
-
-/* INPUT FIELDS */ 
-
-.input-row{ 
-  height:100px;
-}
-
-#nameInput{
-  width: 200px;
-  margin: auto;
-  color: #000033;
-  background-color: white;
-}
-
-.active{
-    text-decoration: underline;
-}
+/* BUTTONS */ 
 
 .btn{
   background-color: white;
@@ -84,6 +66,49 @@ button{
 .btn:hover{ 
   background-color: #cccccc;
 }
+
+/* MENU */ 
+
+.menu{
+  width:100%;
+  height:10%;
+  font-size:14px;
+  padding-top:10px;
+  text-transform: uppercase;
+}
+
+.menu a{
+  color:white;
+  margin-top: 20px;
+}
+
+.menu-item{
+  padding-top:20px;
+  height:60px;
+}
+
+.menu #planet{
+  margin-top:10px;
+  text-align:center;
+  margin:auto;
+  padding:auto;
+}
+
+.menu .row{
+  height: 100px;
+}
+
+/* When menu link is active */ 
+.active{
+    text-decoration: underline;
+}
+
+.line{
+  border-bottom: 0.2px white solid;
+  position:relative;
+}
+
+/* CREAT NEW CHARACHTER FEATURES */
 
 .scroll
 {
@@ -111,48 +136,13 @@ white-space: nowrap;
   margin-right:10px;
 }
 
-#me-view{
-  color:white;
-  height:500px;
+#nameInput{
+  width: 200px;
+  margin: auto;
+  color: #000033;
+  background-color: white;
 }
 
-
-
-#header{
-  height:150px;
-  padding-top:30px;
-  text-align: center;
-}
-
-#header h1{
-  padding:0px;
-  margin:0px;
-}
-
-#header p{
-  margin:0px;
-  padding:0px;
-  font-size: 8px;
-}
-
-#info{
-  padding-top: 100px;
-  padding-left: 400px;
-}
-#info p{
-  font-size: 20px;
-}
-
-
-#rightButton{
-  padding-left: 450px;
-}
-
-#rightButton a{
-  padding: 10px;
-  height: 40px;
-  font-weight: bold;
-}
 /* SLIDER, HITTAT http://www.cssportal.com/style-input-range/ */
 
 input[type=range] {
@@ -188,19 +178,14 @@ input[type=range]::-webkit-slider-thumb {
 
 /* SLUT PÅ SLIDER */ 
 
-.planety{
+/* PLANET GAME */ 
+.planetPlan{
   width: 100px;
   height: 100px;
   background-image: url(images/josplanet.png);
   background-size: 100px 100px;
   text-align: center;
   color: white;
-
-}
-
-.greenplanet{
--webkit-filter: brightness(150%); /* Chrome, Safari, Opera */
-filter: brightness(150%);
 }
 
 .wonplanet{
@@ -219,8 +204,10 @@ filter: brightness(10%);
   background-image: url(images/josplanet.png);
   background-size: 100px 100px;
 }
+/* PLANET GAME DONE */ 
 
-.saved-figures{
+/* SELECT MY CHARACHTERS */ 
+.savedChars{
   text-align:center;
   border:1px solid white;
   margin-top:10px;
@@ -228,54 +215,17 @@ filter: brightness(10%);
   margin-right:5px;
 }
 
-.planet-popup{
-  position: relative; 
-  z-index:1;
+#selectChar{
+  position:relative;
 }
 
-/* MENY FIX */ 
-
-.menu{
-  width:100%;
-  height:10%;
-  font-size:14px;
-  padding-top:10px;
-  color:black;
-  text-transform: uppercase;
-}
-
-.menu a{
-  color:white;
-  margin-top: 20px;
-}
-
-.menu-item{
-  padding-top:20px;
-  height:60px;
-}
-
-.active{
-    text-decoration: underline;
-}
-
-.linje{
-  border-bottom: 0.2px white solid;
-}
-
-.menu #planet{
-  margin-top:10px;
-  text-align:center;
-  margin:auto;
-  padding:auto;
-}
+/* START VIEW */ 
 
 #startView{
- min-height:800px;
- min-width:1000px;
- margin:0px;
- padding:0px;
- background-image: url(images/startimage.jpg);
- background-size: cover;
+min-height:800px;  overflow: hidden;
+margin:0px;
+padding:0px;
+background-size: cover;
 }
 
 #startViewIntro{
@@ -283,58 +233,103 @@ filter: brightness(10%);
   text-align: center;
 }
 
-
 #startView p{
   font-size: 20px;
 }
 
-.finish-load{
-  display:none;
+#introplanet{
+  position:relative;
+  padding:0px;
+  margin:0 auto;
 }
 
-.row{
-  height: 100px;
+.play-icon{
+  position:relative;
 }
-/* Universe */ 
+
+
+/* UNVIVERSE VIEW */ 
 .planeten{
   /*Detta ska endast ske om planeten är vunnen sen */ 
   -webkit-filter: brightness(150%); /* Chrome, Safari, Opera */
   filter: brightness(150%);
-
-
 }
 
-.plany{
+.solarSystem{
   width: 100px;
   height: 100px;
   background-image: url(images/josplanet.png);
   background-size: 100px 100px;
 }
-.plany p{
-  margin-left: 30px;
 
+.universe .row{
+  height:100px;
 }
 
-/*Instructions*/
-#instructions-header{
+.solarSystem p{
+  margin-left: 30px;
+}
+
+/* INSTRUCTIONS */
+#instructionsHeader{
   text-align: center;
   padding-top: 120px;
   padding-bottom: 40px;
 }
+ 
 
-/*Progress */
+/* POP UP */ 
 
+.black_overlay{
+  display: none;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index:1001;
+  -moz-opacity: 0.8;
+  opacity:.80;
+  filter: alpha(opacity=80);
+}
 
+.white_content {
+  display: none;
+  position: absolute;
+  top: 10%;
+  left: 12%;
+  width: 76%;
+  height: 80%;
+  padding: 16px;
+  background-color: white;
+  z-index:1002;
+  overflow: auto;
+  text-align: 
+}
 
+.planet_info{
+  height:500px;
+}
 
+/* AVATAR */ 
+#avatar{
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
 
+#avatar-btn{
+  padding-top:20px;
+  text-align: center;
+}
 
-
-
-
-
-
-
-
-
+/* OKLART */  
+.planeten{
+  /*Detta ska endast ske om planeten är vunnen sen */ 
+  -webkit-filter: brightness(150%); /* Chrome, Safari, Opera */
+  filter: brightness(150%);
+}
 

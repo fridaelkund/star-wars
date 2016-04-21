@@ -1,11 +1,9 @@
 <div class="container-fluid" id="play-view">
-<ng-include src="'partials/menu-view.html'" ng-controller="menuCtrl"></ng-include>
+<ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include>
 
-<div class="col-md-12"  ng-init="play(startwars.mp3)" ng-controller="playCtrl">
+<div class="col-md-12" ng-init="startAnimation()" ng-controller="playCtrl">
 
 <div class="col-md-12" id="playViewIntro">
-<audio id="audio1" src="startwars2.mp3"></audio>
-
 <div class="col-md-2"></div>
 
 <a href="/#/hair"> <div class="col-md-4">

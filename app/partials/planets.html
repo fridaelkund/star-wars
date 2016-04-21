@@ -1,4 +1,4 @@
-<ng-include src="'partials/menu-view.html'" ng-controller="menuCtrl"></ng-include>
+<ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include>
 
 <ng-include ng-controller="planetsCtrl"></ng-include>
 
@@ -15,11 +15,11 @@
 <div class="col-md-8" ng-init="getPlanets()">
 	<p> Select which planet to conquer by clicking it. </p>
 	<div class="universe col-md-3" ng-repeat="planet in ourPlanets">
-		<div class="planety" id="{{planet.planet.name}}" name="planetButton" ng-click="moveToPlanet(planet)" ng-class='whatclass(planet)' data-toggle="popover" data-placement="right" data-content="Du har {{planet.lookAlike.points}} procents chans att vinna" data-trigger="hover">{{planet.planet.name}}</div>
+		<div class="planetPlan" id="{{planet.planet.name}}" name="planetButton" ng-click="moveToPlanet(planet)" ng-class='whatclass(planet)' data-toggle="popover" data-placement="right" data-content="Du har {{planet.lookAlike.points}} procents chans att vinna" data-trigger="hover">{{planet.planet.name}}</div>
     </div>
 </div>
 
-<ng-include src="'partials/me.html'" ng-controller="inputCtrl"></ng-include> 
+<ng-include src="'partials/avatar.html'" ng-controller="inputCtrl"></ng-include> 
 
 </div>
  

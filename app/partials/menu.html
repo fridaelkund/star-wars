@@ -1,7 +1,7 @@
-<div class="col-md-12 menu" style="padding:0px;">
+<div class="col-md-12 menu" style="padding:0px;" ng-init="animateMenu()">
 	<div class="row">
 	
-		<div class="col-md-5 linje">
+		<div class="col-md-5 line" id="leftMenu">
 			<div class="row">
 				<div class="col-md-12">
 					<div class="col-md-4"></div>
@@ -16,11 +16,11 @@
 		</div>
 
 		<div id="planet" class="col-md-2">
-			<img src="images/planet.png" style="width:140px"/>
+			<img ng-hide="path === '/home'" src="images/planet.png" style="width:140px"/>
 		</div>
 
 	
-		<div class="col-md-5 linje">
+		<div class="col-md-5 line" id="rightMenu">
 			<div class="row">
 				<div class="col-md-12">
 					<div class="col-md-4 menu-item" ng-class="{'active':path == ''}">

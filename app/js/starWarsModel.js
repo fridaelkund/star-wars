@@ -236,16 +236,16 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 	this.savePlanetsLocalStorage = function(){
 		localStorage.setItem("planeter", JSON.stringify(habitantsOnPlanets));
 	}
-	this.returnPlanetsFromLocal = function(){
+	this.getPlanetsFromLocal = function(){
 		habitantsOnPlanets = JSON.parse(localStorage.getItem("planeter"));
 	}
 
 	this.checkLocalStorage = function(){
 		if(JSON.parse(localStorage.getItem("planeter")) === null){
-			return true
+			return false
 		}
 		else{
-			return false
+			return true
 		}
 	}
 

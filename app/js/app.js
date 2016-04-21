@@ -4,15 +4,18 @@ StarWarsApp.config(['$routeProvider',
 	function($routeProvider) { 
 		$routeProvider.
 			when('/home', {
-				templateUrl: 'partials/start-view.html'
+				templateUrl: 'partials/start.html'
 			}).
 			when('/play', {
-				templateUrl: 'partials/play.html',
-				controller: 'playCtrl'
+				templateUrl: 'partials/select-char.html',
+				controller: 'selectCtrl'
 			}).
 			when('/hair', {
-				templateUrl: 'partials/hair-view.html',
+				templateUrl: 'partials/new-char.html',
 				controller: 'inputCtrl'
+			}).
+			when('/select', {
+				templateUrl: 'partials/my-chars.html'
 			}).
 			when('/planet', {
 				templateUrl: 'partials/planets.html',
@@ -25,10 +28,6 @@ StarWarsApp.config(['$routeProvider',
 			when('/profile', {
 				templateUrl: 'partials/profile.html',
 				controller: 'profileCtrl'
-			}).
-			when('/select', {
-				templateUrl: 'partials/select.html',
-				controller: 'selectCtrl'
 			}).
 			when('/test', {
 				templateUrl: 'partials/test.html',

@@ -1,53 +1,77 @@
 StarWarsApp.controller('startCtrl', function($scope, StarModel, $location){
 
-$scope.data = [];
 var planetUrl = "http://swapi.co/api/planets/"
 var peopleUrl = "http://swapi.co/api/people/"
 
-// Starting on page load. Checking if user has our api-response in local storage.
+// hecking if user has previous api-response in local storage.
 // If so, fetching the data from local storage. If not, calling the API and fetching 
-// people and planets through our model. 
-$scope.loading = function(){
+// people and planets from API. 
+$scope.loading = function(startwars){
+	// While waiting we're setting loading-variable to true and hiding play-button
+
 	$scope.loading = true;
+	$scope.showPlay = false;
+
 	StarModel.checkLocalStorage()
-	if(StarModel.checkLocalStorage() === true){
+
+	// If no planets or people in local storage, we have to get them from API 
+	if(StarModel.checkLocalStorage() === false){
 	$scope.fetchPlanets();
-}
-else{
-	StarModel.returnPlanetsFromLocal();
+
+	// Playing Star Wars-intro while loading to get into the right mode. 
+	document.getElementById('audio1').play(startwars);
+}else{
+
+// If we have planets and people in local storage, get them! 
+	StarModel.getPlanetsFromLocal();
 	$scope.loading = false;
+	$scope.timeToPlay();
 	}
 };
 
 
+// Fetching planets from API by calling fetchAll of planetUrl from model.
+// Waiting for respons and then adding planets to list of planets in model 
 $scope.fetchPlanets = function(){
-	console.log("I fetch planets")
 	StarModel.fetchAll(planetUrl).then(function(response){
 		$scope.planets = response;
-		StarModel.addPlanets($scope.planets);	
+	// Planets are done! Save in planet-list in model!  
+		StarModel.addPlanets($scope.planets);
+
+	// When planets are done, fetch all people from API.
 		$scope.fetchPeople();
-		return $scope.planets
 	})
 };
 
 $scope.fetchPeople = function(){
-	console.log("I fetch people")
 	StarModel.fetchAll(peopleUrl).then(function(response){
 		$scope.people = response;
-		StarModel.addPeople($scope.people);
-		StarModel.savePlanetsLocalStorage();
-		$scope.loading = false;
-		$scope.to_play();
 
+	// People are done! Save each person to their homeplanet in list of planets model. 
+		StarModel.addPeople($scope.people);
+
+	// And save all our API-responses to local storage, to avoid load-time. 
+		StarModel.savePlanetsLocalStorage();
+
+	// Now loading is done. Set load-variable to false and it's time to play! 
+		$scope.loading = false;
+		$scope.timeToPlay();
 	})
 };
 
-$scope.to_play = function(){
-	TweenMax.to("#introplanet", 1, {y:-200, 'delay':0.5});
-	TweenMax.to("#introtext", 1, {'opacity':0, 'scale':0});
+
+// Animations to remove intro-text, loadingmessage and creating menu
+
+$scope.timeToPlay = function(){
+	TweenMax.to("#introplanet", 1, {y:-200, 'delay':1.5});
+	TweenMax.to("#introtext", 1, {'opacity':0, 'scale':0, 'delay':1});
+	TweenMax.from("#introplay", 1, {'opacity':0, 'delay':2});
+
+	$scope.showPlay = true;
 };
 
-$scope.byt = function(){	
+
+$scope.play = function(){	
 	$location.path('/play');
 }
 
