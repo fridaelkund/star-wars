@@ -8,7 +8,7 @@ $scope.$on('$routeChangeStart', function() {
 
 
 $scope.clickToOpen = function(){
-    ngDialog.open({ template: 'popUp.html', className: 'masterPlan' });
+    ngDialog.open({ template: 'masterPlan', className: 'ngdialog-theme-default' });
 }
 $scope.getPlanets = function(){
 	$scope.ourPlanets = [];
