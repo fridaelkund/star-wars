@@ -36,6 +36,10 @@
   height: 90%;
 }
 
+.container-fluid{
+  height:100%;
+}
+
 h1 {
   color:white;
 }
@@ -109,22 +113,6 @@ white-space: nowrap;
   margin-right:10px;
 }
 
-#header{
-  height:150px;
-  padding-top:30px;
-  text-align: center;
-}
-
-#header h1{
-  padding:0px;
-  margin:0px;
-}
-
-#header p{
-  margin:0px;
-  padding:0px;
-  font-size: 8px;
-}
 
 #info{
   padding-top: 100px;
@@ -261,19 +249,29 @@ filter: brightness(10%);
 }
 
 #startView{
- min-height:800px;
- min-width:1000px;
- margin:0px;
- padding:0px;
- background-image: url(images/startimage.jpg);
- background-size: cover;
+min-height:800px;  overflow: hidden;
+margin:0px;
+padding:0px;
+background-size: cover;
+}
+
+#play-view{
+  min-height:800px;
+  overflow:hidden;
 }
 
 #startViewIntro{
-  padding-top: 100px;
+  padding-top: 200px;
   text-align: center;
+  height:50%;
 }
 
+#playViewIntro{
+  padding-top: 100px;
+  padding-bottom:100px;
+  text-align: center;
+  height:40%;  
+};
 
 #startView p{
   font-size: 20px;
@@ -343,7 +341,6 @@ transform: translateX(-50%);
 }
 
 
-
 .black_overlay{
         display: none;
         position: absolute;
@@ -374,5 +371,26 @@ transform: translateX(-50%);
 
 .planet_info{
   height:500px;
+}
 
+.plany{
+  width: 100px;
+  height: 100px;
+  background-image: url(images/josplanet.png);
+  background-size: 100px 100px;
+}
+
+.plany p{
+  margin-left: 30px;
+}
+
+#planetAnimation{
+  position:absolute;
+  padding:0px;
+  margin:0 auto;
+}
+
+.hejPlanet{
+  position:absolute;
+  width:90%;
 }
