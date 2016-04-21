@@ -263,7 +263,6 @@ background-size: cover;
 #startViewIntro{
   padding-top: 200px;
   text-align: center;
-  height:50%;
 }
 
 #playViewIntro{
@@ -384,13 +383,16 @@ transform: translateX(-50%);
   margin-left: 30px;
 }
 
-#planetAnimation{
-  position:absolute;
+.play-icon{
+  position:relative;
+}
+
+#introplanet{
+  position:relative;
   padding:0px;
   margin:0 auto;
 }
 
-.hejPlanet{
-  position:absolute;
-  width:90%;
+.linje{
+  position:relative;
 }

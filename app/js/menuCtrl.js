@@ -9,6 +9,4 @@ $scope.location=window.location;
 console.log($scope.path);
 
 
-
-
 });

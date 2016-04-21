@@ -1,16 +1,11 @@
 <div id="startView" class="container-fluid">
 	
-<div class="col-md-12" ng-controller="startCtrl" ng-init="loading()">
+<div class="col-md-12" id="startViewIntro" ng-controller="startCtrl" ng-init="loading()">
 
-<div  class="col-md-12" id="startViewIntro">
-	<img src="images/planet.png" style="width:140px"/>
+	<audio id="audio1" src="startwars2.mp3"></audio>
+	<div id="introplanet" ng-click="byt()"><img src="images/planet.png" style="width:140px"/></div>
 	<h1 id="introtext">time to conquer the universe</h1>
-	<a href="#/play"class="btn">PLAY</a>
-</div> 
-
-<div class="col-md-12">
-<div class="hejPlanet"><img src="josplanet.png" style="width:120%;height:120%;"/></div>
+	<a id="introplay" class="btn" ng-click="to_play()">PLAY</a>
 </div>
 
-</div>
 </div>

@@ -1,4 +1,4 @@
-StarWarsApp.controller('startCtrl', function($scope, StarModel){
+StarWarsApp.controller('startCtrl', function($scope, StarModel, $location){
 
 $scope.data = [];
 var planetUrl = "http://swapi.co/api/planets/"
@@ -26,6 +26,7 @@ $scope.fetchPeople = function(){
 };
 
 $scope.loading = function(){
+	document.getElementById('audio1').play(startwars);
 	var hej = StarModel.checkLocalStorage()
 	console.log(hej);
 	if(StarModel.checkLocalStorage() === true){
@@ -35,6 +36,16 @@ else{
 	StarModel.returnPlanetsFromLocal();
 	}
 };
+
+$scope.to_play = function(){
+	console.log("I to play")
+	TweenMax.to("#introplanet", 1, {y:-200, 'delay':0.5});
+	TweenMax.to("#introtext", 1, {'opacity':0, 'scale':0});
+};
+
+$scope.byt = function(){	
+	$location.path('/play');
+}
 
 
 });
