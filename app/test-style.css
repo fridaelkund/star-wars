@@ -1,5 +1,5 @@
  body{
- /* background-image: url("images/space.jpg");*/
+  background-color: #d3d3d3;
  }
 
 /*img{
@@ -107,11 +107,6 @@ white-space: nowrap;
   margin-right:10px;
 }
 
-#me-view{
-  color:white;
-  height:500px;
-}
-
 /*#leftButton{
   padding-left: 350px;
 }*/
@@ -214,7 +209,7 @@ input[type=range]::-webkit-slider-thumb {
 
 .menu{
   width:100%;
-  height:40px;
+  height:10%;
   font-size:14px;
   padding-top:10px;
   color:black;
@@ -268,5 +263,45 @@ input[type=range]::-webkit-slider-thumb {
 .finish-load{
   display:none;
 }
+
+
+/* TORSDAG */ 
+
+.container{ 
+  height:90%;
+
+}
+
+#select-gubbe{
+  position:relative;
+}
+
+
+#me-view{
+  color:white;
+  height:500px;
+  text-align: center;
+  padding:0px;
+  margin:0px;
+}
+
+#me-view .col-md-12{
+  padding:0px;
+  margin:0px;
+}
+
+#svg-me{
+position: relative;
+left: 50%;
+-webkit-transform: translateX(-50%);
+-ms-transform: translateX(-50%);
+transform: translateX(-50%);
+}
+
+#me_btn{
+  padding-top:20px;
+  text-align: center;
+}
+
 
 
