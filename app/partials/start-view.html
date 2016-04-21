@@ -1,17 +1,19 @@
 <!-- <ng-include src="'partials/menu-view.html'" ng-controller="menuCtrl"></ng-include>-->
-<div ng-controller="startCtrl" ng-init="loading()">
+<div ng-controller="startCtrl" ng-init="loading()"><ng-include src="'partials/play.html'" ng-controller="menuCtrl" ng-show="show"></ng-include>
 
 <div id="startView" class="container-fluid">
+<ng-hide
 	<div  class="col-md-12">
 		<div class="row">
 
 		<div class="col-md-6" id="startViewIntro">
 		<h1 id="introtext">time to conquer the universe</h1>
 
-		<div id="loading" ng-class="{'finish-load': people}" style="color:white;"> LOADING </div>
+		<div id="loading" ng-class="{'finish-load': people}" style="color:white;"> LOADING <audio id="audio1" src="startwars.mp3"></audio> </div>
 
-		<div class="btn" ng-click="play()"><a>PLAY</a></div>
+		<div class="btn" ng-click="play(startwars.mp3)"><a>PLAY</a></div>
 
+		<div class="test"><img src="images/spaceship.png" style="height:200px;width:200px;"></div>
 		</div>
 	
 		</div>
