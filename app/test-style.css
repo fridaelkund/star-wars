@@ -1,5 +1,5 @@
  body{
-  background-color: #d3d3d3;
+  background-image: url("images/space.jpg");
  }
 
 /*img{
@@ -8,13 +8,14 @@
     -webkit-animation-duration: 10s;
     animation-iteration-count: 1;
     animation-timing-function: ease-in-out;
-}
+}*/
+
 @-webkit-keyframes moveimg {
 /*    0%   {left:120px; top:0px;}
     25% {left:1400px; top:0px; }
     50% {left: 1400px; top:500px;}
     75% {left:120px; top:500px;}
-    100% {left:120px; top:0px;}
+    100% {left:120px; top:0px;}*/
 
    0%   {left:120px; top:0px;}
    25% {left:1400px; top:0px;}
@@ -30,11 +31,9 @@
    90%{left: 1400px; top:500px; -webkit-transform: rotate(20deg)}
    95%{left: 1400px; top:-500px; -webkit-transform: rotate(0deg)}
    100%{left:120px; top:0px;}
-}*/ 
-
-
-@font-face{
-  font-family: 'Open Sans', sans-serif;
+}
+.container{
+  height: 90%;
 }
 
 h1 {
@@ -50,7 +49,6 @@ p{
   font-size: 15px;
   color:white;
 }
-
 button{
   padding-bottom: 100px;
 }
@@ -70,6 +68,10 @@ button{
   margin: auto;
   color: #000033;
   background-color: white;
+}
+
+.active{
+    text-decoration: underline;
 }
 
 .btn{
@@ -107,16 +109,30 @@ white-space: nowrap;
   margin-right:10px;
 }
 
-/*#leftButton{
-  padding-left: 350px;
-}*/
+#header{
+  height:150px;
+  padding-top:30px;
+  text-align: center;
+}
 
-/*#leftButton a{
-  padding: 10px;
-  height: 40px;
-  font-weight: bold;
+#header h1{
+  padding:0px;
+  margin:0px;
+}
 
-}*/
+#header p{
+  margin:0px;
+  padding:0px;
+  font-size: 8px;
+}
+
+#info{
+  padding-top: 100px;
+  padding-left: 400px;
+}
+#info p{
+  font-size: 20px;
+}
 
 
 #rightButton{
@@ -164,31 +180,35 @@ input[type=range]::-webkit-slider-thumb {
 /* SLUT PÅ SLIDER */ 
 
 .planety{
-  height:70px;
-  width:70px;
-  border-radius:50%;
-  border-color: white;
+  width: 100px;
+  height: 100px;
+  background-image: url(images/josplanet.png);
+  background-size: 100px 100px;
   text-align: center;
-  padding-top: 22px;
-  margin-bottom: 10px;
-  background-color: blue;
-  color:black;
+  color: white;
+
 }
 
 .greenplanet{
-  background-color: white;
+-webkit-filter: brightness(150%); /* Chrome, Safari, Opera */
+filter: brightness(150%);
 }
 
 .wonplanet{
-  background-color: green;
+-webkit-filter: brightness(200%); /* Chrome, Safari, Opera */
+filter: brightness(200%);
 }
 
 .lostplanet{
-  background-color: red;
+-webkit-filter: brightness(10%); /* Chrome, Safari, Opera */
+filter: brightness(10%);
 }
 
 .normalplanet{
-  background-color: blue;
+  width: 100px;
+  height: 100px;
+  background-image: url(images/josplanet.png);
+  background-size: 100px 100px;
 }
 
 .saved-figures{
@@ -203,7 +223,6 @@ input[type=range]::-webkit-slider-thumb {
   position: relative; 
   z-index:1;
 }
-
 
 /* MENY FIX */ 
 
@@ -264,6 +283,28 @@ input[type=range]::-webkit-slider-thumb {
   display:none;
 }
 
+.row{
+  height: 100px;
+}
+/* Universe */ 
+.planeten{
+  /*Detta ska endast ske om planeten är vunnen sen */ 
+  -webkit-filter: brightness(150%); /* Chrome, Safari, Opera */
+  filter: brightness(150%);
+
+
+}
+
+.plany{
+  width: 100px;
+  height: 100px;
+  background-image: url(images/josplanet.png);
+  background-size: 100px 100px;
+}
+.plany p{
+  margin-left: 30px;
+
+}
 
 /* TORSDAG */ 
 
@@ -304,4 +345,36 @@ transform: translateX(-50%);
 }
 
 
+
+.black_overlay{
+        display: none;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        z-index:1001;
+        -moz-opacity: 0.8;
+        opacity:.80;
+        filter: alpha(opacity=80);
+    }
+
+.white_content {
+        display: none;
+        position: absolute;
+        top: 25%;
+        left: 25%;
+        width: 50%;
+        height: 100%;
+        padding: 16px;
+        border: 16px solid orange;
+        background-color: white;
+        z-index:1002;
+        overflow: auto;
+    }
+
+.light-show{
+  display:block;
+}
 

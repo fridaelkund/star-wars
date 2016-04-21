@@ -35,7 +35,8 @@ StarWarsApp.config(['$routeProvider',
 				controller: 'testCtrl'
 			}).
 			when('/universe', {
-				templateUrl: 'partials/universe.html'
+				templateUrl: 'partials/universe.html',
+				controller: 'planetsCtrl'
 			}).
 
 			when('/instructions', {

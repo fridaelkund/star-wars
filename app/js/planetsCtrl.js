@@ -6,6 +6,8 @@ $scope.$on('$routeChangeStart', function() {
    StarModel.savePlanets();
  });
 
+$scope.time == "nottime"
+
 $scope.getPlanets = function(){
 	$scope.ourPlanets = [];
 
@@ -64,6 +66,12 @@ $scope.whatclass = function(planet){
 		}
 	}
 	return "normalplanet"
+};
+
+
+
+$scope.popup = function(){
+	TweenMax.to('#light', 4, {autoAlpha: 1, display:'block'});
 };
 
 })
