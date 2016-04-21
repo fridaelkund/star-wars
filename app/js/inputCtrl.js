@@ -5,6 +5,7 @@ $scope.eyecols=StarModel.eyecol;
 $scope.haircols = StarModel.haircol;
 
 $scope.location = window.location;
+console.log($scope.location);
 
 // Kollar om det finns ögonfärg, hårfärg och längd i profilen redan.
 // Lägger defaultvärden om så är fallet, annars hämtar värden från profil och uppdaterar i SVGn.

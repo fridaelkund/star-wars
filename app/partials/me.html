@@ -19,7 +19,11 @@
 
 </svg>
 
-
-<a href="#/planet" class="btn" type="button" ng-click="">Play now!</a>
+<div class="col-md-12">
+  <a href="#/planet" ng-show="location.hash === '#/profile'" class="btn" type="button" ng-click="">Play now!</a>
+  <a href="#/profile" ng-show="location.hash === '#/hair'" class="btn" type="button" ng-click="save()">Save!</a>
+</div> 
 
 </div>
+
+
