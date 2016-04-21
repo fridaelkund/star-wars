@@ -1,4 +1,4 @@
-var StarWarsApp = angular.module('StarWars', ['ngRoute', 'ngResource','ngDialog']);
+var StarWarsApp = angular.module('StarWars', ['ngRoute', 'ngResource']);
 
 StarWarsApp.config(['$routeProvider',
 	function($routeProvider) { 
