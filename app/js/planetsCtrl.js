@@ -5,6 +5,7 @@ $scope.profil = StarModel.returnProfile();
 console.log("I PLANETCTRL")
 
 $scope.$on('$routeChangeStart', function() { 
+	console.log("Hej");
    StarModel.savePlanets();
  });
 

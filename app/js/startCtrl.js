@@ -20,12 +20,20 @@ $scope.fetchPeople = function(){
 	StarModel.fetchAll(peopleUrl).then(function(response){
 		$scope.people = response;
 		StarModel.addPeople($scope.people);
+		console.log("UTE")
+		StarModel.savePlanetsLocalStorage();
 	})
 };
 
 $scope.loading = function(){
-	
+	var hej = StarModel.checkLocalStorage()
+	console.log(hej);
+	if(StarModel.checkLocalStorage() === true){
 	$scope.fetchPlanets();
+}
+else{
+	StarModel.returnPlanetsFromLocal();
+	}
 };
 
 

@@ -1,10 +1,13 @@
 StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 
+	if(JSON.parse(localStorage.getItem("planeter")) !== null){
+		habitantsOnPlanets = JSON.parse(localStorage.getItem("planeter"));
+	}
+
 	var lookAlikes = [];
 	var profile = {"name": "", "eye": "", "hair": "", "height": ""};
 	var wonPlanets = [];
 	var lostPlanets = [];
-	var allPlanets = [];
 	var habitantsOnPlanets = [];
 
 	var tempData = [];
@@ -86,7 +89,7 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 	//karaktärsdrag desto fler poäng samlas
 
 	this.matchMaking = function(){
-		console.log("Start match making!")
+		console.log("Start match making!", habitantsOnPlanets)
 		for(i in habitantsOnPlanets){
 			console.log("In habitants on planets", habitantsOnPlanets[i])
 			var tempPerson= null
@@ -154,9 +157,6 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 	this.returnlookAlikes = function(){
 		return lookAlikes;
 	}
-	this.returnPlanets = function(){
-		return allPlanets;
-	}
 
 	this.addToProfile = function(field, value){
 		profile[field] = value;
@@ -171,16 +171,10 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 	profile = {"name": "", "eye": "", "hair": "", "height": ""};
 	wonPlanets = [];
 	lostPlanets = [];
-	allPlanets = [];
-
 	}
 
 
-	this.HEJ = function(){
-		for(x=0; x<lookAlikes.length; x++){
-		lookAlikes[x].planet = allPlanets[x];
-		}
-	};
+	
 
 	this.returnProcent = function(){
 		return lookAlikes.proc;
@@ -207,6 +201,7 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 		var temp = JSON.parse(localStorage.getItem(profile.name));
 		temp["wonPlanets"] = wonPlanets;
 		temp["lostPlanets"] = lostPlanets;
+		console.log("tempis", temp);
 		localStorage.setItem(profile.name, JSON.stringify(temp));		
 	}
 
@@ -227,7 +222,9 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 	this.getLocalStorage = function(){
 		var allLocals = [];
 		for(i in localStorage){
+			if(i !== "planeter"){
 			allLocals.push(JSON.parse(localStorage.getItem([i])));
+		}
 		}
 		return allLocals;
 	}
@@ -236,6 +233,21 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 		localStorage.setItem(profile.name, JSON.stringify(profile));
 	}
 
+	this.savePlanetsLocalStorage = function(){
+		localStorage.setItem("planeter", JSON.stringify(habitantsOnPlanets));
+	}
+	this.returnPlanetsFromLocal = function(){
+		habitantsOnPlanets = JSON.parse(localStorage.getItem("planeter"));
+	}
+
+	this.checkLocalStorage = function(){
+		if(JSON.parse(localStorage.getItem("planeter")) === null){
+			return true
+		}
+		else{
+			return false
+		}
+	}
 
 	this.eyecol = 
 		{"blue": "#1a75ff", 
