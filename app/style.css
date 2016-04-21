@@ -32,17 +32,11 @@
    95%{left: 1400px; top:-500px; -webkit-transform: rotate(0deg)}
    100%{left:120px; top:0px;}
 }
+.container{
+  height: 90%;
 
-.planeten img{
-  width: 100px;
-  /*Detta ska endast ske om planeten är vunnen sen */ 
-   -webkit-filter: brightness(150%); /* Chrome, Safari, Opera */
-    filter: brightness(150%);
 }
 
-.plany p{
-  margin-left: 30px;
-}
 h1 {
   color:white;
 }
@@ -121,20 +115,7 @@ white-space: nowrap;
   height:500px;
 }
 
-.menu{
-  width:100%;
-  height:50px;
-  background: rgba(255, 255, 255, 0.1);
-  font-size:20px;
-  padding-top:10px;
-  padding-left: 50px;
-  color:black;
-}
 
-.menu a{
-  color:white;
-  padding: 10px;
-}
 
 #header{
   height:150px;
@@ -160,18 +141,6 @@ white-space: nowrap;
 #info p{
   font-size: 20px;
 }
-
-
-/*#leftButton{
-  padding-left: 350px;
-}*/
-
-/*#leftButton a{
-  padding: 10px;
-  height: 40px;
-  font-weight: bold;
-
-}*/
 
 
 #rightButton{
@@ -219,31 +188,35 @@ input[type=range]::-webkit-slider-thumb {
 /* SLUT PÅ SLIDER */ 
 
 .planety{
-  height:70px;
-  width:70px;
-  border-radius:50%;
-  border-color: white;
+  width: 100px;
+  height: 100px;
+  background-image: url(images/josplanet.png);
+  background-size: 100px 100px;
   text-align: center;
-  padding-top: 22px;
-  margin-bottom: 10px;
-  background-color: blue;
-  color:black;
+  color: white;
+
 }
 
 .greenplanet{
-background-color: white;
+-webkit-filter: brightness(150%); /* Chrome, Safari, Opera */
+filter: brightness(150%);
 }
 
 .wonplanet{
-  background-color: green;
+-webkit-filter: brightness(200%); /* Chrome, Safari, Opera */
+filter: brightness(200%);
 }
 
 .lostplanet{
-  background-color: red;
+-webkit-filter: brightness(10%); /* Chrome, Safari, Opera */
+filter: brightness(10%);
 }
 
 .normalplanet{
-  background-color: blue;
+  width: 100px;
+  height: 100px;
+  background-image: url(images/josplanet.png);
+  background-size: 100px 100px;
 }
 
 .saved-figures{
@@ -257,4 +230,86 @@ background-color: white;
 .planet-popup{
   position: relative; 
   z-index:1;
+}
+
+/* MENY FIX */ 
+
+.menu{
+  width:100%;
+  height:10%;
+  font-size:14px;
+  padding-top:10px;
+  color:black;
+  text-transform: uppercase;
+}
+
+.menu a{
+  color:white;
+  margin-top: 20px;
+}
+
+.menu-item{
+  padding-top:20px;
+  height:60px;
+}
+
+.active{
+    text-decoration: underline;
+}
+
+.linje{
+  border-bottom: 0.2px white solid;
+}
+
+.menu #planet{
+  margin-top:10px;
+  text-align:center;
+  margin:auto;
+  padding:auto;
+}
+
+#startView{
+ min-height:800px;
+ min-width:1000px;
+ margin:0px;
+ padding:0px;
+ background-image: url(images/startimage.jpg);
+ background-size: cover;
+}
+
+#startViewIntro{
+  padding-top: 100px;
+  text-align: center;
+}
+
+
+#startView p{
+  font-size: 20px;
+}
+
+.finish-load{
+  display:none;
+}
+
+.row{
+  height: 100px;
+}
+/* Universe */ 
+.planeten{
+  /*Detta ska endast ske om planeten är vunnen sen */ 
+  -webkit-filter: brightness(150%); /* Chrome, Safari, Opera */
+  filter: brightness(150%);
+
+
+}
+
+.plany{
+  width: 100px;
+  height: 100px;
+  background-image: url(images/josplanet.png);
+  background-size: 100px 100px;
+}
+.plany p{
+  margin-left: 30px;
+
 }

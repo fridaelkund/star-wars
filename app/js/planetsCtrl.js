@@ -1,4 +1,4 @@
-StarWarsApp.controller('planetsCtrl', function($scope, StarModel){
+StarWarsApp.controller('planetsCtrl', function($scope, StarModel, ngDialog){
 
 $scope.profil = StarModel.returnProfile();
 
@@ -6,6 +6,10 @@ $scope.$on('$routeChangeStart', function() {
    StarModel.savePlanets();
  });
 
+
+$scope.clickToOpen = function(){
+    ngDialog.open({ template: 'popUp.html', className: 'masterPlan' });
+}
 $scope.getPlanets = function(){
 	$scope.ourPlanets = [];
 
