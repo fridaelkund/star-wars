@@ -7,7 +7,7 @@ StarWarsApp.config(['$routeProvider',
 				templateUrl: 'partials/start-view.html'
 			}).
 			when('/play', {
-				templateUrl: 'partials/play.html'
+				templateUrl: 'partials/play.html',
 				controller: 'playCtrl'
 			}).
 			when('/hair', {
