@@ -1,9 +1,9 @@
-<ng-include src="'partials/menu-view.html'" ng-controller="menuCtrl"></ng-include>
+<ng-controller="startCtrl"><ng-include src="'partials/menu-view.html'" ng-controller="menuCtrl"></ng-include>
 
-<div class="col-md-4" id="myChar">
-	<img src="josplanet.png">
+<ng-show="show"><div class="col-md-4" id="myChar">
+	<img src="images/stormtrooper.png" style="width:100px;height:100px;"><a>My Characters</a>
 </div>
 
 <div class="col-md-4" id="newChar">
-	<img src="josplanet.png">
+	<img src="images/darth.png"style="width:100px;height:100px;"><a>New Character</a>
 	</div>
