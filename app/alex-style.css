@@ -1,39 +1,11 @@
 body{
   background-image: url("images/space.jpg");
+
  }
 
-/*img{
-    position: relative;
-    -webkit-animation-name: moveimg; 
-    -webkit-animation-duration: 10s;
-    animation-iteration-count: 1;
-    animation-timing-function: ease-in-out;
-}*/
-
-@-webkit-keyframes moveimg {
-/*    0%   {left:120px; top:0px;}
-    25% {left:1400px; top:0px; }
-    50% {left: 1400px; top:500px;}
-    75% {left:120px; top:500px;}
-    100% {left:120px; top:0px;}*/
-
-   0%   {left:120px; top:0px;}
-   25% {left:1400px; top:0px;}
-   50% {left: 1400px; top:500px;}
-   59% {-webkit-transform: rotate(0deg)}   
-   60% {left: 1400px; top:500px; -webkit-transform: rotate(-20deg)}
-   63% {left: 1400px; top:500px; -webkit-transform: rotate(20deg)}
-   66%{left: 1400px; top:500px; -webkit-transform: rotate(-20deg)}
-   69%{left: 1400px; top:500px; -webkit-transform: rotate(20deg)}
-   72% {left: 1400px; top:500px; -webkit-transform: rotate(-20deg)}
-   76% {left: 1400px; top:500px; -webkit-transform: rotate(20deg)}
-   80%{left: 1400px; top:500px; -webkit-transform: rotate(-20deg)}
-   90%{left: 1400px; top:500px; -webkit-transform: rotate(20deg)}
-   95%{left: 1400px; top:-500px; -webkit-transform: rotate(0deg)}
-   100%{left:120px; top:0px;}
-}
 .container{
   height: 90%;
+
 
 }
 
@@ -261,21 +233,23 @@ filter: brightness(10%);
   border-bottom: 0.2px white solid;
 }
 
-/*.menu #planet{
+.menu #planet{
   margin-top:10px;
   text-align:center;
   margin:auto;
   padding:auto;
   position: relative;
-}*/
+  left: auto;
+}
 
 #startView{
- min-height:800px;
+ max-height: 800px;
  min-width:1000px;
  margin:0px;
  padding:0px;
- background-image: url(images/startimage.jpg);
+/* background-image: url(images/startimage.jpg);*/
  background-size: cover;
+ overflow: hidden;
 }
 
 #startViewIntro{
@@ -313,4 +287,8 @@ filter: brightness(10%);
 .plany p{
   margin-left: 30px;
 
+}
+
+#planetAnimation{
+  margin-left: 100px;
 }

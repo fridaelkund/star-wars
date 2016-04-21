@@ -1,15 +1,18 @@
 
-<div ng-include src="'partials/menu-view.html'" ng-controller="menuCtrl"</ng-include>
+<div ng-controller="menuCtrl" ng-include src="'partials/menu-view.html'">
 </div>
-<div ng-init="play(startwars.mp3)" ng-controller="playCtrl">
-<audio id="audio1" src="startwars.mp3"></audio> 
-<div class="col-md-4" id="myChar">
+<div class="festitesti" ng-init="play(startwars.mp3)" ng-controller="playCtrl">
+<audio id="audio1" src="startwars2.mp3"></audio> 
+<div class="col-md-4">
 	<img src="images/stormtrooper.png" style="width:100px;height:100px;"><a>My Characters</a>
-</div>
 
-<div class="col-md-4" id="newChar">
 	<img src="images/darth.png"style="width:100px;height:100px;"><a>New Character</a>
 	</div>
+<div class="col-md-6" id="planetAnimation"> <img src="images/planet.png" style="width:140px"></div> 
 
-<!-- <div class="planetAnimation"> <img src="images/planet.png"></div> -->	
+	<div class="hejPlanet">
+	<img src="josplanet.png" style="width:120%;height:120%;" />
+	</div>
+
+
 </div>
