@@ -61,12 +61,14 @@ $scope.fetchPeople = function(){
 
 
 // Animations to remove intro-text, loadingmessage and creating menu
+var tl = new TimelineMax({paused: true});
+	tl.delay(1);
+	tl.to("#introtext", 1, {'opacity':0, 'scale':0});
+	tl.to("#introplanet", 1, {y:-200}, "-=0.5");
+	tl.from("#introplay", 1, {'opacity':0});
 
 $scope.timeToPlay = function(){
-	TweenMax.to("#introplanet", 1, {y:-200, 'delay':1.5});
-	TweenMax.to("#introtext", 1, {'opacity':0, 'scale':0, 'delay':1});
-	TweenMax.from("#introplay", 1, {'opacity':0, 'delay':2});
-
+	tl.play()
 	$scope.showPlay = true;
 };
 
