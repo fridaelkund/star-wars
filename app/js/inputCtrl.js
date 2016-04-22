@@ -6,34 +6,36 @@ $scope.haircols = StarModel.haircol;
 
 $scope.location = window.location;
 
+$scope.profil = StarModel.returnProfile()
+
 // Check if hair, eye, length and name in profile allready. 
 // I so, get values from profile and updating SVG: 
 // Else, default values/empty values.
 
-if(StarModel.returnProfile().hair == ""){}
+if($scope.profil.hair == ""){}
 else{
-	$scope.avatar_hair = StarModel.returnProfile().hair;
-	$scope.avatar_hairhex = StarModel.haircol[StarModel.returnProfile().hair];
+	$scope.avatar_hair = $scope.profil.hair;
+	$scope.avatar_hairhex = StarModel.haircol[$scope.profil.hair];
 };
 
-if(StarModel.returnProfile().eye == ""){}
+if($scope.profil.eye == ""){}
 else{
-	$scope.avatar_eye = StarModel.returnProfile().eye;
-	$scope.avatar_eyehex = StarModel.eyecol[StarModel.returnProfile().eye]	
+	$scope.avatar_eye = $scope.profil.eye;
+	$scope.avatar_eyehex = StarModel.eyecol[$scope.profil.eye]	
 };
 
-if(StarModel.returnProfile().height == ""){
+if($scope.profil.height == ""){
 	$scope.avatar_height = 100;
 }
 else{
-	$scope.avatar_height = StarModel.returnProfile().height;	
+	$scope.avatar_height = $scope.profil.height;	
 };
 
-if(StarModel.returnProfile().name == ""){
+if($scope.profil.name == ""){
 	$scope.avatar_name = "Jedi";
 }
 else{
-	$scope.avatar_name = StarModel.returnProfile().name;	
+	$scope.avatar_name = $scope.profil.name;	
 };
 
 // Saving profile to Star Model.
@@ -95,6 +97,8 @@ $scope.getProfile=function(loc){
 	};
 	StarModel.matchMaking();
 	$location.path("/profile");
+	$scope.profil = StarModel.returnProfile();
+	console.log($scope.profil);
 };
 
 });

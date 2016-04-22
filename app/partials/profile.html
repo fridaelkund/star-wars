@@ -1,27 +1,27 @@
 <ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include>
 
-<ng-include src="'partials/error.html'" ng-controller="errorCtrl"></ng-include>
+<ng-include src="'partials/error.html'" ng-show="'{{profil.name}}' === ''"></ng-include>
 
-<div class="container" ng-show="isNot">
 
-<div class="container">
-<!-- 	<div class="row" ng-show="'{{profil.name}}' === ''") style="padding-top:100px; padding-left:20px;">
+<div class="container" ng-init="load_profile()">
+<!-- 	<div class="row" ) style="padding-top:100px; padding-left:20px;">
 		<p>You have no character yet!</p>
 		<a href="#/new-char" class="btn" id="next-btn" type="button" ng-click="">CREATE NEW CHARACTER</a>
 		<a href="#/char-library" class="btn" id="next-btn" type="button" ng-click="">SELECT OLD CHARACTER</a>
 	</div> -->
 	
-	<div class="row" ng-hide="'{{profil.name}}' === ''">
-		<div class="col-md-8">
-		<h3> My imperium </h3>
-		<div class="col-md-1" ng-repeat="p in wonplanets">
-			<div name="planetButton" ng-class='whatclass(p)'>
-				<img src="josplanet.png" width="30px" height="30px">
-				<p>{{p.planet.name}}</p>
-			</div>
+<div class="row" ng-hide="'{{profil.name}}' === ''">
+	<div class="col-md-8">
+	<h3> My imperium </h3>
+	<div class="col-md-1" ng-repeat="p in wonplanets">
+		<div name="planetButton" ng-class='whatclass(p)'>
+			<img src="josplanet.png" width="30px" height="30px">
+			<p>{{p.planet.name}}</p>
 		</div>
 	</div>
-		<ng-include src="'partials/avatar.html'" ng-controller="inputCtrl"></ng-include>
-	</div>
+</div>
+	<ng-include src="'partials/avatar.html'" ng-controller="inputCtrl"></ng-include>
+
+</div>
 </div>
 

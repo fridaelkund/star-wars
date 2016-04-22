@@ -191,6 +191,7 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 
 	//Returnerar lista med planeter som spelaren vunnit
 	this.returnWonPlanets = function(){
+		console.log("model", profile.wonPlanets);
 		return profile.wonPlanets;
 	}
 
@@ -203,7 +204,6 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 		var temp = JSON.parse(localStorage.getItem(profile.name));
 		temp.wonPlanets = profile.wonPlanets;
 		temp.lostPlanets = profile.lostPlanets;
-		console.log("tempis", temp);
 		localStorage.setItem(profile.name, JSON.stringify(temp));		
 	}
 

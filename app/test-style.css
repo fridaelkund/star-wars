@@ -9,3 +9,342 @@
 
 
 
+ body{
+	background-image: url("images/space.jpg");
+ }
+
+/*img{
+  position: relative;
+  -webkit-animation-name: moveimg; 
+  -webkit-animation-duration: 10s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+}
+
+@-webkit-keyframes moveimg {
+  0%   {left:120px; top:0px;}
+  25% {left:1400px; top:0px; }
+  50% {left: 1400px; top:500px;}
+  75% {left:120px; top:500px;}
+  100% {left:120px; top:0px;}
+
+  0%   {left:120px; top:0px;}
+  25% {left:1400px; top:0px;}
+  50% {left: 1400px; top:500px;}
+  59% {-webkit-transform: rotate(0deg)}   
+  60% {left: 1400px; top:500px; -webkit-transform: rotate(-20deg)}
+  63% {left: 1400px; top:500px; -webkit-transform: rotate(20deg)}
+  66%{left: 1400px; top:500px; -webkit-transform: rotate(-20deg)}
+  69%{left: 1400px; top:500px; -webkit-transform: rotate(20deg)}
+  72% {left: 1400px; top:500px; -webkit-transform: rotate(-20deg)}
+  76% {left: 1400px; top:500px; -webkit-transform: rotate(20deg)}
+  80%{left: 1400px; top:500px; -webkit-transform: rotate(-20deg)}
+  90%{left: 1400px; top:500px; -webkit-transform: rotate(20deg)}
+  95%{left: 1400px; top:-500px; -webkit-transform: rotate(0deg)}
+  100%{left:120px; top:0px;}
+}*/
+/* CONTAINERS */ 
+.container{
+  height: 90%;
+}
+
+.container-fluid{
+  height:100%;
+}
+
+/* TEXT */ 
+h1 {
+  color:white;
+}
+
+h3{
+  font-size: 20px;
+  color:white;
+}
+
+p{
+  font-size: 15px;
+  color:white;
+}
+
+/* BUTTONS */ 
+
+.btn{
+  background-color: white;
+  color: #000066;
+}
+
+.btn:hover{ 
+  background-color: #cccccc;
+}
+
+/* MENU */ 
+
+.menu{
+  width:100%;
+  height:10%;
+  font-size:14px;
+  padding-top:10px;
+  text-transform: uppercase;
+}
+
+.menu a{
+  color:white;
+  margin-top: 20px;
+}
+
+.menu-item{
+  padding-top:20px;
+  height:60px;
+}
+
+.menu #planet{
+  margin-top:10px;
+  text-align:center;
+  margin:auto;
+  padding:auto;
+}
+
+.menu .row{
+  height: 100px;
+}
+
+/* When menu link is active */ 
+.active{
+    text-decoration: underline;
+}
+
+.line{
+  border-bottom: 0.2px white solid;
+  position:relative;
+}
+
+/* CREAT NEW CHARACHTER FEATURES */
+
+.scroll
+{
+margin-top:10px;
+padding-top:10px;
+height:80px;
+width:500px;
+overflow-x:scroll;
+white-space: nowrap;
+}
+
+.wide{ 
+  width:800px;
+  height:60px;
+}
+
+.circle{
+  width:50px;
+  height:50px;
+  border-radius:25px;
+  font-size:20px;
+  background:#ffffff;
+  float:left;
+  margin-left:10px;
+  margin-right:10px;
+}
+
+#nameInput{
+  width: 200px;
+  margin: auto;
+  color: #000033;
+  background-color: white;
+}
+
+/* SLIDER, HITTAT http://www.cssportal.com/style-input-range/ */
+
+input[type=range] {
+  -webkit-appearance: none;
+  margin: 10px 0;
+  width: 80%;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100px;
+  height: 10px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px #000000;
+  background: #3071A9;
+  border-radius: 5px;
+  border: 1px solid #000000;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px #000000;
+  border: 1px solid #000000;
+  height: 30px;
+  width: 15px;
+  border-radius: 5px;
+  background: #FFFFFF;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -11px;
+}
+
+/* SLUT PÅ SLIDER */ 
+
+/* PLANET GAME */ 
+.planetPlan{
+  width: 100px;
+  height: 100px;
+  background-image: url(images/josplanet.png);
+  background-size: 100px 100px;
+  text-align: center;
+  color: white;
+}
+
+.wonplanet{
+-webkit-filter: brightness(200%); /* Chrome, Safari, Opera */
+filter: brightness(200%);
+}
+
+.lostplanet{
+-webkit-filter: brightness(10%); /* Chrome, Safari, Opera */
+filter: brightness(10%);
+}
+
+.normalplanet{
+  width: 100px;
+  height: 100px;
+  background-image: url(images/josplanet.png);
+  background-size: 100px 100px;
+}
+/* PLANET GAME DONE */ 
+
+/* SELECT MY CHARACHTERS */ 
+.savedChars{
+  text-align:center;
+  border:1px solid white;
+  margin-top:10px;
+  margin-left:5px;
+  margin-right:5px;
+}
+
+#selectChar{
+  position:relative;
+}
+
+/* START VIEW */ 
+
+#startView{
+min-height:800px;  overflow: hidden;
+margin:0px;
+padding:0px;
+background-size: cover;
+}
+
+#startViewIntro{
+  padding-top: 100px;
+  text-align: center;
+}
+
+#startView p{
+  font-size: 20px;
+}
+
+#introplanet{
+  position:relative;
+  padding:0px;
+  margin:0 auto;
+}
+
+.play-icon{
+  position:relative;
+}
+
+
+/* UNVIVERSE VIEW */ 
+.planeten{
+  /*Detta ska endast ske om planeten är vunnen sen */ 
+  -webkit-filter: brightness(150%); /* Chrome, Safari, Opera */
+  filter: brightness(150%);
+}
+
+.solarSystem{
+  width: 100px;
+  height: 100px;
+  background-image: url(images/josplanet.png);
+  background-size: 100px 100px;
+}
+
+.universe .row{
+  height:100px;
+}
+
+.solarSystem p{
+  margin-left: 30px;
+}
+
+/* INSTRUCTIONS */
+#instructionsHeader{
+  text-align: center;
+  padding-top: 120px;
+  padding-bottom: 40px;
+}
+ 
+
+/* POP UP */ 
+
+.black_overlay{
+  display: none;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index:1001;
+  -moz-opacity: 0.8;
+  opacity:.80;
+  filter: alpha(opacity=80);
+}
+
+.white_content {
+  display: none;
+  position: absolute;
+  top: 10%;
+  left: 12%;
+  width: 76%;
+  height: 80%;
+  padding: 16px;
+  background-color: white;
+  z-index:1002;
+  overflow: auto;
+  text-align: 
+}
+
+.planet_info{
+  height:500px;
+}
+
+/* AVATAR */ 
+#avatar{
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+#avatar-btn{
+  padding-top:20px;
+  text-align: center;
+}
+
+/* OKLART */  
+.planeten{
+  /*Detta ska endast ske om planeten är vunnen sen */ 
+  -webkit-filter: brightness(150%); /* Chrome, Safari, Opera */
+  filter: brightness(150%);
+}
+
+/* RESULT AFTER PLANET COMPETING */ 
+.result_info{ 	
+	height:200px;
+}
