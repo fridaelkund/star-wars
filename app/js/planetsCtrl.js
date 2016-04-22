@@ -18,7 +18,7 @@ $scope.getPlanets = function(){
 		}
 	}
 	console.log("this is all planets with habitants", $scope.ourPlanets)
-	console.log("Here's a planet", $scope.ourPlanets[0])
+	console.log("ourPlanets", $scope.ourPlanets)
 }
 
 
@@ -58,12 +58,12 @@ $scope.moveToPlanet = function(planet){
 
 $scope.whatclass = function(planet){
 	for(i in StarModel.returnWonPlanets()){
-		if (planet.planet.name == StarModel.returnWonPlanets()[i].planet.planet.name){
+		if (planet.planet.name == StarModel.returnWonPlanets()[i].planet.name){
 			return "wonplanet"
 		}
 	}	
 	for(i in StarModel.returnLostPlanets()){
-		if(planet.planet.name == StarModel.returnLostPlanets()[i].planet.planet.name){
+		if(planet.planet.name == StarModel.returnLostPlanets()[i].planet.name){
 			return "lostplanet"
 		}
 	}

@@ -5,7 +5,7 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 	}
 
 	var lookAlikes = [];
-	var profile = {"name": "", "eye": "", "hair": "", "height": ""};
+	var profile = {"name": "", "eye": "", "hair": "", "height": "", "wonPlanets": [], "lostPlanets": []};
 	var wonPlanets = [];
 	var lostPlanets = [];
 	var habitantsOnPlanets = [];
@@ -127,11 +127,13 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 
 
 	this.addWonPlanet = function(planet){
-		wonPlanets.push({"planet":planet});
+		console.log("planet innan add to won Planets", planet);
+		profile.wonPlanets.push(planet);
+		console.log("wonplanets efter add", profile.wonPlanets);
 	}
 
 	this.addLostPlanet= function(planet){
-		lostPlanets.push({"planet":planet})
+		profile.lostPlanets.push(planet)
 	}
 
 
@@ -189,18 +191,18 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 
 	//Returnerar lista med planeter som spelaren vunnit
 	this.returnWonPlanets = function(){
-		return wonPlanets;
+		return profile.wonPlanets;
 	}
 
 	this.returnLostPlanets = function(){
-		return lostPlanets;
+		return profile.lostPlanets;
 	}
 
 
 	this.savePlanets = function(){
 		var temp = JSON.parse(localStorage.getItem(profile.name));
-		temp["wonPlanets"] = wonPlanets;
-		temp["lostPlanets"] = lostPlanets;
+		temp.wonPlanets = profile.wonPlanets;
+		temp.lostPlanets = profile.lostPlanets;
 		console.log("tempis", temp);
 		localStorage.setItem(profile.name, JSON.stringify(temp));		
 	}
@@ -236,6 +238,7 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 	this.savePlanetsLocalStorage = function(){
 		localStorage.setItem("planeter", JSON.stringify(habitantsOnPlanets));
 	}
+
 	this.getPlanetsFromLocal = function(){
 		habitantsOnPlanets = JSON.parse(localStorage.getItem("planeter"));
 	}
