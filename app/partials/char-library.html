@@ -1,12 +1,17 @@
 <ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include>
 
 <div class="container" ng-init="getAllLocals()">
+
+  <div id="instructionsHeader">
+    <h1>MY CHARACTERS</h1> 
+  </div>
+
 <div class="row">
 
-<a href="#/new-char"><div id="selectChar" class="col-md-3 savedChars"><h1> Add new </h1></div></a>
+<a href="#/new-char"><div id="selectNew" class="col-md-3 selectChar"><div class="charContent"><p id='plus'>+</p><p id="add">new character</p></div></div></a>
 
-<div id="selectChar" class="col-md-3 savedChars" ng-repeat="loc in allLocals">
-
+<div class="col-md-3 selectChar" ng-repeat="loc in allLocals">
+<div class="charContent">
 <div  ng-click="getProfile(loc)">
 <svg height="200" width="200">	
   <svg>
@@ -31,6 +36,7 @@
 <div id="killCharacter"><button type="button" class="btn btn-default btn-sm" ng-click="killChar(loc)">
     <span class="glyphicon glyphicon-remove"></span> Kill {{loc.name}}
 </button></div>
+</div>
 
 </div>
 

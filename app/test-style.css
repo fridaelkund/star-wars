@@ -331,3 +331,26 @@ background-size: cover;
   filter: brightness(150%);
 }
 
+/* SELECT MY CHARACHTERS */ 
+
+.selectChar{
+  position:relative;
+}
+
+.charContent{
+  margin-top:20px;
+  width:90%;
+  border:1px solid white;
+  text-align:center;
+  padding-bottom:20px;
+  height: 300px;
+}
+
+#plus{
+  margin-top:30%;
+  font-size:40px;
+}
+
+#add{
+  font-size:30px;
+}

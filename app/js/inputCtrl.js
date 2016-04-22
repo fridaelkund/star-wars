@@ -78,7 +78,11 @@ $scope.inputName=function(query){
 }
 
 $scope.getAllLocals = function(){
-	$scope.allLocals = StarModel.getLocalStorage();
+	if(StarModel.getLocalStorage().length === 0){
+	$scope.allLocals = null;
+	}else{
+		$scope.allLocals= StarModel.getLocalStorage();
+	}
 };
 
 // When selecting char from local storage, getting attributes, adding to profile
