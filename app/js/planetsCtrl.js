@@ -45,13 +45,20 @@ $scope.moveToPlanet = function(planet){
 	if ($scope.result == 1){
 		StarModel.addWonPlanet(planet);
 		console.log("You won", planet);
-		$scope.whatclass(planet);
+		TweenMax.to(('#'+planet.planet.name), 0.2, {x:"+=10", yoyo:true, repeat:-2});
+		TweenMax.to(('#'+planet.planet.name), 0.2, {x:"-=10", yoyo:true, repeat:2});
+		TweenMax.from(('#'+planet.planet.name), 5, {'-webkit-filter': 'brightness(100%)', delay:0.5});
+		TweenMax.to(('#'+planet.planet.name), 5, {'-webkit-filter': 'brightness(200%)', delay:0.5});
 
 	} else{
 
 		StarModel.addLostPlanet(planet);
 		console.log("You lost!", planet);
 		$scope.whatclass(planet);
+		TweenMax.to(('#'+planet.planet.name), 0.2, {x:"+=10", yoyo:true, repeat:-2});
+		TweenMax.to(('#'+planet.planet.name), 0.2, {x:"-=10", yoyo:true, repeat:2});
+		TweenMax.from(('#'+planet.planet.name), 5, {'-webkit-filter': 'brightness(100%)', delay:0.5});
+		TweenMax.to(('#'+planet.planet.name), 5, {'-webkit-filter': 'brightness(0%)', opacity:0, delay:0.5});
 	}
 };
 
