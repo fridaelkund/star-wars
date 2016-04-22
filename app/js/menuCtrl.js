@@ -31,7 +31,6 @@ $scope.loading = function(startwars){
 	}
 };
 
-
 // Fetching planets from API by calling fetchAll of planetUrl from model.
 // Waiting for respons and then adding planets to list of planets in model 
 $scope.fetchPlanets = function(){

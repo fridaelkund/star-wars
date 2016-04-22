@@ -1,6 +1,6 @@
 <div id="startView" class="container-fluid" ng-controller="menuCtrl">
 
-<ng-include src="'partials/menu.html'"></ng-include>
+<ng-include src="'partials/menu.html'" ng-hide="loading"></ng-include>
 	
 <div class="col-md-12" id="startViewIntro" ng-init="loading(hej)">
 
