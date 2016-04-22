@@ -3,9 +3,11 @@
 <div class="container" ng-init="getAllLocals()">
 <div class="row">
 
-<div id="selectChar" class="col-md-2 savedChars" ng-repeat="loc in allLocals" ng-click="getProfile(loc)">
+<a href="#/new-char"><div id="selectChar" class="col-md-3 savedChars"><h1> Add new </h1></div></a>
 
-<svg height="200" width="200">	
+<div id="selectChar" class="col-md-3 savedChars" ng-repeat="loc in allLocals" ng-click="getProfile(loc)">
+
+<svg height="150" width="100">	
 
   <svg>
     <rect x="25" y="40" rx="20" ry="20" width="50" ng-attr-height="{{loc.height/1.5}}" fill="white" stroke-width:1/>

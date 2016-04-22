@@ -1,15 +1,4 @@
-
-
-
-
-
-
-
-
-
-
-
- body{
+body{
 	background-image: url("images/space.jpg");
  }
 
@@ -217,19 +206,6 @@ filter: brightness(10%);
 }
 /* PLANET GAME DONE */ 
 
-/* SELECT MY CHARACHTERS */ 
-.savedChars{
-  text-align:center;
-  border:1px solid white;
-  margin-top:10px;
-  margin-left:5px;
-  margin-right:5px;
-}
-
-#selectChar{
-  position:relative;
-}
-
 /* START VIEW */ 
 
 #startView{
@@ -348,3 +324,20 @@ background-size: cover;
 .result_info{ 	
 	height:200px;
 }
+
+
+/* SELECT MY CHARACHTERS */ 
+.savedChars{
+  text-align:center;
+  border:1px solid white;
+  height:250px;
+  padding:20px;
+  margin-right:20px;
+  margin-top:20px;
+  width:200px;
+}
+
+#selectChar{
+  position:relative;
+}
+
