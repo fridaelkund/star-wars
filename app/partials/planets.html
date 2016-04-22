@@ -1,8 +1,9 @@
 <ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include>
+<ng-include src="'partials/error.html'" ng-show="'{{profil.name}}' === ''"></ng-include>
 
 <ng-include ng-controller="planetsCtrl"></ng-include>
 
-<div class="row" ng-show="'{{profil.name}}' === ''") style="padding-top:100px; padding-left:20px;">
+<div class="row" ng-hide="'{{profil.name}}' === ''") style="padding-top:100px; padding-left:20px;">
 <p>You cant play planets without a character!</p>
 
 <a href="#/new-char" class="btn" id="next-btn" type="button" ng-click="">CREATE NEW CHARACTER</a>
