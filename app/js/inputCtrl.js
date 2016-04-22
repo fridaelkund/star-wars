@@ -101,5 +101,11 @@ $scope.getProfile=function(loc){
 	console.log($scope.profil);
 };
 
+$scope.killChar=function(){
+	localStorage.removeItem($scope.allLocals);
+
+	console.log(localStorage.Bullis)
+}
+
 });
 

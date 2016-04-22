@@ -91,14 +91,14 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 	//karaktärsdrag desto fler poäng samlas
 
 	this.matchMaking = function(){
-		console.log("Start match making!", habitantsOnPlanets)
+		//console.log("Start match making!", habitantsOnPlanets)
 		for(i in habitantsOnPlanets){
-			console.log("In habitants on planets", habitantsOnPlanets[i])
+			//console.log("In habitants on planets", habitantsOnPlanets[i])
 			var tempPerson= null
 			var tempPoints = 0
 			
 			for(j in habitantsOnPlanets[i].habitants){
-				console.log("In habitants")
+				//console.log("In habitants")
 				var lookAlikePoints = 0;
 				
 				if(habitantsOnPlanets[i].habitants[j].eye_color == profile.eye){
@@ -114,7 +114,7 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 					lookAlikePoints += 1;
 				}
 				
-				console.log(lookAlikePoints);
+				//console.log(lookAlikePoints);
 
 				if(tempPoints < lookAlikePoints){
 					tempPerson = habitantsOnPlanets[i].habitants[j];
@@ -124,7 +124,7 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 
 			habitantsOnPlanets[i].lookAlike = {"bestMatch":tempPerson, "points":(tempPoints/=4)*100};	
 		}
-		console.log("We have a match", habitantsOnPlanets)
+		//console.log("We have a match", habitantsOnPlanets)
 	};
 
 
