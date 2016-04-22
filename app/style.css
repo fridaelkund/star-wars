@@ -308,8 +308,14 @@ background-size: cover;
   text-align: 
 }
 
+
 .planet_info{
   height:500px;
+}
+
+#light{
+  background-color: #000d1a;
+  color: white;
 }
 
 /* AVATAR */ 

@@ -1,5 +1,6 @@
 StarWarsApp.factory('StarModel',function ($resource, $http, $q){
-
+	
+	var habitantsOnPlanets = [];
 	if(JSON.parse(localStorage.getItem("planeter")) !== null){
 		habitantsOnPlanets = JSON.parse(localStorage.getItem("planeter"));
 	}
@@ -8,7 +9,6 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 	var profile = {"name": "", "eye": "", "hair": "", "height": "", "wonPlanets": [], "lostPlanets": []};
 	var wonPlanets = [];
 	var lostPlanets = [];
-	var habitantsOnPlanets = [];
 
 	var tempData = [];
 	var q = null; // The deferrer object which we define later.
