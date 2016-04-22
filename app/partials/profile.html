@@ -1,27 +1,64 @@
 <ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include>
-
 <ng-include src="'partials/error.html'" ng-show="'{{profil.name}}' === ''"></ng-include>
 
-
+<!-- Starts loading profile_information -->
 <div class="container" ng-init="load_profile()">
-<!-- 	<div class="row" ) style="padding-top:100px; padding-left:20px;">
-		<p>You have no character yet!</p>
-		<a href="#/new-char" class="btn" id="next-btn" type="button" ng-click="">CREATE NEW CHARACTER</a>
-		<a href="#/char-library" class="btn" id="next-btn" type="button" ng-click="">SELECT OLD CHARACTER</a>
-	</div> -->
-	
-<div class="row" ng-hide="'{{profil.name}}' === ''">
-	<div class="col-md-8">
-	<h3> My imperium </h3>
-	<div class="col-md-1" ng-repeat="p in wonplanets">
-		<div name="planetButton" ng-class='whatclass(p)'>
-			<img src="josplanet.png" width="30px" height="30px">
-			<p>{{p.planet.name}}</p>
+
+	<!-- If user has a profile the profile is being shown -->
+	<div class="row" ng-hide="'{{profil.name}}' === ''">
+
+		<!-- Includes view of won planets. Planets are clickable and if clicked the pop up is opened -->
+		<div class="col-md-8">
+			<div class="col-md-1" ng-repeat="planet in wonplanets">
+				<div name="solarSystem" ng-class='whatclass(p)' ng-click="open_popup(planet)">
+					<img src="josplanet.png" width="60px" height="60px">
+					<p>{{planet.planet.name}}</p>
+				</div>
+			</div>
+		</div>
+		<!-- Includes view with avatar -->
+		<ng-include src="'partials/avatar.html'" ng-controller="inputCtrl"></ng-include>
+	</div>
+</div>  <!-- End of profile page -->
+
+
+
+<!-- Pop up -->
+<div id="light" ng-click="close_popup()" class="white_content planet_info col-md-12">
+	<div class="row">
+		<div class="col-md-2 diameter">
+			<h2>
+				D: {{popup_diameter}}
+			</h2>
+		</div>
+		<div class="col-md-1">
+		</div>
+		<div class="col-md-6">
+			<h2> {{popup_name}}</h2>
+			<img src="josplanet.png" alt="planet" height="200" width="200">		
+		</div>
+		<div class="col-md-3">
+			<br/>
+			<br/>
+			<h2>
+				<img src="images/population.png" height="40px" width="40px">
+				{{popup_population}}
+			</h2>
+			<h2>
+				<img src="images/mountain.png" height="40px" width="40px">
+					{{popup_terrain}}
+			</h2>
+			<h2>
+				<img src="images/sun.png" height="40px" width="40px">
+				{{popup_climate}}
+			</h2>
+			<h2>
+				<img src="images/drop.png" height="40px" width="40px">
+				{{popup_surfacewater}}
+			</h2>
 		</div>
 	</div>
-</div>
-	<ng-include src="'partials/avatar.html'" ng-controller="inputCtrl"></ng-include>
+</div> <!-- En of pop up -->
 
-</div>
-</div>
-
+<!-- Fade behind pop up -->
+<div id="fade" class="black_overlay"></div>
