@@ -5,14 +5,10 @@
 
 <div id="selectChar" class="col-md-2 savedChars" ng-repeat="loc in allLocals" ng-click="getProfile(loc)">
 
-<svg height="100" width="100">	
+<svg height="200" width="200">	
 
-  <svg height="200" width="300">
-  <ellipse cx="130" cy="230" rx="8" ry="15" fill="black"/>
-  <ellipse cx="170"cy="230" rx="8" ry="15" fill="black"/>
-  </svg>
-
-  <svg><rect x="25" y="40" rx="20" ry="20" width="50" height={{loc.height/2}} fill="white" stroke-width:1/>
+  <svg>
+    <rect x="25" y="40" rx="20" ry="20" width="50" ng-attr-height="{{loc.height/1.5}}" fill="white" stroke-width:1/>
   </svg>
   
   <svg height="50" width="150">
@@ -20,10 +16,10 @@
   </svg>
 
   <svg height="300" width="400">
-    <circle cx="38" cy="57" r="5" fill={{eyecols[loc.eye]}}/>
-  	<circle cx="38" cy="57" r="2.5" fill="black"/>
-  	<circle cx="62" cy="57" r="5" fill={{eyecols[loc.eye]}}/>
-  	<circle cx="62" cy="57" r="2.5" fill="black"/>
+    <circle cx="42" cy="57" r="5" fill={{eyecols[loc.eye]}}/>
+  	<circle cx="42" cy="57" r="2.5" fill="black"/>
+  	<circle cx="58" cy="57" r="5" fill={{eyecols[loc.eye]}}/>
+  	<circle cx="58" cy="57" r="2.5" fill="black"/>
   </svg>
 
   <p>{{loc.name}}</p>
