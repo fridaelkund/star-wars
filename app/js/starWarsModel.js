@@ -7,8 +7,10 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 
 	var lookAlikes = [];
 	var profile = {"name": "", "eye": "", "hair": "", "height": "", "wonPlanets": [], "lostPlanets": []};
+
 	var wonPlanets = [];
 	var lostPlanets = [];
+
 
 	var tempData = [];
 	var q = null; // The deferrer object which we define later.
@@ -128,6 +130,8 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 
 	this.addWonPlanet = function(planet){
 		console.log("planet innan add to won Planets", planet);
+		console.log("profile.wonplanet innan add to won Planets", profile);
+	
 		profile.wonPlanets.push(planet);
 		console.log("wonplanets efter add", profile.wonPlanets);
 	}
@@ -162,32 +166,15 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 
 	this.addToProfile = function(field, value){
 		profile[field] = value;
-	}
+	};
 
 	this.returnProfile = function(){
 		return profile;
 	}
 
 	this.clearAll = function(){
-	lookAlikes = [];
-	profile = {"name": "", "eye": "", "hair": "", "height": ""};
-	wonPlanets = [];
-	lostPlanets = [];
+	profile = {"name": "", "eye": "", "hair": "", "height": "", "wonPlanets": [], "lostPlanets": []};
 	}
-
-
-	
-
-	this.returnProcent = function(){
-		return lookAlikes.proc;
-	}
-
-	this.returnPerson=function(){
-		return this.getPerson;
-	}
-
-	//Lägger till planet i "planeter som spelaren har vunnit"
-
 
 	//Returnerar lista med planeter som spelaren vunnit
 	this.returnWonPlanets = function(){
