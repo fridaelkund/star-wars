@@ -10,7 +10,7 @@
 
 <a href="#/new-char"><div id="selectNew" class="col-md-3 selectChar"><div class="charContent" ng-click="clearPreviousProfileData()"><p id='plus'>+</p><p id="add">new character</p></div></div></a>
 
-<div class="col-md-3 selectChar" ng-repeat="loc in allLocals">
+<div class="col-md-3 selectChar" ng-repeat="loc in allLocals track by $index">
 <div class="charContent">
 <div  ng-click="getProfile(loc)">
 <svg height="200" width="200">	
