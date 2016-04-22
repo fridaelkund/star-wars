@@ -204,9 +204,7 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 	}
 
 	this.saveLocalStorage = function(){
-		if(profile.name ==! ''){
 		localStorage.setItem(profile.name, JSON.stringify(profile));
-		};
 	}
 
 	this.savePlanetsLocalStorage = function(){
