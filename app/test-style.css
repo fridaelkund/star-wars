@@ -186,6 +186,9 @@ input[type=range]::-webkit-slider-thumb {
   background-size: 100px 100px;
   text-align: center;
   color: white;
+  padding-top:20%;
+  margin-top:15%;
+  margin-left:5%;
 }
 
 .wonplanet{
