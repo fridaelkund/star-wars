@@ -30,13 +30,13 @@ $scope.moveToPlanet = function(planet){
 	console.log($scope.result)
 
 	for(i in StarModel.returnWonPlanets()){
-		if(planet == StarModel.returnWonPlanets()[i].planet){
+		if(planet == StarModel.returnWonPlanets()[i]){
 			console.log("You already won! :)")
 			return
 			}
 		}
 	for(i in StarModel.returnLostPlanets()){
-		if(planet == StarModel.returnLostPlanets()[i].planet){
+		if(planet == StarModel.returnLostPlanets()[i]){
 			console.log("You already lost! :(")
 			return
 			}
@@ -65,12 +65,12 @@ $scope.moveToPlanet = function(planet){
 
 $scope.whatclass = function(planet){
 	for(i in StarModel.returnWonPlanets()){
-		if (planet.planet.name == StarModel.returnWonPlanets()[i].planet.name){
+		if (planet.planet.name == StarModel.returnWonPlanets()[i].name){
 			return "wonplanet"
 		}
 	}	
 	for(i in StarModel.returnLostPlanets()){
-		if(planet.planet.name == StarModel.returnLostPlanets()[i].planet.name){
+		if(planet.planet.name == StarModel.returnLostPlanets()[i].name){
 			return "lostplanet"
 		}
 	}

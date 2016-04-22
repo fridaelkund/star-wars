@@ -8,11 +8,11 @@
 <div class="col-md-8" ng-init="getPlanets()">
 	<p> Select which planet to conquer by clicking it. </p>
 	<div class="universe col-md-3" ng-repeat="planet in ourPlanets">
-		<div class="planetPlan" id="{{planet.planet.name}}" name="planetButton" ng-click="moveToPlanet(planet)" ng-class='whatclass(planet)' data-toggle="popover" data-placement="right" data-content="Du har {{planet.lookAlike.points}} procents chans att vinna" data-trigger="hover">{{planet.planet.name}}</div>
+		<div class="planetPlan" id="{{planet.planet.name.split(' ').join('')}}" name="planetButton" ng-click="moveToPlanet(planet)" ng-class='whatclass(planet)' data-toggle="popover" data-placement="right" data-content="Du har {{planet.lookAlike.points}} procents chans att vinna" data-trigger="hover">{{planet.planet.name}}</div>
     </div>
 </div>
 
-
+boundString.split(' ').join('')
 
 <div id="light" class="white_content result_popup col-md-12">
 	<div class="row">
