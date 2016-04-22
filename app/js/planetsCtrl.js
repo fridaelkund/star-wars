@@ -1,8 +1,12 @@
 StarWarsApp.controller('planetsCtrl', function($scope, StarModel){
 
 $scope.profil = StarModel.returnProfile();
+
+//*** TA BORT, används ej *** 
 $scope.message = "% chance to win";
 
+
+//Fortsättning här imorgon / Josmol
 $scope.$on('$routeChangeStart', function() { 
    StarModel.savePlanets();
  });

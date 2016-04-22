@@ -12,6 +12,7 @@ $scope.profil = StarModel.returnProfile()
 // I so, get values from profile and updating SVG: 
 // Else, default values/empty values.
 
+// *** LÄGGA I FUNKTION *** 
 if($scope.profil.hair == ""){}
 else{
 	$scope.avatar_hair = $scope.profil.hair;
@@ -42,7 +43,7 @@ $scope.clearPreviousProfileData = function(){
 	StarModel.clearAll();
 
 }
-// Saving profile to Star Model.
+// Saving profile to Star Model. 
 $scope.save=function(){
 	StarModel.addToProfile('name', $scope.avatar_name);
 	StarModel.addToProfile('hair', $scope.avatar_hair);
@@ -53,26 +54,28 @@ $scope.save=function(){
 	
 }
 
-// Displaying name, hair, eye and length.
+// Displaying name
 $scope.showName = function(name){
 	$scope.avatar_name = name;
 }
-
+//Displaying hair
 $scope.showHair=function(color){
 	$scope.avatar_hair = color;
 	$scope.avatar_hairhex = StarModel.haircol[color];
 }
-
+//Displaying eye color
 $scope.showEye=function(eye){
 	$scope.avatar_eye = eye;
 	$scope.avatar_eyehex = StarModel.eyecol[eye];
 }
 
+//Displaying height
 $scope.showHeight=function(height){
 	document.querySelector('#height').value = height;
 	$scope.avatar_height = height;
 }
 
+// ****** ANVÄNDS DENNA??? ******
 $scope.inputName=function(query){
 	if(query==null){
 		return
@@ -82,15 +85,17 @@ $scope.inputName=function(query){
 	}
 }
 
+
 $scope.getAllLocals = function(){
 	if(StarModel.getLocalStorage().length === 0){
-	$scope.allLocals = null;
-	}else{
-		$scope.allLocals= StarModel.getLocalStorage();
+		$scope.allLocals = null;
+	}
+	else{
+		$scope.allLocals = StarModel.getLocalStorage();
 	}
 };
 
-// When selecting char from local storage, getting attributes, adding to profile
+// When selecting character from local storage, getting attributes, adding to profile
 // and matchmaking.
 $scope.getProfile=function(loc){
 	StarModel.clearAll();
@@ -98,20 +103,26 @@ $scope.getProfile=function(loc){
 	StarModel.addToProfile('hair', loc.hair);
 	StarModel.addToProfile('eye', loc.eye);	
 	StarModel.addToProfile('height', loc.height);
+	
 	for(i in loc.wonPlanets){
-		StarModel.addWonPlanet(loc.wonPlanets[i])
+		StarModel.addWonPlanet(loc.wonPlanets[i]);
 	};
 	for(i in loc.lostPlanets){
-		StarModel.addLostPlanet(loc.lostPlanets[i])
+		StarModel.addLostPlanet(loc.lostPlanets[i]);
 	};
+
 	StarModel.matchMaking();
+
 	$location.path("/profile");
+
 	$scope.profil = StarModel.returnProfile();
 	console.log($scope.profil);
 };
 
 $scope.killChar=function(loc){
 	localStorage.removeItem(loc.name);
+	// *** Även ta bort från profile här? *** 
+	//	StarModel.clearAll();
 	$scope.allLocals = StarModel.getLocalStorage();
 }
 

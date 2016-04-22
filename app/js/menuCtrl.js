@@ -10,24 +10,24 @@ var peopleUrl = "http://swapi.co/api/people/"
 // If so, fetching the data from local storage. If not, calling the API and fetching 
 // people and planets from API. 
 $scope.loading = function(startwars){
+	// *** KOLLA ÖVER DENNA INPUT, står 'hej' i view *** 
+	
 	// While waiting we're setting loading-variable to true and hiding play-button
 
 	$scope.loading = true;
 	$scope.showPlay = false;
 
-	StarModel.checkLocalStorage()
-
 	// If no planets or people in local storage, we have to get them from API 
 	if(StarModel.checkLocalStorage() === false){
-	$scope.fetchPlanets();
+		$scope.fetchPlanets();
 
 	// Playing Star Wars-intro while loading to get into the right mode. 
 	document.getElementById('audio1').play(startwars);
-}else{
+	}else{
 
 // If we have planets and people in local storage, get them! 
-	StarModel.getPlanetsFromLocal();
-	$scope.timeToPlay();
+		$scope.habitantsOnPlanets = StarModel.getPlanetsFromLocal();
+		$scope.timeToPlay();
 	}
 };
 
@@ -72,6 +72,7 @@ $scope.timeToPlay = function(){
 };
 
 
+// ** Gör till href istället *** 
 $scope.play = function(){	
 	$location.path('/instructions');
 };

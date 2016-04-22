@@ -79,6 +79,7 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
     	console.log("All planets have habitants!", habitantsOnPlanets)
     }
 
+// **ANVÄNDS DESSA?? , inte väl? *** 
 	this.getPlanets = $resource("http://swapi.co/api/planets/");
 	this.getCharacter = $resource("http://swapi.co/api/people/");
 
@@ -94,8 +95,8 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 		//console.log("Start match making!", habitantsOnPlanets)
 		for(i in habitantsOnPlanets){
 			//console.log("In habitants on planets", habitantsOnPlanets[i])
-			var tempPerson= null
-			var tempPoints = 0
+			var tempPerson= null;
+			var tempPoints = 0;
 			
 			for(j in habitantsOnPlanets[i].habitants){
 				//console.log("In habitants")
@@ -163,7 +164,7 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 		return profile.lostPlanets;
 	}
 
-
+//Fortsättning här imorgon /Josmol
 	this.savePlanets = function(){
 		var temp = JSON.parse(localStorage.getItem(profile.name));
 	
@@ -196,9 +197,10 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 			console.log('loopar igenom', i);
 			if(i === "planeter"){
 				console.log('planet')
-		}else{
+			}
+			else{
 			allLocals.push(JSON.parse(localStorage.getItem([i])));
-		}
+			}
 		}
 		return allLocals;
 	}

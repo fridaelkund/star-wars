@@ -6,10 +6,6 @@ StarWarsApp.config(['$routeProvider',
 			when('/home', {
 				templateUrl: 'partials/start.html'
 			}).
-			when('/select-char', {
-				templateUrl: 'partials/select-char.html',
-				controller: 'selectCtrl'
-			}).
 			when('/new-char', {
 				templateUrl: 'partials/new-char.html',
 				controller: 'inputCtrl'
