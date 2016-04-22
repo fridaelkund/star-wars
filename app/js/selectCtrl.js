@@ -1,6 +1,3 @@
-StarWarsApp.controller('selectCtrl', function($scope, StarModel){
-
-$scope.startAnimation = function(){
-};
+StarWarsApp.controller('selectCtrl', function($scope, $location, StarModel){
 
 });

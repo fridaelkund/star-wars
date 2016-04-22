@@ -15,7 +15,8 @@ StarWarsApp.config(['$routeProvider',
 				controller: 'inputCtrl'
 			}).
 			when('/char-library', {
-				templateUrl: 'partials/char-library.html'
+				templateUrl: 'partials/char-library.html',
+				controller: 'inputCtrl'
 			}).
 			when('/planets', {
 				templateUrl: 'partials/planets.html',
