@@ -248,18 +248,14 @@ background-size: cover;
 }
 
 
-/* UNVIVERSE VIEW */ 
-.planeten{
-  /*Detta ska endast ske om planeten är vunnen sen */ 
-  -webkit-filter: brightness(150%); /* Chrome, Safari, Opera */
-  filter: brightness(150%);
+/* PROFILE VIEW */ 
+.universe{
+  margin-top: 40px;
 }
 
-.universe .row{
-  height:100px;
+#profileHeader{
+  text-align: center;
 }
-
-
 
 /* INSTRUCTIONS */
 #instructionsHeader{
@@ -322,7 +318,9 @@ background-size: cover;
   padding-top:20px;
   text-align: center;
 }
-
+.avatarWindow{
+  border:1px solid white;
+}
 /* OKLART */  
 .planeten{
   /*Detta ska endast ske om planeten är vunnen sen */ 

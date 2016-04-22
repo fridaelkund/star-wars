@@ -1,6 +1,7 @@
-<div class="col-md-4" style="text-align:center;">
+<div class="col-md-4 avatarWindow" style="text-align:center;">
 
 <p style="padding-top:50px;">{{avatar_name}}</p>
+<a href="#/new-char" class="btn" type="button" ng-show="location.hash === '#/profile'">CHANGE</a>
 
 <svg id="avatar" height="200" width="200">
   
@@ -19,10 +20,6 @@
 
 </svg>
 
-<div class="col-md-12">
-  <a href="#/planets" ng-show="location.hash === '#/profile'" class="btn" type="button" ng-click="">Play now!</a>
-  <a href="#/profile" ng-show="location.hash === '#/new-char'" class="btn" type="button" ng-click="save()">Save!</a>
-</div> 
 
 </div>
 

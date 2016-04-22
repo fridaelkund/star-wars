@@ -3,13 +3,15 @@
 
 <!-- Starts loading profile_information -->
 <div class="container" ng-init="load_profile()">
-
 	<!-- If user has a profile the profile is being shown -->
 	<div class="row" ng-hide="'{{profil.name}}' === ''">
-
+		<div id="profileHeader">
+			<h1>PROFILE</h1>
+		</div>
 		<!-- Includes view of won planets. Planets are clickable and if clicked the pop up is opened -->
 		<div class="col-md-8">
-			<div class="col-md-1" ng-repeat="planet in wonplanets">
+			<h3>Your planet collection</h3>
+			<div class="col-md-3 universe" ng-repeat="planet in wonplanets">
 				<div name="solarSystem" ng-class='whatclass(p)' ng-click="open_popup(planet)">
 					<img src="josplanet.png" width="60px" height="60px">
 					<p>{{planet.planet.name}}</p>
@@ -18,6 +20,10 @@
 		</div>
 		<!-- Includes view with avatar -->
 		<ng-include src="'partials/avatar.html'" ng-controller="inputCtrl"></ng-include>
+		<div class="col-md-12" style="text-align:center;">
+			<a href="#/planets" class="btn" type="button">START GAME</a>
+
+		</div>
 	</div>
 </div>  <!-- End of profile page -->
 
