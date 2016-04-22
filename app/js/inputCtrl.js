@@ -38,6 +38,10 @@ else{
 	$scope.avatar_name = $scope.profil.name;	
 };
 
+$scope.clearPreviousProfileData = function(){
+	StarModel.clearAll();
+
+}
 // Saving profile to Star Model.
 $scope.save=function(){
 	StarModel.addToProfile('name', $scope.avatar_name);
