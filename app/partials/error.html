@@ -1,0 +1,12 @@
+<!-- Att göra:
+
+Felmeddelande om profile.name inte finns "Du har ingen gubbe! Klicka här för att skapa en eller Klicka här för att välja en"
+ -->
+<ng-include ng-controller="errorCtrl"></ng-include>
+<div class="container">
+	<div id="errorBox">
+		<p> You have no character yet!</p>
+		<a href="#/new-char" class="btn" id="next-btn" type="button" ng-click="">CREATE NEW CHARACTER</a>
+		<a href="#/char-library" class="btn" id="next-btn" type="button" ng-click="">SELECT OLD CHARACTER</a>
+	</div>
+</div>	

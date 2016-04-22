@@ -1,13 +1,14 @@
-StarWarsApp.controller('inputCtrl', function($scope, StarModel){
+StarWarsApp.controller('inputCtrl', function($scope, $location, StarModel){
 
-// Hämtar lista på färger med namn:hex
+// Get list of hair and eye colors, in the form colors: hex-col
 $scope.eyecols=StarModel.eyecol;
 $scope.haircols = StarModel.haircol;
 
 $scope.location = window.location;
 
-// Kollar om det finns ögonfärg, hårfärg och längd i profilen redan.
-// Lägger defaultvärden om så är fallet, annars hämtar värden från profil och uppdaterar i SVGn.
+// Check if hair, eye, length and name in profile allready. 
+// I so, get values from profile and updating SVG: 
+// Else, default values/empty values.
 
 if(StarModel.returnProfile().hair == ""){}
 else{
@@ -23,22 +24,19 @@ else{
 
 if(StarModel.returnProfile().height == ""){
 	$scope.avatar_height = 100;
-	$scope.avatar_feet = $scope.avatar_height+180;
 }
 else{
 	$scope.avatar_height = StarModel.returnProfile().height;	
-	$scope.avatar_feet = parseInt($scope.avatar_height)+180;
 };
 
 if(StarModel.returnProfile().name == ""){
-	$scope.avatar_name = "Snickers";
+	$scope.avatar_name = "Jedi";
 }
 else{
 	$scope.avatar_name = StarModel.returnProfile().name;	
 };
 
-// Funktion för att spara sin profil. Uppdaterar profile i model. 
-
+// Saving profile to Star Model.
 $scope.save=function(){
 	StarModel.addToProfile('name', $scope.avatar_name);
 	StarModel.addToProfile('hair', $scope.avatar_hair);
@@ -48,8 +46,7 @@ $scope.save=function(){
 	StarModel.matchMaking();
 }
 
-// Visar valt namn, hår/ögonfärg eller längd. Sparar ej i profil. 
-
+// Displaying name, hair, eye and length.
 $scope.showName = function(name){
 	$scope.avatar_name = name;
 }
@@ -67,20 +64,38 @@ $scope.showEye=function(eye){
 $scope.showHeight=function(height){
 	document.querySelector('#height').value = height;
 	$scope.avatar_height = height;
-	$scope.avatar_feet = parseInt(height)+180;
 }
 
 $scope.inputName=function(query){
 	if(query==null){
-		return ;
+		return
 	}
 	else{
 	StarModel.addToProfile('name', query)
 	}
 }
 
-// Matchingsfunktion som kollar vem man är lik av Star Wars-gubbarna. 
+$scope.getAllLocals = function(){
+	$scope.allLocals = StarModel.getLocalStorage();
+};
 
+// When selecting char from local storage, getting attributes, adding to profile
+// and matchmaking.
+$scope.getProfile=function(loc){
+	StarModel.clearAll();
+	StarModel.addToProfile('name', loc.name);
+	StarModel.addToProfile('hair', loc.hair);
+	StarModel.addToProfile('eye', loc.eye);	
+	StarModel.addToProfile('height', loc.height);
+	for(i in loc.wonPlanets){
+		StarModel.addWonPlanet(loc.wonPlanets[i])
+	};
+	for(i in loc.lostPlanets){
+		StarModel.addLostPlanet(loc.lostPlanets[i])
+	};
+	StarModel.matchMaking();
+	$location.path("/profile");
+};
 
 });
 
