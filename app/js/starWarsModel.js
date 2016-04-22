@@ -189,8 +189,13 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 
 	this.savePlanets = function(){
 		var temp = JSON.parse(localStorage.getItem(profile.name));
-		temp.wonPlanets = profile.wonPlanets;
-		temp.lostPlanets = profile.lostPlanets;
+	
+		if(profile.wonPlanets ==! null){
+		temp.wonPlanets = profile.wonPlanets;};
+
+		if(profile.lostPlanets==! null){
+		temp.lostPlanets = profile.lostPlanets;};
+		
 		localStorage.setItem(profile.name, JSON.stringify(temp));		
 	}
 

@@ -102,8 +102,8 @@ $scope.getProfile=function(loc){
 };
 
 $scope.killChar=function(loc){
-	console.log("jkdljs.")
-localStorage.removeItem(loc.name);
+	localStorage.removeItem(loc.name);
+	$scope.allLocals = StarModel.getLocalStorage();
 }
 
 });
