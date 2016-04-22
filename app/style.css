@@ -189,6 +189,9 @@ input[type=range]::-webkit-slider-thumb {
   padding-top:20%;
 }
 
+#planetHeader{
+  text-align: center;
+}
 /*.wonplanet{
 -webkit-filter: brightness(200%);  Chrome, Safari, Opera 
 filter: brightness(200%);

@@ -4,9 +4,13 @@
 <ng-include ng-controller="planetsCtrl"></ng-include>
 
 <div class="row" ng-hide="'{{profil.name}}' === ''">
+<div id="planetHeader">
+
+		<h1>BATTLE FIELD</h1> 
+	</div>
 
 <div class="col-md-8" ng-init="getPlanets()">
-	<p> Select which planet to conquer by clicking it. </p>
+	<h3> Select which planet to conquer by clicking it. </h3>
 	<div class="universe col-md-3" ng-repeat="planet in ourPlanets">
 		<div class="planetPlan" 
 		id="{{planet.planet.name.split(' ').join('')}}" 
