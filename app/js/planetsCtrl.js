@@ -1,11 +1,9 @@
 StarWarsApp.controller('planetsCtrl', function($scope, StarModel){
 
 $scope.profil = StarModel.returnProfile();
-
-console.log("I PLANETCTRL")
+$scope.message = "% chance to win";
 
 $scope.$on('$routeChangeStart', function() { 
-	console.log("Hej");
    StarModel.savePlanets();
  });
 
@@ -24,7 +22,7 @@ $scope.getPlanets = function(){
 
 //Funktion som körs när man klickar på en planet och den har den planet man klickar på som input (tror jag)
 //Om man vinner så läggs planeten till i listan med planeter man vunnit. 
-$scope.moveToPlanet = function(planet){
+$scope.moveToPlanet = function(planet){	
 	$scope.result = StarModel.compete(planet.lookAlike.points)
 	
 	console.log($scope.result)
@@ -44,7 +42,7 @@ $scope.moveToPlanet = function(planet){
 
 	if ($scope.result == 1){
 		StarModel.addWonPlanet(planet);
-		console.log("You won", planet);
+		$scope.message = "You won!"
 		TweenMax.to(('#'+planet.planet.name), 0.2, {x:"+=10", yoyo:true, repeat:-2});
 		TweenMax.to(('#'+planet.planet.name), 0.2, {x:"-=10", yoyo:true, repeat:2});
 		TweenMax.from(('#'+planet.planet.name), 5, {'-webkit-filter': 'brightness(100%)', delay:0.5});
@@ -53,7 +51,7 @@ $scope.moveToPlanet = function(planet){
 	} else{
 
 		StarModel.addLostPlanet(planet);
-		console.log("You lost!", planet);
+		$scope.message = "You won!"
 		$scope.whatclass(planet);
 		TweenMax.to(('#'+planet.planet.name), 0.2, {x:"+=10", yoyo:true, repeat:-2});
 		TweenMax.to(('#'+planet.planet.name), 0.2, {x:"-=10", yoyo:true, repeat:2});
@@ -77,7 +75,9 @@ $scope.whatclass = function(planet){
 	return "normalplanet"
 };
 
-
+$scope.returnMessage = function(planet){
+	return planet.planet.name();
+}
 
 $scope.open_popup = function(planet){
 	console.log("PLANET", planet.population);

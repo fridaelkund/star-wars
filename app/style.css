@@ -183,17 +183,27 @@ filter: brightness(10%);
 /* PLANET GAME DONE */ 
 
 /* SELECT MY CHARACHTERS */ 
-.savedChars{
-  text-align:center;
-  border:1px solid white;
-  margin-top:10px;
-  margin-left:5px;
-  margin-right:5px;
+
+.selectChar{
+  position:relative;
 }
 
-#selectChar{
-  position:relative;
-  margin-top: 40px;
+.charContent{
+  margin-top:20px;
+  width:90%;
+  border:1px solid white;
+  text-align:center;
+  padding-bottom:20px;
+  height: 300px;
+}
+
+#plus{
+  margin-top:30%;
+  font-size:40px;
+}
+
+#add{
+  font-size:30px;
 }
 
 #killCharacter{
