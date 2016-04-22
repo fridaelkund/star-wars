@@ -320,24 +320,3 @@ background-size: cover;
   filter: brightness(150%);
 }
 
-/* RESULT AFTER PLANET COMPETING */ 
-.result_info{ 	
-	height:200px;
-}
-
-
-/* SELECT MY CHARACHTERS */ 
-.savedChars{
-  text-align:center;
-  border:1px solid white;
-  height:250px;
-  padding:20px;
-  margin-right:20px;
-  margin-top:20px;
-  width:200px;
-}
-
-#selectChar{
-  position:relative;
-}
-
