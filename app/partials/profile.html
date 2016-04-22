@@ -31,17 +31,19 @@
 
 <!-- Pop up -->
 <div id="light" ng-click="close_popup()" class="white_content planet_info col-md-12">
-	<div class="row">
-		<div class="col-md-2 diameter">
+	<div class="col-md-12 popup-center" style="text-align:center"> 
+		<h2> {{popup_name}}</h2>
+	</div>
+	<div class="col-md-12" >
+		<div class="row">
+		<div class="col-md-3 diameter">
 			<h2>
 				D: {{popup_diameter}}
+				<img src="images/diameter.png" height="300px" width="50px">
 			</h2>
 		</div>
-		<div class="col-md-1">
-		</div>
-		<div class="col-md-6">
-			<h2> {{popup_name}}</h2>
-			<img src="josplanet.png" alt="planet" height="200" width="200">		
+		<div class="col-md-6 popup-planet">
+			<img src="josplanet.png" alt="planet" height="300" width="300">		
 		</div>
 		<div class="col-md-3">
 			<br/>
@@ -63,7 +65,9 @@
 				{{popup_surfacewater}}
 			</h2>
 		</div>
+		</div>
 	</div>
+	<div class="col-md-12 popup-center"><p>CLOSE BUTTON HERE </p></div>
 </div> <!-- En of pop up -->
 
 <!-- Fade behind pop up -->

@@ -223,7 +223,8 @@ filter: brightness(10%);
 /* START VIEW */ 
 
 #startView{
-min-height:800px;  overflow: hidden;
+min-height:800px;  
+overflow: hidden;
 margin:0px;
 padding:0px;
 background-size: cover;
@@ -296,9 +297,13 @@ background-size: cover;
   text-align: 
 }
 
+.popup-center{
+  text-align: center;
+  padding-bottom:10px;
+}
 
-.planet_info{
-  height:500px;
+.popup-planet{
+  padding-top:30px;
 }
 
 #light{

@@ -294,11 +294,20 @@ background-size: cover;
   background-color: white;
   z-index:1002;
   overflow: auto;
-  text-align: 
 }
 
-.planet_info{
-  height:500px;
+.popup-center{
+  text-align: center;
+  padding-bottom:10px;
+}
+
+.popup-planet{
+  padding-top:30px;
+}
+
+#light{
+  background-color: #000d1a;
+  color: white;
 }
 
 /* AVATAR */ 
