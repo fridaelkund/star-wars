@@ -75,17 +75,7 @@ $scope.showHeight=function(height){
 	$scope.avatar_height = height;
 }
 
-// ****** ANVÄNDS DENNA??? ******
-$scope.inputName=function(query){
-	if(query==null){
-		return
-	}
-	else{
-	StarModel.addToProfile('name', query)
-	}
-}
-
-
+// Getting all characters from local storage
 $scope.getAllLocals = function(){
 	if(StarModel.getLocalStorage().length === 0){
 		$scope.allLocals = null;
@@ -95,7 +85,7 @@ $scope.getAllLocals = function(){
 	}
 };
 
-// When selecting character from local storage, getting attributes, adding to profile
+// When selecting character from local storage, getting the profile-attributes, adding them to profile
 // and matchmaking.
 $scope.getProfile=function(loc){
 	StarModel.clearAll();
@@ -119,10 +109,11 @@ $scope.getProfile=function(loc){
 	console.log($scope.profil);
 };
 
+
+// Deleting character, both from profile and local storage 
 $scope.killChar=function(loc){
 	localStorage.removeItem(loc.name);
-	// *** Även ta bort från profile här? *** 
-	//	StarModel.clearAll();
+	StarModel.clearAll();
 	$scope.allLocals = StarModel.getLocalStorage();
 }
 

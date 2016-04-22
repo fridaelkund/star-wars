@@ -1,8 +1,8 @@
 <div id="startView" class="container-fluid" ng-controller="menuCtrl">
 
-<ng-include src="'partials/menu.html'" ng-hide="loading"></ng-include>
+<ng-include src="'partials/menu.html'"></ng-include>
 	
-<div class="col-md-12" id="startViewIntro" ng-init="loading(hej)">
+<div class="col-md-12" id="startViewIntro" ng-init="loading()">
 
 	<audio id="audio1" src="startwars.mp3"></audio>
 
@@ -12,7 +12,7 @@
 
 	<a ng-show="showPlay" id="introplay" class="btn" ng-click="play()">PLAY</a>
 
-	<p ng-show="loading">First time here? Loading data...</p>
+	<p ng-show="loading">{{loadingmessage}}</p>
 </div>
 
 </div>
