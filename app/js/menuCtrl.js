@@ -1,7 +1,6 @@
 StarWarsApp.controller('menuCtrl', function($scope, $location, StarModel){
 
 $scope.profil = StarModel.returnProfile();
-
 $scope.path = $location.$$path;
 
 var planetUrl = "http://swapi.co/api/planets/"
@@ -10,7 +9,7 @@ var peopleUrl = "http://swapi.co/api/people/"
 // checking if user has previous api-response in local storage.
 // If so, fetching the data from local storage. If not, calling the API and fetching 
 // people and planets from API. 
-$scope.loading = function(){
+$scope.loading = function(startwars){
 	// While waiting we're setting loading-variable to true and hiding play-button
 
 	$scope.loading = true;
@@ -23,7 +22,7 @@ $scope.loading = function(){
 	$scope.fetchPlanets();
 
 	// Playing Star Wars-intro while loading to get into the right mode. 
-	document.getElementById('audio1').play();
+	document.getElementById('audio1').play(startwars);
 }else{
 
 // If we have planets and people in local storage, get them! 
@@ -66,13 +65,11 @@ $scope.fetchPeople = function(){
 
 $scope.timeToPlay = function(){
 	TweenMax.to("#introtext", 1, {'opacity':0, 'scale':0, 'delay':1});
-	TweenMax.to("#introplanet", 1, {y:-200}, 'delay':1.5);
+	TweenMax.to("#introplanet", 1, {y:-200, 'delay':1.5});
 	TweenMax.from("#introplay", 1, {'opacity':0, 'delay':1});
 	$scope.showPlay = true;
 	$scope.animateMenu()
 	$scope.loading = false;
-	document.getElementById('audio1').pause();
-
 };
 
 
@@ -84,6 +81,7 @@ $scope.animateMenu = function(){
 	if($scope.path === '/home'){
 	TweenMax.from('#leftMenu', 0.8, {'x':'-100%', 'delay':2})
 	TweenMax.from('#rightMenu', 0.8, {'x':'100%', 'delay':2})
+	document.getElementById('audio1').pause();
 	}
 };
 
