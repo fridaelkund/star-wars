@@ -3,14 +3,6 @@
 
 <ng-include ng-controller="planetsCtrl"></ng-include>
 
-<div class="row" ng-hide="'{{profil.name}}' === ''") style="padding-top:100px; padding-left:20px;">
-<p>You cant play planets without a character!</p>
-
-<a href="#/new-char" class="btn" id="next-btn" type="button" ng-click="">CREATE NEW CHARACTER</a>
-<a href="#/char-library" class="btn" id="next-btn" type="button" ng-click="">SELECT OLD CHARACTER</a>
-
-</div>
-
 <div class="row" ng-hide="'{{profil.name}}' === ''">
 
 <div class="col-md-8" ng-init="getPlanets()">

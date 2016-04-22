@@ -73,7 +73,7 @@ $scope.timeToPlay = function(){
 
 
 $scope.play = function(){	
-	$location.path('/select-char');
+	$location.path('/instructions');
 };
 
 $scope.animateMenu = function(){
