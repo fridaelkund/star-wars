@@ -2,36 +2,6 @@
 	background-image: url("images/space.jpg");
  }
 
-/*img{
-  position: relative;
-  -webkit-animation-name: moveimg; 
-  -webkit-animation-duration: 10s;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-in-out;
-}
-
-@-webkit-keyframes moveimg {
-  0%   {left:120px; top:0px;}
-  25% {left:1400px; top:0px; }
-  50% {left: 1400px; top:500px;}
-  75% {left:120px; top:500px;}
-  100% {left:120px; top:0px;}
-
-  0%   {left:120px; top:0px;}
-  25% {left:1400px; top:0px;}
-  50% {left: 1400px; top:500px;}
-  59% {-webkit-transform: rotate(0deg)}   
-  60% {left: 1400px; top:500px; -webkit-transform: rotate(-20deg)}
-  63% {left: 1400px; top:500px; -webkit-transform: rotate(20deg)}
-  66%{left: 1400px; top:500px; -webkit-transform: rotate(-20deg)}
-  69%{left: 1400px; top:500px; -webkit-transform: rotate(20deg)}
-  72% {left: 1400px; top:500px; -webkit-transform: rotate(-20deg)}
-  76% {left: 1400px; top:500px; -webkit-transform: rotate(20deg)}
-  80%{left: 1400px; top:500px; -webkit-transform: rotate(-20deg)}
-  90%{left: 1400px; top:500px; -webkit-transform: rotate(20deg)}
-  95%{left: 1400px; top:-500px; -webkit-transform: rotate(0deg)}
-  100%{left:120px; top:0px;}
-}*/
 /* CONTAINERS */ 
 .container{
   height: 90%;
@@ -49,6 +19,7 @@ h1 {
 h3{
   font-size: 20px;
   color:white;
+  margin-left: 20px;
 }
 
 p{
@@ -74,6 +45,7 @@ p{
   height:10%;
   font-size:14px;
   padding-top:10px;
+  margin-top: 15px;
   text-transform: uppercase;
 }
 
@@ -137,7 +109,7 @@ white-space: nowrap;
 }
 
 #nameInput{
-  width: 200px;
+  width: 100px;
   margin: auto;
   color: #000033;
   background-color: white;
@@ -221,6 +193,11 @@ filter: brightness(10%);
 
 #selectChar{
   position:relative;
+  margin-top: 40px;
+}
+
+#killCharacter{
+  margin-bottom: 20px;
 }
 
 /* START VIEW */ 
@@ -316,19 +293,25 @@ background-size: cover;
 
 /* AVATAR */ 
 #avatar{
+  text-align: center;
   position: relative;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
 }
 
 #avatar-btn{
-  padding-top:20px;
+  position: relative;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#save-btn{
+  position: relative;
+  margin-bottom: 20px;
   text-align: center;
 }
 .avatarWindow{
   border:1px solid white;
+  width: 300px;
+  height: 350px;
 }
 /* OKLART */  
 .planeten{

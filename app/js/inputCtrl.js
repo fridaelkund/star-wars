@@ -50,6 +50,7 @@ $scope.save=function(){
 	StarModel.addToProfile('height', $scope.avatar_height);
 	StarModel.saveLocalStorage();
 	StarModel.matchMaking();
+	
 }
 
 // Displaying name, hair, eye and length.
