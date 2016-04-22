@@ -6,32 +6,24 @@ StarWarsApp.config(['$routeProvider',
 			when('/home', {
 				templateUrl: 'partials/start.html'
 			}).
-			when('/play', {
+			when('/select-char', {
 				templateUrl: 'partials/select-char.html',
 				controller: 'selectCtrl'
 			}).
-			when('/hair', {
+			when('/new-char', {
 				templateUrl: 'partials/new-char.html',
 				controller: 'inputCtrl'
 			}).
-			when('/select', {
-				templateUrl: 'partials/my-chars.html'
+			when('/char-library', {
+				templateUrl: 'partials/char-library.html'
 			}).
-			when('/planet', {
+			when('/planets', {
 				templateUrl: 'partials/planets.html',
 				controller: 'planetsCtrl'
-			}).
-			when('/result', {
-				templateUrl: 'partials/result.html',
-				controller: 'getPersonCtrl'
 			}).
 			when('/profile', {
 				templateUrl: 'partials/profile.html',
 				controller: 'profileCtrl'
-			}).
-			when('/test', {
-				templateUrl: 'partials/test.html',
-				controller: 'testCtrl'
 			}).
 			when('/universe', {
 				templateUrl: 'partials/universe.html',

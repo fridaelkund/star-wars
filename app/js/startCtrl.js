@@ -72,7 +72,7 @@ $scope.timeToPlay = function(){
 
 
 $scope.play = function(){	
-	$location.path('/play');
+	$location.path('/select-char');
 }
 
 
