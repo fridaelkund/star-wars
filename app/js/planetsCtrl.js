@@ -24,7 +24,8 @@ $scope.getPlanets = function(){
 //Om man vinner så läggs planeten till i listan med planeter man vunnit. 
 $scope.moveToPlanet = function(planet){	
 	$scope.result = StarModel.compete(planet.lookAlike.points)
-	
+	 $("#popoverContent").popover('hide');
+
 	console.log($scope.result)
 
 	for(i in StarModel.returnWonPlanets()){
@@ -47,7 +48,7 @@ $scope.moveToPlanet = function(planet){
 		TweenMax.to(('#'+planet.planet.name), 0.2, {x:"-=10", yoyo:true, repeat:2});
 		TweenMax.from(('#'+planet.planet.name), 5, {'-webkit-filter': 'brightness(100%)', delay:0.5});
 		TweenMax.to(('#'+planet.planet.name), 5, {'-webkit-filter': 'brightness(200%)', delay:0.5});
-
+		TweenMax.to(('#'+planet.planet.name+'.popover'), 2, {'display':'none'});
 	} else{
 
 		StarModel.addLostPlanet(planet);
@@ -75,9 +76,7 @@ $scope.whatclass = function(planet){
 	return "normalplanet"
 };
 
-$scope.returnMessage = function(planet){
-	return planet.planet.name();
-}
+
 
 $scope.open_popup = function(planet){
 	console.log("PLANET", planet.population);

@@ -2,6 +2,11 @@
 	background-image: url("images/space.jpg");
  }
 
+ @font-face{
+  font-family: Star;
+  src: url(starjedi/Starjedi.ttf);
+}
+
 /* CONTAINERS */ 
 .container{
   height: 90%;
@@ -14,6 +19,7 @@
 /* TEXT */ 
 h1 {
   color:white;
+  font-family: Star;
 }
 
 h3{
