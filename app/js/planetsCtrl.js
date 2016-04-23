@@ -126,25 +126,5 @@ $scope.whatclass = function(planet){
 	return "normalplanet"
 };
 
-
-//Function that opens pop up window with information about a planet
-$scope.open_popup = function(planet){
-	console.log("PLANET", planet.population);
-	$scope.popup_population = planet.population;
-	$scope.popup_name = planet.name;
-	$scope.popup_terrain = planet.terrain;
-	$scope.popup_climate = planet.climate;
-	$scope.popup_surfacewater = planet.surface_water;
-	$scope.popup_diameter = planet.diameter;
-	angular.element('#light').css('display', 'block');
-	angular.element('#fade').css('display', 'block');
-};
-
-//Function that closes the pop up window
-$scope.close_popup = function(){
-	angular.element('#light').css('display', 'none');
-	angular.element('#fade').css('display', 'none');
-}
-
 })
 
