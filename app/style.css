@@ -132,6 +132,19 @@ white-space: nowrap;
   margin-bottom: 20px;
 }
 
+#height-input{
+  width:460px;
+  margin-left:30px;
+  background-color: black;
+}
+
+#height{
+  margin-left: 30px;
+}
+
+#save-btn{
+   text-align:center;
+}
 
 
 
@@ -208,13 +221,12 @@ filter: brightness(10%);
 }
 
 .charContent{
-  margin-top:20px;
   width:90%;
   border:1px solid white;
   text-align:center;
-  padding-bottom:20px;
   height: 400px;
 }
+
 
 #plus{
   margin-top:30%;
@@ -225,10 +237,19 @@ filter: brightness(10%);
   font-size:30px;
 }
 
-#killCharacter{
-  margin-bottom: 20px;
+#locName{
+  font-size: 24px;
+  padding-top: 0px;
+  margin-top: 0px;
 }
 
+
+#kill{
+  color: black;
+  font-weight: bold;
+  float: right;
+  text-align: center;
+}
 /* START VIEW */ 
 
 #startView{
@@ -268,11 +289,9 @@ background-size: cover;
 /* INSTRUCTIONS */
 .header{
   text-align: center;
-  padding-top: 120px;
 }
 
 .instructBox{
-  height: 250px;
   text-align: center;
 }
 

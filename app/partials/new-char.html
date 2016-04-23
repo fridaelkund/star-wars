@@ -16,33 +16,33 @@
 				<h3> Select hair color: </h3>
 				<div class="scroll">
 		        	<div class="wide">  
-		            	<div  ng-repeat="(col, hex) in haircols" class="circle form-control" style="background-color:{{hex}}" ng-click="showHair(col)"></div> 
+		            	<div ng-repeat="(col, hex) in haircols" class="circle form-control" style="background-color:{{hex}}" ng-click="showHair(col)"></div> 
 		        	</div>
 		    	</div>
 		    </div>
-		    <div class="md-12">
+		    <div class="col-md-12">
 				<h3> Select eye color: </h3>
 				<div class="scroll">
 		        	<div class="wide">  
-		            	<div  ng-repeat="(col, hex) in eyecols" class="circle form-control" style="background-color:{{hex}}" ng-click="showEye(col)"></div> 
+		            	<div ng-repeat="(col, hex) in eyecols" class="circle form-control" style="background-color:{{hex}}" ng-click="showEye(col)"></div> 
 		        	</div>
 		    	</div>
 		    </div>
 			<div class="col-md-12">
 				<h3> Select height: </h3>
-				<div class="row" style="margin-left:10px;">
+				<div class="row">
 					<output for="height-input" id="height">150</output>
-					<input type="range" min="100" max="200" value="150" id="height-input" step="1" ng-model="height" ng-change="showHeight(height)" style="width:460px;">
+					<input type="range" min="100" max="200" value="150" id="height-input" step="1" ng-model="height" ng-change="showHeight(height)">
 				</div>
 			</div>
 		</div>
 
 		<div class="col-md-4">
-			<ng-include src="'partials/avatar.html'" style="margin-top:0px;"></ng-include>
+			<ng-include src="'partials/avatar.html'"></ng-include>
 		</div>
 
-		<div class="col-md-12" style="text-align:center;">
-			<a href="#/profile" class="btn" id="save-btn" type="button" ng-show="location.hash === '#/new-char'" ng-click="save()">SAVE</a>
+		<div class="col-md-12" id="save-btn">
+			<a href="#/profile" class="btn" type="button" ng-show="location.hash === '#/new-char'" ng-click="save()">SAVE</a>
 		</div>
 	</div>
 </div>

@@ -21,9 +21,10 @@
       <div class="col-md-3 selectChar" ng-repeat="loc in allLocals track by $index">
 
       
-        <div class="charContent">
-          <div class="killCharacter" style="text-align: right;">
-            <button type="button" class="btn btn-default btn-sm" ng-click="killChar(loc)">
+       <div class="charContent">
+       
+          <div class="killCharacter">
+            <button type="button" id="kill" class="btn btn-default btn-sm" ng-click="killChar(loc)">
               <span class="glyphicon glyphicon-remove"></span>Kill {{loc.name}}
             </button>
           </div>
@@ -41,9 +42,11 @@
               	<circle cx="117" cy="90" r="10" fill={{eyecols[loc.eye]}}/>
               	<circle cx="117" cy="90" r="5" fill="black"/>
               </svg>
-              <p>{{loc.name}}</p>
+              <p id="locName">{{loc.name}}</p>
             </svg>
           </div>
+
+
         </div>
       </div>
     </div>
