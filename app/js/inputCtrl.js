@@ -7,7 +7,6 @@ $scope.haircols = StarModel.haircol;
 $scope.location = window.location;
 
 $scope.profil = StarModel.returnProfile()
-
 // Check if hair, eye, length and name in profile allready. 
 // I so, get values from profile and updating SVG: 
 // Else, default values/empty values.
@@ -98,8 +97,8 @@ $scope.getProfile=function(loc){
 	for(i in loc.wonPlanets){
 		StarModel.addWonPlanet(loc.wonPlanets[i]);
 	};
-	for(i in loc.lostPlanets){
-		StarModel.addLostPlanet(loc.lostPlanets[i]);
+	for(j in loc.lostPlanets){
+		StarModel.addLostPlanet(loc.lostPlanets[j]);
 	};
 
 	StarModel.matchMaking();

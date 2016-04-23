@@ -4,7 +4,7 @@ $scope.load_profile = function(){
 
 //Array with 
 $scope.profil = StarModel.returnProfile();
-
+console.log("i profile", $scope.profil)
 //Array with won planets ( OBS! endast köra profile.wonPlanets och ej returna endast wonPlanets sen)
 $scope.wonplanets = StarModel.returnWonPlanets();
 

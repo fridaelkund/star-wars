@@ -131,7 +131,7 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 
 	this.addWonPlanet = function(planet){
 		console.log("planet innan add to won Planets", planet);
-		console.log("profile.wonplanet innan add to won Planets", profile);
+		console.log("profile innan add to won Planets", profile);
 	
 		profile.wonPlanets.push(planet);
 		console.log("wonplanets efter add", profile.wonPlanets);
@@ -166,15 +166,9 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 
 //Fortsättning här imorgon /Josmol
 	this.savePlanets = function(){
-		var temp = JSON.parse(localStorage.getItem(profile.name));
-	
-		if(profile.wonPlanets ==! null){
-		temp.wonPlanets = profile.wonPlanets;};
-
-		if(profile.lostPlanets==! null){
-		temp.lostPlanets = profile.lostPlanets;};
-		
-		localStorage.setItem(profile.name, JSON.stringify(temp));		
+		console.log("i save planets" ,profile);
+		localStorage.removeItem(profile.name);
+		localStorage.setItem(profile.name, JSON.stringify(profile));		
 	}
 
 // Tävlingsfunktion som avgör om spelaren vinner eller inte

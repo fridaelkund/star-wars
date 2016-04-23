@@ -13,7 +13,7 @@
 		<div class="col-md-8">
 			<h3>Your planet collection</h3>
 			<div class="col-md-3 universe" ng-repeat="planet in wonplanets">
-				<div name="solarSystem" ng-class='whatclass(p)' ng-click="open_popup(planet)">
+				<div name="solarSystem" ng-class='whatclass(planet)' ng-click="open_popup(planet)">
 					<img src="josplanet.png" width="60px" height="60px">
 					<p>{{planet.planet.name}}</p>
 				</div>
