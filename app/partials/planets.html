@@ -14,7 +14,7 @@
 
 <div class="col-md-8" ng-init="getPlanets()">
 	<h3> Select which planet to conquer by clicking it. </h3>
-	<div class="universe col-md-3" ng-repeat="planet in ourPlanets">
+	<div class="universe col-md-3" ng-repeat="planet in ourPlanets track by $index">
 		<div class="planetPlan" 
 		id="{{planet.planet.name.split(' ').join('')}}" 
 		name="planetButton" 
@@ -26,6 +26,9 @@
 		data-trigger="hover">{{planet.lookAlike.points}}%
 		</div>
 		<p id="{{planet.planet.name.split(' ').join('')+'text'}}">{{planet.planet.name}}</p>
+    </div>
+    <div class="col-md-3" ng-show="'{{ourPlanets.length}}' === '0'">
+    	<p>There are no planets left. You have either won or lost all availiable planets.</p>
     </div>
 </div>
 

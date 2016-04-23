@@ -13,14 +13,60 @@ $scope.$on('$routeChangeStart', function() {
 
 $scope.getPlanets = function(){
 	$scope.ourPlanets = [];
+	$scope.wonPlanets = StarModel.returnWonPlanets();
+	$scope.lostPlanets = StarModel.returnLostPlanets();
 	$scope.habitantsOnPlanets = StarModel.returnHabitantsOnPlanets();
+
+	//För varje planet i stora planetlistan
 	for(i in $scope.habitantsOnPlanets){
+		//variable är true först
+		$scope.add = true;
+
+		//om poäng ej är noll 
 		if($scope.habitantsOnPlanets[i].lookAlike.points !== 0){
-			$scope.ourPlanets.push($scope.habitantsOnPlanets[i])
+			//För varje planet i vunna planeter
+			console.log("Hela wonPlanets", $scope.wonPlanets);
+			for(j in $scope.wonPlanets){
+				console.log("wonPlanets-planet",$scope.wonPlanets[j].planet);
+				console.log("habitants-planet", $scope.habitantsOnPlanets[i].planet);
+				//Om planet från stora planetlistan är lika med planeten vi är på i vunna planeter
+				if($scope.habitantsOnPlanets[i].planet.name === $scope.wonPlanets[j].planet.name){
+					console.log($scope.habitantsOnPlanets[i].planet.name, "finns i vunna planeter")
+					$scope.add = false;
+					console.log("add blir", $scope.add);
+
+				}
+			}
+
+			//För varje planet i förlorade planeter
+			console.log("Hela förloradePlaneter", $scope.lostPlanets);
+			for(n in $scope.lostPlanets){
+					console.log("forlorad-planet", $scope.lostPlanets[n]);
+
+				//Om planet i stora planetlistan finns i förloradeplaneter	
+				if($scope.habitantsOnPlanets[i].planet.name === $scope.lostPlanets[n].planet.name){
+					console.log($scope.habitantsOnPlanets[i].planet.name, "finns i förlorade planeter")
+					$scope.add = false;
+					console.log("add blir", $scope.add);
+				}
+			}
+			//NURÅ
+			if($scope.add == true){
+
+				console.log($scope.habitantsOnPlanets[i].planet.name, 'planet som inte finns i någon lista, ska läggas till') 
+				$scope.ourPlanets.push($scope.habitantsOnPlanets[i])
+				console.log("ourPlanets efter add", $scope.ourPlanets);
+			}
+			else{
+				console.log("scope.add om det ej gick lägga till", $scope.add);
+			}
 		}
 	}
 	console.log("this is all planets with habitants", $scope.ourPlanets)
 	console.log("ourPlanets", $scope.ourPlanets)
+	console.log("alla won", $scope.wonPlanets);
+	console.log("alla lost", $scope.lostPlanets);
+
 }
 
 
