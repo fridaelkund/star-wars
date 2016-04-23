@@ -220,12 +220,15 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 		}
 	};
 
+	//Our own database with eyecolors
 	this.eyecol = 
 		{"blue": "#1a75ff", 
 		"yellow": "#ffff4d", 
 		"red": "#ff471a", 
 		"brown":"#734d26", 
 		"blue-gray":"#8cb3d9"};
+		
+	//Our own database with haircolors
 	this.haircol = 
 		{"blond": "#ffdf80" , 
 		"n/a": "#ff8080", 

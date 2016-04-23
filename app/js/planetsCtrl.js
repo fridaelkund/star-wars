@@ -1,78 +1,69 @@
 StarWarsApp.controller('planetsCtrl', function($scope, StarModel){
 
-$scope.profil = StarModel.returnProfile();
-
-//*** TA BORT, används ej *** 
-$scope.message = "% chance to win";
+$scope.profile = StarModel.returnProfile();
 
 
-//Fortsättning här imorgon / Josmol
 $scope.$on('$routeChangeStart', function() { 
    StarModel.savePlanets();
  });
 
+//Planets that are suppose to be shown on the battle field are fetched here and put in an array to use for displaying
 $scope.getPlanets = function(){
 	$scope.ourPlanets = [];
 	$scope.wonPlanets = StarModel.returnWonPlanets();
 	$scope.lostPlanets = StarModel.returnLostPlanets();
 	$scope.habitantsOnPlanets = StarModel.returnHabitantsOnPlanets();
 
-	//För varje planet i stora planetlistan
+	//For each planet in habitantsOnPlanets
 	for(i in $scope.habitantsOnPlanets){
-		//variable är true först
+		//Defaultvalue for adding is set to true
 		$scope.add = true;
 
-		//om poäng ej är noll 
+		//If the lookAlike-points for the planet not equeal to 0 
+		//we want to proceed (there is a chance to win that planet)
 		if($scope.habitantsOnPlanets[i].lookAlike.points !== 0){
-			//För varje planet i vunna planeter
-			console.log("Hela wonPlanets", $scope.wonPlanets);
+
+			//First we check that the planet doesn't exist among the won planets
 			for(j in $scope.wonPlanets){
-				console.log("wonPlanets-planet",$scope.wonPlanets[j].planet);
-				console.log("habitants-planet", $scope.habitantsOnPlanets[i].planet);
-				//Om planet från stora planetlistan är lika med planeten vi är på i vunna planeter
+				console.log("the won planet we're at",$scope.wonPlanets[j].planet);
+				console.log("the habitants planet we're at", $scope.habitantsOnPlanets[i].planet);
+				
+				//If the planet in habitantsOnPlanets and the planet in wonPlanets match we don't want to proceed
+				//the $scope.add variable os set to false, we don't want to add it among the planets for the game since it's already won
 				if($scope.habitantsOnPlanets[i].planet.name === $scope.wonPlanets[j].planet.name){
-					console.log($scope.habitantsOnPlanets[i].planet.name, "finns i vunna planeter")
+					console.log($scope.habitantsOnPlanets[i].planet.name, "exists among won planets")
 					$scope.add = false;
-					console.log("add blir", $scope.add);
-
+					console.log("add-variable is", $scope.add);
 				}
 			}
 
-			//För varje planet i förlorade planeter
-			console.log("Hela förloradePlaneter", $scope.lostPlanets);
+			//Then we check that the planet doesn't exist among the lost planets
 			for(n in $scope.lostPlanets){
-					console.log("forlorad-planet", $scope.lostPlanets[n]);
+					console.log("the lost planet we're at", $scope.lostPlanets[n]);
+					console.log("the habitants planet we're at", $scope.habitantsOnPlanets[i].planet);
 
-				//Om planet i stora planetlistan finns i förloradeplaneter	
+				//If the planet in habitantsOnPlanets and the planet in lostPlanets match we don't want to proceed
+				//the $scope.add variable os set to false, we don't want to add it among the planets for the game since it's already won
 				if($scope.habitantsOnPlanets[i].planet.name === $scope.lostPlanets[n].planet.name){
-					console.log($scope.habitantsOnPlanets[i].planet.name, "finns i förlorade planeter")
+					console.log($scope.habitantsOnPlanets[i].planet.name, "exists among lost planets");
 					$scope.add = false;
-					console.log("add blir", $scope.add);
+					console.log("add-variable is", $scope.add);
 				}
 			}
-			//NURÅ
+			//Finally we check if the add-variable is true. If it is it means we should add it to ourPlanets
 			if($scope.add == true){
-
-				console.log($scope.habitantsOnPlanets[i].planet.name, 'planet som inte finns i någon lista, ska läggas till') 
+				console.log('the planet that we add is', $scope.habitantsOnPlanets[i].planet.name); 
 				$scope.ourPlanets.push($scope.habitantsOnPlanets[i])
-				console.log("ourPlanets efter add", $scope.ourPlanets);
-			}
-			else{
-				console.log("scope.add om det ej gick lägga till", $scope.add);
 			}
 		}
 	}
-	console.log("this is all planets with habitants", $scope.ourPlanets)
-	console.log("ourPlanets", $scope.ourPlanets)
-	console.log("alla won", $scope.wonPlanets);
-	console.log("alla lost", $scope.lostPlanets);
-
+	console.log("These are the planets to be displayed in the game", $scope.ourPlanets);
 }
 
 
-//Funktion som körs när man klickar på en planet och den har den planet man klickar på som input (tror jag)
-//Om man vinner så läggs planeten till i listan med planeter man vunnit. 
-$scope.moveToPlanet = function(planet){	
+//When the user clicks on a planet this is the function that is being run. 
+//It calls the model to run the gameand tells if the user won or lost
+$scope.fightForPlanet = function(planet){	
 	$scope.result = StarModel.compete(planet.lookAlike.points)
 	 $("#popoverContent").popover('hide');
 
@@ -106,8 +97,8 @@ $scope.moveToPlanet = function(planet){
 		TweenMax.to(('#'+planet.planet.name.split(' ').join('')), 5, {'-webkit-filter': 'brightness(150%)', delay:2});
 
 	} else{
-		StarModel.addToProfile('lostPlanets', planet);
-		//StarModel.addPlanetToProfile(planet, 'lost');
+		StarModel.addToProfile('lostPlanets', planet)
+		StarModel.addPlanetToProfile(planet, 'lost');
 		$scope.message = "You lost!"
 		$scope.whatclass(planet);
 		TweenMax.to(('#'+planet.planet.name.split(' ').join('')), 0.1, {x:"+=10", yoyo:true, repeat:-3});
