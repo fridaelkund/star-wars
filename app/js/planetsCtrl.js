@@ -50,25 +50,25 @@ $scope.moveToPlanet = function(planet){
 	if ($scope.result == 1){
 		StarModel.addWonPlanet(planet);
 		$scope.message = "You won!"
-		TweenMax.to(('#'+planet.planet.name.split(' ').join('')), 0.2, {x:"+=10", yoyo:true, repeat:-2});
-		TweenMax.to(('#'+planet.planet.name.split(' ').join('')), 0.2, {x:"-=10", yoyo:true, repeat:2});
+		TweenMax.to(('#'+planet.planet.name.split(' ').join('')), 0.1, {x:"+=10", yoyo:true, repeat:-2});
+		TweenMax.to(('#'+planet.planet.name.split(' ').join('')), 0.1, {x:"-=10", yoyo:true, repeat:2});
 		TweenMax.from(('#'+planet.planet.name.split(' ').join('')), 5, {'-webkit-filter': 'brightness(100%)', delay:0.5});
 		TweenMax.to(('#'+planet.planet.name.split(' ').join('')), 5, {'-webkit-filter': 'brightness(200%)', delay:0.5});
 		TweenMax.to(('#'+planet.planet.name.split(' ').join(''),'.popover'), 2, {'display':'none'});
-		TweenMax.to(('#'+planet.planet.name.split(' ').join('')), 2, {text: {value: "YOU WON", ease:Linear.easeNone}})
-		TweenMax.to("#textis", 1, {'opacity':1, 'scale':1});
 
+		TweenLite.to(('#'+planet.planet.name.split(' ').join('')+'text'), 0.1, {text:{value:"You won!", delimiter:" "}, ease:Linear.easeNone, delay:2})
 
 	} else{
 
 		StarModel.addLostPlanet(planet);
 		$scope.message = "You lost!"
 		$scope.whatclass(planet);
-		TweenMax.to(('#'+planet.planet.name.split(' ').join('')), 0.2, {x:"+=10", yoyo:true, repeat:-2});
-		TweenMax.to(('#'+planet.planet.name.split(' ').join('')), 0.2, {x:"-=10", yoyo:true, repeat:2});
+		TweenMax.to(('#'+planet.planet.name.split(' ').join('')), 0.1, {x:"+=10", yoyo:true, repeat:-2});
+		TweenMax.to(('#'+planet.planet.name.split(' ').join('')), 0.1, {x:"-=10", yoyo:true, repeat:2});
 		TweenMax.from(('#'+planet.planet.name.split(' ').join('')), 5, {'-webkit-filter': 'brightness(100%)', delay:0.5});
 		TweenMax.to(('#'+planet.planet.name.split(' ').join('')), 5, {'-webkit-filter': 'brightness(0%)', opacity:0, delay:0.5});
-		TweenMax.to(('#'+planet.planet.name.split(' ').join(''),'.popover'), 2, {'display':'none'});
+		TweenLite.to(('#'+planet.planet.name.split(' ').join('')+'text'), 0.1, {text:{value:"You lost!", delimiter:" "}, ease:Linear.easeNone, delay:2})
+
 
 	}
 };
