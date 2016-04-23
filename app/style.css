@@ -26,12 +26,14 @@ h3{
   font-size: 20px;
   color:white;
   margin-left: 20px;
+  margin-top: 0px;
 }
 
 p{
   font-size: 15px;
   color:white;
 }
+
 
 /* BUTTONS */ 
 
@@ -114,12 +116,14 @@ white-space: nowrap;
   margin-right:10px;
 }
 
-#nameInput{
-  width: 100px;
-  margin: auto;
-  color: #000033;
-  background-color: white;
+
+.form-control{
+  margin-bottom: 20px;
 }
+
+
+
+
 
 /* SLIDER, HITTAT http://www.cssportal.com/style-input-range/ */
 
@@ -189,6 +193,7 @@ filter: brightness(10%);
 
 .selectChar{
   position:relative;
+
 }
 
 .charContent{
@@ -197,7 +202,7 @@ filter: brightness(10%);
   border:1px solid white;
   text-align:center;
   padding-bottom:20px;
-  height: 300px;
+  height: 400px;
 }
 
 #plus{
@@ -322,6 +327,8 @@ background-size: cover;
   border:1px solid white;
   width: 300px;
   height: 450px;
+  margin-right: 10px;
+  position: relative;
 }
 
 
