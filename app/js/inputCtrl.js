@@ -95,10 +95,10 @@ $scope.getProfile=function(loc){
 	StarModel.addToProfile('height', loc.height);
 	
 	for(i in loc.wonPlanets){
-		StarModel.addWonPlanet(loc.wonPlanets[i]);
+		StarModel.addToProfile('wonPlanets',loc.wonPlanets[i]);
 	};
 	for(j in loc.lostPlanets){
-		StarModel.addLostPlanet(loc.lostPlanets[j]);
+		StarModel.addToProfile('lostPlanets',loc.lostPlanets[j]);
 	};
 
 	StarModel.matchMaking();

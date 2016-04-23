@@ -94,7 +94,8 @@ $scope.moveToPlanet = function(planet){
 
 
 	if ($scope.result == 1){
-		StarModel.addWonPlanet(planet);
+		StarModel.addToProfile('wonPlanets',planet);
+		//StarModel.addPlanetToProfile(planet, 'won');
 		$scope.message = "You won!"
 		TweenMax.to(('#'+planet.planet.name.split(' ').join('')), 0.1, {x:"+=10", yoyo:true, repeat:-3});
 		TweenMax.to(('#'+planet.planet.name.split(' ').join('')), 0.1, {x:"-=10", yoyo:true, repeat:3});
@@ -105,8 +106,8 @@ $scope.moveToPlanet = function(planet){
 		TweenMax.to(('#'+planet.planet.name.split(' ').join('')), 5, {'-webkit-filter': 'brightness(150%)', delay:2});
 
 	} else{
-
-		StarModel.addLostPlanet(planet);
+		StarModel.addToProfile('lostPlanets', planet);
+		//StarModel.addPlanetToProfile(planet, 'lost');
 		$scope.message = "You lost!"
 		$scope.whatclass(planet);
 		TweenMax.to(('#'+planet.planet.name.split(' ').join('')), 0.1, {x:"+=10", yoyo:true, repeat:-3});

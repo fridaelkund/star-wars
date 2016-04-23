@@ -56,7 +56,7 @@ $scope.fetchPeople = function(){
 		StarModel.addPeople($scope.people);
 
 	// And save all our API-responses to local storage, to avoid load-time. 
-		StarModel.savePlanetsLocalStorage();
+		StarModel.savePlanets();
 
 	// Now loading is done.
 		$scope.timeToPlay();

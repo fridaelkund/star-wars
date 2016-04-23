@@ -2,12 +2,7 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 	
 	var habitantsOnPlanets = [];
 
-	var lookAlikes = [];
 	var profile = {"name": "", "eye": "", "hair": "", "height": "", "wonPlanets": [], "lostPlanets": []};
-
-	var wonPlanets = [];
-	var lostPlanets = [];
-
 
 	var tempData = [];
 	var q = null; // The deferrer object which we define later.
@@ -56,6 +51,7 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
         return q.promise;
        };
 
+
     this.addPlanets = function(planets){
     	console.log("Time to addPlanets")
     	for(i in planets){
@@ -76,10 +72,6 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
     	console.log("All planets have habitants!", habitantsOnPlanets)
     }
 
-// **ANVÄNDS DESSA?? , inte väl? *** 
-	this.getPlanets = $resource("http://swapi.co/api/planets/");
-	this.getCharacter = $resource("http://swapi.co/api/people/");
-
 
 	this.returnHabitantsOnPlanets = function(planets){
 		return habitantsOnPlanets;
@@ -88,6 +80,9 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 	// Matchar profil med starwars-karaktärer och ju fler liknande 
 	//karaktärsdrag desto fler poäng samlas
 
+	//For each planet this function matches the planets habitants with the users profile 
+	// and adds the points to tempPoints. Then a 'bestMatch' is being added to habitantsOnPlanets
+	//saying which habitant on that planet the user is most alike
 	this.matchMaking = function(){
 		//console.log("Start match making!", habitantsOnPlanets)
 		for(i in habitantsOnPlanets){
@@ -119,49 +114,45 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 					tempPoints = lookAlikePoints;
 				}
 			}
-
 			habitantsOnPlanets[i].lookAlike = {"bestMatch":tempPerson, "points":(tempPoints/=4)*100};	
 		}
 		//console.log("We have a match", habitantsOnPlanets)
 	};
 
-
-	this.addWonPlanet = function(planet){
-		console.log("planet innan add to won Planets", planet);
-		console.log("profile innan add to won Planets", profile);
-	
-		profile.wonPlanets.push(planet);
-		console.log("wonplanets efter add", profile.wonPlanets);
-	}
-
-	this.addLostPlanet= function(planet){
-		profile.lostPlanets.push(planet)
-	}
-
-
+	//Function that adds values to the users profile 
 	this.addToProfile = function(field, value){
+		if(field == 'wonPlanets' || field == 'lostPlanets'){
+			profile[field].push(value);
+		}
+		else{
 		profile[field] = value;
+		}
 	};
 
+	//Returns the profile-array
 	this.returnProfile = function(){
 		return profile;
 	}
 
+	//Function that clears the profile
 	this.clearAll = function(){
 	profile = {"name": "", "eye": "", "hair": "", "height": "", "wonPlanets": [], "lostPlanets": []};
 	}
 
-	//Returnerar lista med planeter som spelaren vunnit
+
+	//Returns array with all the users won planets
 	this.returnWonPlanets = function(){
 		//console.log("model", profile.wonPlanets);
 		return profile.wonPlanets;
 	}
 
+	//Returns array with all the users lost planets
 	this.returnLostPlanets = function(){
 		return profile.lostPlanets;
 	}
 
-//Fortsättning här imorgon /Josmol
+	//When it's time to save planets to localStorage this function removes the current data for
+	//this profile and replaces it with a new one containing the planets as well
 	this.savePlanets = function(){
 		if(profile.name === ""){
 			localStorage.removeItem(profile.name);
@@ -173,7 +164,7 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 		}		
 	}
 
-// Tävlingsfunktion som avgör om spelaren vinner eller inte
+	//Gaming-function that determains weather or not the user wins using the odds of winning as input
 	this.compete = function(proc){
 		var yourOdds = proc / 100;
 		var results = [1, 0]; 
@@ -186,7 +177,10 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 		}
 
 // Sparar och hämtar alla lokalt sparade profiler 
+	
 
+	//Fetches profiles from localStorage
+	//***DÖPA OM*** 
 	this.getLocalStorage = function(){
 		var allLocals = [];
 		for(i in localStorage){
