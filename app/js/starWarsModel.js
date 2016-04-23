@@ -1,12 +1,18 @@
 StarWarsApp.factory('StarModel',function ($resource, $http, $q){
+
+// ------------- storing data -----------------
 	
 	var habitantsOnPlanets = [];
-
+	if(JSON.parse(localStorage.getItem("planeter")) !== null){
+		habitantsOnPlanets = JSON.parse(localStorage.getItem("planeter"));
+	}
+	
 	var profile = {"name": "", "eye": "", "hair": "", "height": "", "wonPlanets": [], "lostPlanets": []};
-
 	var tempData = [];
 	var q = null; // The deferrer object which we define later.
 
+
+// ------------- Fetching data from API -----------------
     // The main function which builds the tempData
     // variable from the _previous_ call!
     var fetchFromUrl = function(url, data) {
@@ -47,19 +53,23 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 
         // Start with null as data!
         fetchFromUrl(url, null);
-        console.log(q.promise)
+        console.log(q.promise);
         return q.promise;
        };
 
 
+// ------------- habitantsOnPlanets modification -----------------
+
+	//adds all fetched planets in the array habitantsOnPlanets to store them there
     this.addPlanets = function(planets){
     	console.log("Time to addPlanets")
     	for(i in planets){
-    		habitantsOnPlanets.push({"planet": planets[i], "habitants": []})
+    		habitantsOnPlanets.push({"planet": planets[i], "habitants": []});
     	}
-    	console.log("All planets:", habitantsOnPlanets)
+    	console.log("All planets:", habitantsOnPlanets);
     }
 
+    //Adds all fetched people in the array habitantsOnPlanets sorted by the planet they live at
     this.addPeople = function(people){
     	console.log("Time to addPeople")
     	for(i in people){
@@ -69,29 +79,30 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
     			}
     		}
     	}
-    	console.log("All planets have habitants!", habitantsOnPlanets)
+    	console.log("All planets have habitants!", habitantsOnPlanets);
     }
 
 
+    //Returns habitantsOnPlanets
 	this.returnHabitantsOnPlanets = function(planets){
 		return habitantsOnPlanets;
 	}
 
-	// Matchar profil med starwars-karaktärer och ju fler liknande 
-	//karaktärsdrag desto fler poäng samlas
+
+// ------------- Setup for game and gaming-function -----------------
 
 	//For each planet this function matches the planets habitants with the users profile 
 	// and adds the points to tempPoints. Then a 'bestMatch' is being added to habitantsOnPlanets
 	//saying which habitant on that planet the user is most alike
 	this.matchMaking = function(){
-		//console.log("Start match making!", habitantsOnPlanets)
+		console.log("Start match making!", habitantsOnPlanets)
 		for(i in habitantsOnPlanets){
-			//console.log("In habitants on planets", habitantsOnPlanets[i])
+			console.log("In habitants on planets", habitantsOnPlanets[i]);
 			var tempPerson= null;
 			var tempPoints = 0;
 			
 			for(j in habitantsOnPlanets[i].habitants){
-				//console.log("In habitants")
+				console.log("In habitants");
 				var lookAlikePoints = 0;
 				
 				if(habitantsOnPlanets[i].habitants[j].eye_color == profile.eye){
@@ -106,8 +117,6 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 				if(habitantsOnPlanets[i].habitants[j].height == profile.height){
 					lookAlikePoints += 1;
 				}
-				
-				//console.log(lookAlikePoints);
 
 				if(tempPoints < lookAlikePoints){
 					tempPerson = habitantsOnPlanets[i].habitants[j];
@@ -116,8 +125,23 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 			}
 			habitantsOnPlanets[i].lookAlike = {"bestMatch":tempPerson, "points":(tempPoints/=4)*100};	
 		}
-		//console.log("We have a match", habitantsOnPlanets)
+		console.log("We have a match", habitantsOnPlanets);
 	};
+
+	//Gaming-function that determains weather or not the user wins using the odds of winning as input
+	this.compete = function(proc){
+		var yourOdds = proc / 100;
+		var results = [1, 0]; 
+		var computersOdds = Math.random();
+	
+		if(computersOdds<yourOdds){
+			return results[0];
+		}			
+		return results[1];
+	}
+
+
+// ------------- Profile -----------------
 
 	//Function that adds values to the users profile 
 	this.addToProfile = function(field, value){
@@ -135,52 +159,17 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 	}
 
 	//Function that clears the profile
-	this.clearAll = function(){
+	this.clearProfile = function(){
 	profile = {"name": "", "eye": "", "hair": "", "height": "", "wonPlanets": [], "lostPlanets": []};
 	}
 
 
-	//Returns array with all the users won planets
-	this.returnWonPlanets = function(){
-		//console.log("model", profile.wonPlanets);
-		return profile.wonPlanets;
-	}
-
-	//Returns array with all the users lost planets
-	this.returnLostPlanets = function(){
-		return profile.lostPlanets;
-	}
-
-	//When it's time to save planets to localStorage this function removes the current data for
-	//this profile and replaces it with a new one containing the planets as well
-	this.savePlanets = function(){
-		if(profile.name === ""){
-			localStorage.removeItem(profile.name);
-		}
-		else{
-		console.log("i save planets" ,profile);
-		localStorage.removeItem(profile.name);
-		localStorage.setItem(profile.name, JSON.stringify(profile));
-		}		
-	}
-
-	//Gaming-function that determains weather or not the user wins using the odds of winning as input
-	this.compete = function(proc){
-		var yourOdds = proc / 100;
-		var results = [1, 0]; 
-		var computersOdds = Math.random();
+// ------------- localStorage -----------------
 	
-		if(computersOdds<yourOdds){
-			return results[0];
-		}			
-		return results[1];
-		}
+	// ---- profile localStorage ----
 
-// Sparar och hämtar alla lokalt sparade profiler 
-	
 
 	//Fetches profiles from localStorage
-	//***DÖPA OM*** 
 	this.getLocalStorage = function(){
 		var allLocals = [];
 		for(i in localStorage){
@@ -195,22 +184,33 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 		return allLocals;
 	}
 
+	//Saves whole profile to localStorage
+	//this function removes the current data for the profile and replaces 
+	//it with a new to make sure the data stays up to date with the users changes
 	this.saveLocalStorage = function(){
 		if(profile.name == ""){
-
+			localStorage.removeItem(profile.name);
 		}
 		else{
-			localStorage.setItem(profile.name, JSON.stringify(profile));}
+			console.log("saving profile to localStorage" ,profile);
+			localStorage.removeItem(profile.name);
+			localStorage.setItem(profile.name, JSON.stringify(profile));
+		}
 	}
 
-	this.savePlanetsLocalStorage = function(){
-		localStorage.setItem("planeter", JSON.stringify(habitantsOnPlanets));
-	};
+	// ---- habitantsOnPlanets localStorage ----
 
 	this.getPlanetsFromLocal = function(){
 		habitantsOnPlanets = JSON.parse(localStorage.getItem("planeter"));
 	};
 
+	//Saves habitantsOnPlanets to localStorage
+	this.savePlanetsLocalStorage = function(){
+		localStorage.setItem("planeter", JSON.stringify(habitantsOnPlanets));
+	};
+
+	//Checks if habitantsOnPlanets already exists in localStorage 
+	//If so 'true' is returned, else 'false' is returned
 	this.checkLocalStorage = function(){
 		if(JSON.parse(localStorage.getItem("planeter")) === null){
 			return false
@@ -219,6 +219,8 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 			return true
 		}
 	};
+
+// ------------- small database -----------------
 
 	//Our own database with eyecolors
 	this.eyecol = 

@@ -1,28 +1,15 @@
 StarWarsApp.controller('profileCtrl', function($scope, StarModel){
 
-$scope.load_profile = function(){
+// ------------- storing data -----------------
 
-//Array with 
 $scope.profil = StarModel.returnProfile();
-console.log("i profile", $scope.profil)
-//Array with won planets ( OBS! endast köra profile.wonPlanets och ej returna endast wonPlanets sen)
-$scope.wonplanets = StarModel.returnWonPlanets();
-
-//Array with lost planets 
-//NOT USED
-$scope.lostplanets = StarModel.returnLostPlanets();
-
-//If there are planets won this part finds out how many they are
-//NOT USED 
-if($scope.wonplanets.length !== 0){
-	$scope.amountOfWonPlanets = $scope.wonplanets.length;
-	$scope.amountOfLostPlanets = $scope.lostplanets.length;
-	$scope.totalAmountOfPlanets = $scope.amountOfWonPlanets + $scope.amountOfLostPlanets;
-};
-
-};
+$scope.wonPlanets = $scope.profil.wonPlanets;
+$scope.lostPlanets = $scope.profil.lostPlanets;
 
 
+// ------------- pop up window -----------------
+
+//Opens pop up window and presents data about the planet being clicked
 $scope.open_popup = function(planet){
 	console.log("PLANET", planet.planet.population);
 	$scope.popup_population = planet.planet.population;
@@ -35,6 +22,7 @@ $scope.open_popup = function(planet){
 	angular.element('#fade').css('display', 'block');
 };
 
+//closes pop up window
 $scope.close_popup = function(){
 	angular.element('#light').css('display', 'none');
 	angular.element('#fade').css('display', 'none');

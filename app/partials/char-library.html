@@ -18,11 +18,8 @@
         </div>
       </a>
 
-      <div class="col-md-3 selectChar" ng-repeat="loc in allLocals track by $index">
-
-      
+      <div class="col-md-3 selectChar" ng-repeat="loc in allLocals track by $index">      
        <div class="charContent">
-       
           <div class="killCharacter">
             <button type="button" id="kill" class="btn btn-default btn-sm" ng-click="killChar(loc)">
               <span class="glyphicon glyphicon-remove"></span>Kill {{loc.name}}
@@ -45,8 +42,6 @@
               <p id="locName">{{loc.name}}</p>
             </svg>
           </div>
-
-
         </div>
       </div>
     </div>

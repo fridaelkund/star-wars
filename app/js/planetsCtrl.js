@@ -1,17 +1,21 @@
 StarWarsApp.controller('planetsCtrl', function($scope, StarModel){
+// ------------- storing data -----------------
 
 $scope.profil = StarModel.returnProfile();
 
 
+//saves data to localStorage if we switch to other page
 $scope.$on('$routeChangeStart', function() { 
-   StarModel.savePlanets();
+   StarModel.saveLocalStorage();
  });
+
+// ------------- getting data for battle field -----------------
 
 //Planets that are suppose to be shown on the battle field are fetched here and put in an array to use for displaying
 $scope.getPlanets = function(){
 	$scope.ourPlanets = [];
-	$scope.wonPlanets = StarModel.returnWonPlanets();
-	$scope.lostPlanets = StarModel.returnLostPlanets();
+	$scope.wonPlanets = $scope.profil.wonPlanets;
+	$scope.lostPlanets = $scope.profil.lostPlanets;
 	$scope.habitantsOnPlanets = StarModel.returnHabitantsOnPlanets();
 
 	//For each planet in habitantsOnPlanets
@@ -61,28 +65,34 @@ $scope.getPlanets = function(){
 }
 
 
+// ------------- game -----------------
+
+
 //When the user clicks on a planet this is the function that is being run. 
 //It calls the model to run the gameand tells if the user won or lost
 $scope.fightForPlanet = function(planet){	
 	$scope.result = StarModel.compete(planet.lookAlike.points);
 
 	//This makes sure the user can't play again on the planet
-	for(i in StarModel.returnWonPlanets()){
-		if(planet == StarModel.returnWonPlanets()[i]){
+	for(i in $scope.wonPlanets){
+		if(planet == $scope.wonPlanets[i]){
 			console.log("You already won! :)")
 			return
 			}
 		}
 	//This makes sure the user can't play again on the planet
-	for(i in StarModel.returnLostPlanets()){
-		if(planet == StarModel.returnLostPlanets()[i]){
+	for(i in $scope.lostPlanets){
+		if(planet == $scope.lostPlanets[i]){
 			console.log("You already lost! :(")
 			return
 			}
 		}		
+	$scope.checkIfWinner(planet);
+};
 
-	//If result = 1 the user won the planet, otherwise the user lost it. 
-	//Below are the animations for when the user wins or looses
+//Checks if user wins the planet or not and preforms animations depending on outcome
+//If result = 1 the user won the planet, otherwise the user lost it. 
+$scope.checkIfWinner = function(planet){
 	if ($scope.result == 1){
 		StarModel.addToProfile('wonPlanets',planet);
 		$scope.message = "You won!"
@@ -108,18 +118,20 @@ $scope.fightForPlanet = function(planet){
 		
 		TweenMax.to(('#'+planet.planet.name.split(' ').join('')+'text'), 4, {opacity:0, delay:1});
 	}
-};
+
+
+}
 
 //Function that changes the class for the planet-element 
 //depending on if it have been won/lost or not played yet
 $scope.whatclass = function(planet){
-	for(i in StarModel.returnWonPlanets()){
-		if (planet.planet.name == StarModel.returnWonPlanets()[i].name){
+	for(i in $scope.wonPlanets){
+		if (planet.planet.name == $scope.wonPlanets[i].name){
 			return "wonplanet"
 		}
 	}	
-	for(i in StarModel.returnLostPlanets()){
-		if(planet.planet.name == StarModel.returnLostPlanets()[i].name){
+	for(i in $scope.lostPlanets){
+		if(planet.planet.name == $scope.lostPlanets[i].name){
 			return "lostplanet"
 		}
 	}

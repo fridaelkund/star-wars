@@ -1,16 +1,16 @@
 <div id="startView" class="container-fluid" ng-controller="menuCtrl">
+	
 	<ng-include src="'partials/menu.html'"></ng-include>
 
 	<div class="col-md-12" id="startViewIntro" ng-init="loading()">
-
 		<audio id="audio1" src="startwars.mp3"></audio>
 
-		<div id="introplanet"><img src="images/planet.png" style="width:140px"/></div>
-
-		<h1 id="introtext">time to conquer the universe</h1>
-
+		<div id="introplanet">
+			<img src="images/planet.png" style="width:140px"/>
+		</div>
+		
+		<h1 id="introtext">Time to conquer the universe</h1>
 		<p id="loading-message"></p>
-
 	</div>
 
 </div>
