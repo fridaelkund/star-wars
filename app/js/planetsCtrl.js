@@ -1,6 +1,6 @@
 StarWarsApp.controller('planetsCtrl', function($scope, StarModel){
 
-$scope.profile = StarModel.returnProfile();
+$scope.profil = StarModel.returnProfile();
 
 
 $scope.$on('$routeChangeStart', function() { 
@@ -110,7 +110,8 @@ $scope.fightForPlanet = function(planet){
 	}
 };
 
- 
+//Function that changes the class for the planet-element 
+//depending on if it have been won/lost or not played yet
 $scope.whatclass = function(planet){
 	for(i in StarModel.returnWonPlanets()){
 		if (planet.planet.name == StarModel.returnWonPlanets()[i].name){
@@ -126,6 +127,7 @@ $scope.whatclass = function(planet){
 };
 
 
+//Function that opens pop up window with information about a planet
 $scope.open_popup = function(planet){
 	console.log("PLANET", planet.population);
 	$scope.popup_population = planet.population;
@@ -138,6 +140,7 @@ $scope.open_popup = function(planet){
 	angular.element('#fade').css('display', 'block');
 };
 
+//Function that closes the pop up window
 $scope.close_popup = function(){
 	angular.element('#light').css('display', 'none');
 	angular.element('#fade').css('display', 'none');
