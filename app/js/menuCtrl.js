@@ -72,10 +72,10 @@ t1.to('#audio1', 2, {'volume':0});
 
 // Animations to remove intro-text, loadingmessage and creating menu
 $scope.timeToPlay = function(){
-	t1.play();
+	
 	$scope.menu = true;
 	$scope.loading = false;
-
+	t1.play();
 	$timeout(function() {
     	$location.path('/instructions');	
    }, 5900);
