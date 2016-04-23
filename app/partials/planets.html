@@ -1,11 +1,11 @@
 <ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include>
-<ng-include src="'partials/error.html'" ng-show="'{{profil.name}}' === ''"></ng-include>
+<ng-include src="'partials/error.html'" ng-show="'{{profile.name}}' === ''"></ng-include>
 
 <ng-include ng-controller="planetsCtrl"></ng-include>
 
 
 <div class="container">
-	<div class="row" ng-hide="'{{profil.name}}' === ''">
+	<div class="row" ng-hide="'{{profile.name}}' === ''">
 		<div class="header">
 			<h1>battlefield</h1> 
 			<p>Select which planet to conquer by clicking it.</p>
@@ -16,7 +16,7 @@
 			<div class="planetPlan" 
 				id="{{planet.planet.name.split(' ').join('')}}" 
 				name="planetButton" 
-				ng-click="moveToPlanet(planet)" 
+				ng-click="fightForPlanet(planet)" 
 				ng-class='whatclass(planet)'><p id="{{planet.planet.name.split(' ').join('')+'status'}}">{{planet.lookAlike.points}}%</p>
 			</div>
 		
