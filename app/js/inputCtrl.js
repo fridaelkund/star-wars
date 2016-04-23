@@ -40,6 +40,7 @@ else{
 };
 
 $scope.clearPreviousProfileData = function(){
+	StarModel.saveLocalStorage();
 	StarModel.clearAll();
 
 }

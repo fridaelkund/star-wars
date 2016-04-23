@@ -1,7 +1,11 @@
 <ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include>
 <ng-include src="'partials/error.html'" ng-show="'{{profil.name}}' === ''"></ng-include>
 
+
+
 <ng-include ng-controller="planetsCtrl"></ng-include>
+
+
 
 <div class="row" ng-hide="'{{profil.name}}' === ''">
 <div class="header">
@@ -19,8 +23,9 @@
 		data-toggle="popover" 
 		data-placement="right" 
 		data-content="You have {{planet.lookAlike.points}}% chance to win." 
-		data-trigger="hover">{{planet.planet.name}}
+		data-trigger="hover">{{planet.lookAlike.points}}%
 		</div>
+		<p>{{planet.planet.name}}</p>
     </div>
 </div>
 
