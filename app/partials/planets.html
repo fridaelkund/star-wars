@@ -1,35 +1,35 @@
 <ng-include src="'partials/menu.html'" ng-controller="menuCtrl"></ng-include>
 <ng-include src="'partials/error.html'" ng-show="'{{profil.name}}' === ''"></ng-include>
 
-
-
 <ng-include ng-controller="planetsCtrl"></ng-include>
 
 
-
-<div class="row" ng-hide="'{{profil.name}}' === ''">
-<div class="header">
-		<h1>battlefield</h1> 
-</div>
-
-<div class="col-md-8" ng-init="getPlanets()">
-	<h3> Select which planet to conquer by clicking it. </h3>
-	<div class="universe col-md-3" ng-repeat="planet in ourPlanets track by $index">
-		<div class="planetPlan" 
-		id="{{planet.planet.name.split(' ').join('')}}" 
-		name="planetButton" 
-		ng-click="moveToPlanet(planet)" 
-		ng-class='whatclass(planet)'><p id="{{planet.planet.name.split(' ').join('')+'status'}}">{{planet.lookAlike.points}}%</p>
+<div class="container">
+	<div class="row" ng-hide="'{{profil.name}}' === ''">
+		<div class="header">
+			<h1>battlefield</h1> 
+			<p>Select which planet to conquer by clicking it.</p>
 		</div>
+
+		<div class="col-md-8" ng-init="getPlanets()" ng-hide="'{{ourPlanets.length}}' === '0'">
+			<div class="universe col-md-3" ng-repeat="planet in ourPlanets track by $index">
+			<div class="planetPlan" 
+				id="{{planet.planet.name.split(' ').join('')}}" 
+				name="planetButton" 
+				ng-click="moveToPlanet(planet)" 
+				ng-class='whatclass(planet)'><p id="{{planet.planet.name.split(' ').join('')+'status'}}">{{planet.lookAlike.points}}%</p>
+			</div>
+		
 		<p id="{{planet.planet.name.split(' ').join('')+'text'}}">{{planet.planet.name}}</p>
-    </div>
-    <div class="col-md-3" ng-show="'{{ourPlanets.length}}' === '0'">
+    		</div>
+    	</div>
+
+    <div class="col-md-8" ng-show="'{{ourPlanets.length}}' === '0'">
     	<p>There are no planets left. You have either won or lost all availiable planets.</p>
     </div>
-</div>
 
+	<ng-include src="'partials/avatar.html'" ng-controller="inputCtrl"></ng-include> 
 
-<ng-include src="'partials/avatar.html'" ng-controller="inputCtrl"></ng-include> 
-
+	</div>
 </div>
  

@@ -1,9 +1,6 @@
 StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 	
 	var habitantsOnPlanets = [];
-	if(JSON.parse(localStorage.getItem("planeter")) !== null){
-		habitantsOnPlanets = JSON.parse(localStorage.getItem("planeter"));
-	}
 
 	var lookAlikes = [];
 	var profile = {"name": "", "eye": "", "hair": "", "height": "", "wonPlanets": [], "lostPlanets": []};
