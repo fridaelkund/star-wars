@@ -32,7 +32,7 @@ else{
 };
 
 if($scope.profil.name == ""){
-	$scope.avatar_name = "Jedi";
+	$scope.avatar_name = "Darth Victor";
 }
 else{
 	$scope.avatar_name = $scope.profil.name;	
