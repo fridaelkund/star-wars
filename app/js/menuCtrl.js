@@ -71,7 +71,7 @@ $scope.timeToPlay = function(){
 
 	var t1 = new TimelineMax({delay:2});
 		t1.to("#introtext", 1, {'opacity':0, 'scale':0});
-		t1.to("#introplanet", 1, {y:-220}, "-=0.25");
+		t1.to("#introplanet", 1, {y:-241}, "-=0.25");
 		t1.to('#audio1', 2, {'volume':0});
 		t1.play();
 	

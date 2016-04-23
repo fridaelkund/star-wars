@@ -96,26 +96,28 @@ $scope.moveToPlanet = function(planet){
 	if ($scope.result == 1){
 		StarModel.addWonPlanet(planet);
 		$scope.message = "You won!"
-		TweenMax.to(('#'+planet.planet.name.split(' ').join('')), 0.1, {x:"+=10", yoyo:true, repeat:-2});
-		TweenMax.to(('#'+planet.planet.name.split(' ').join('')), 0.1, {x:"-=10", yoyo:true, repeat:2});
-		TweenMax.from(('#'+planet.planet.name.split(' ').join('')), 5, {'-webkit-filter': 'brightness(100%)', delay:0.5});
-		TweenMax.to(('#'+planet.planet.name.split(' ').join('')), 5, {'-webkit-filter': 'brightness(200%)', delay:0.5});
-		TweenMax.to(('#'+planet.planet.name.split(' ').join(''),'.popover'), 2, {'display':'none'});
+		TweenMax.to(('#'+planet.planet.name.split(' ').join('')), 0.1, {x:"+=10", yoyo:true, repeat:-3});
+		TweenMax.to(('#'+planet.planet.name.split(' ').join('')), 0.1, {x:"-=10", yoyo:true, repeat:3});
+		
+		TweenLite.to(('#'+planet.planet.name.split(' ').join('')+'status'), 0.001, {text:{value:"You won!", delimiter:" "}, ease:Linear.easeNone, delay:1})
 
-		TweenLite.to(('#'+planet.planet.name.split(' ').join('')+'text'), 0.1, {text:{value:"You won!", delimiter:" "}, ease:Linear.easeNone, delay:2})
+		TweenMax.from(('#'+planet.planet.name.split(' ').join('')), 5, {'-webkit-filter': 'brightness(100%)', delay:2});
+		TweenMax.to(('#'+planet.planet.name.split(' ').join('')), 5, {'-webkit-filter': 'brightness(150%)', delay:2});
 
 	} else{
 
 		StarModel.addLostPlanet(planet);
 		$scope.message = "You lost!"
 		$scope.whatclass(planet);
-		TweenMax.to(('#'+planet.planet.name.split(' ').join('')), 0.1, {x:"+=10", yoyo:true, repeat:-2});
-		TweenMax.to(('#'+planet.planet.name.split(' ').join('')), 0.1, {x:"-=10", yoyo:true, repeat:2});
-		TweenMax.from(('#'+planet.planet.name.split(' ').join('')), 5, {'-webkit-filter': 'brightness(100%)', delay:0.5});
-		TweenMax.to(('#'+planet.planet.name.split(' ').join('')), 5, {'-webkit-filter': 'brightness(0%)', opacity:0, delay:0.5});
-		TweenLite.to(('#'+planet.planet.name.split(' ').join('')+'text'), 0.1, {text:{value:"You lost!", delimiter:" "}, ease:Linear.easeNone, delay:2})
+		TweenMax.to(('#'+planet.planet.name.split(' ').join('')), 0.1, {x:"+=10", yoyo:true, repeat:-3});
+		TweenMax.to(('#'+planet.planet.name.split(' ').join('')), 0.1, {x:"-=10", yoyo:true, repeat:3});
 
+		TweenLite.to(('#'+planet.planet.name.split(' ').join('')+'status'), 0.001, {text:{value:"You lost!", delimiter:" "}, ease:Linear.easeNone, delay:1})
 
+		TweenMax.from(('#'+planet.planet.name.split(' ').join('')), 5, {'-webkit-filter': 'brightness(100%)', delay:2});
+		TweenMax.to(('#'+planet.planet.name.split(' ').join('')), 5, {'-webkit-filter': 'brightness(0%)', opacity:0, delay:2});
+		
+		TweenMax.to(('#'+planet.planet.name.split(' ').join('')+'text'), 4, {opacity:0, delay:1});
 	}
 };
 
@@ -155,19 +157,3 @@ $scope.close_popup = function(){
 
 })
 
-
-.directive('toggle', function(){
-  return {
-    restrict: 'A',
-    link: function(scope, element, attrs){
-      if (attrs.toggle=="popover"){
-        $(element).popover({
-        	html: true,
-        	content: function() {
-        		return ('#popoverContent').html();
-        	}
-        });
-      }
-    }
-  };
-})

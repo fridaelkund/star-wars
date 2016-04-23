@@ -19,11 +19,7 @@
 		id="{{planet.planet.name.split(' ').join('')}}" 
 		name="planetButton" 
 		ng-click="moveToPlanet(planet)" 
-		ng-class='whatclass(planet)' 
-		data-toggle="popover" 
-		data-placement="right" 
-		data-content="You have {{planet.lookAlike.points}}% chance to win." 
-		data-trigger="hover">{{planet.lookAlike.points}}%
+		ng-class='whatclass(planet)'><p id="{{planet.planet.name.split(' ').join('')+'status'}}">{{planet.lookAlike.points}}%</p>
 		</div>
 		<p id="{{planet.planet.name.split(' ').join('')+'text'}}">{{planet.planet.name}}</p>
     </div>
