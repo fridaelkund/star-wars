@@ -64,29 +64,25 @@ $scope.getPlanets = function(){
 //When the user clicks on a planet this is the function that is being run. 
 //It calls the model to run the gameand tells if the user won or lost
 $scope.fightForPlanet = function(planet){	
-	$scope.result = StarModel.compete(planet.lookAlike.points)
-	 $("#popoverContent").popover('hide');
-
-	console.log($scope.result)
-
-	for(i in StarModel.returnWonPlanets()){
-		if(planet == StarModel.returnWonPlanets()[i]){
-			console.log("You already won! :)")
-			return
-			}
-		}
-	for(i in StarModel.returnLostPlanets()){
-		if(planet == StarModel.returnLostPlanets()[i]){
-			console.log("You already lost! :(")
-			return
-			}
-		}		
+	$scope.result = StarModel.compete(planet.lookAlike.points);
 
 
+	// for(i in StarModel.returnWonPlanets()){
+	// 	if(planet == StarModel.returnWonPlanets()[i]){
+	// 		console.log("You already won! :)")
+	// 		return
+	// 		}
+	// 	}
+
+	// for(i in StarModel.returnLostPlanets()){
+	// 	if(planet == StarModel.returnLostPlanets()[i]){
+	// 		console.log("You already lost! :(")
+	// 		return
+	// 		}
+	// 	}		
 
 	if ($scope.result == 1){
 		StarModel.addToProfile('wonPlanets',planet);
-		//StarModel.addPlanetToProfile(planet, 'won');
 		$scope.message = "You won!"
 		TweenMax.to(('#'+planet.planet.name.split(' ').join('')), 0.1, {x:"+=10", yoyo:true, repeat:-3});
 		TweenMax.to(('#'+planet.planet.name.split(' ').join('')), 0.1, {x:"-=10", yoyo:true, repeat:3});
@@ -98,8 +94,7 @@ $scope.fightForPlanet = function(planet){
 
 	} else{
 		StarModel.addToProfile('lostPlanets', planet)
-		StarModel.addPlanetToProfile(planet, 'lost');
-		$scope.message = "You lost!"
+		$scope.message = "You lost!";
 		$scope.whatclass(planet);
 		TweenMax.to(('#'+planet.planet.name.split(' ').join('')), 0.1, {x:"+=10", yoyo:true, repeat:-3});
 		TweenMax.to(('#'+planet.planet.name.split(' ').join('')), 0.1, {x:"-=10", yoyo:true, repeat:3});
