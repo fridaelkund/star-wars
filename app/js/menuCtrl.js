@@ -27,7 +27,6 @@ $scope.loading = function(startwars){
     		$scope.loadingmessage = 'Kammar wookies...';	
    	 }, 4000);
 
-
 	// Playing Star Wars-intro while loading to get into the right mode. 
 	document.getElementById('audio1').play(startwars);
 	}else{
@@ -77,9 +76,9 @@ $scope.timeToPlay = function(){
 	$scope.menu = true;
 	$scope.loading = false;
 
-//	$timeout(function() {
-  //  	$location.path('/instructions');	
-  //  }, 5900);
+	$timeout(function() {
+    	$location.path('/instructions');	
+   }, 5900);
 };
 
 var t2 = new TimelineMax();
