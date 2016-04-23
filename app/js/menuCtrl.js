@@ -30,7 +30,6 @@ $scope.loading = function(startwars){
 
 // If we have planets and people in local storage, get them! 
 		$scope.habitantsOnPlanets = StarModel.getPlanetsFromLocal();
-		console.log('i else')
 		$scope.timeToPlay();
 	}
 };
