@@ -66,21 +66,23 @@ $scope.getPlanets = function(){
 $scope.fightForPlanet = function(planet){	
 	$scope.result = StarModel.compete(planet.lookAlike.points);
 
+	//This makes sure the user can't play again on the planet
+	for(i in StarModel.returnWonPlanets()){
+		if(planet == StarModel.returnWonPlanets()[i]){
+			console.log("You already won! :)")
+			return
+			}
+		}
+	//This makes sure the user can't play again on the planet
+	for(i in StarModel.returnLostPlanets()){
+		if(planet == StarModel.returnLostPlanets()[i]){
+			console.log("You already lost! :(")
+			return
+			}
+		}		
 
-	// for(i in StarModel.returnWonPlanets()){
-	// 	if(planet == StarModel.returnWonPlanets()[i]){
-	// 		console.log("You already won! :)")
-	// 		return
-	// 		}
-	// 	}
-
-	// for(i in StarModel.returnLostPlanets()){
-	// 	if(planet == StarModel.returnLostPlanets()[i]){
-	// 		console.log("You already lost! :(")
-	// 		return
-	// 		}
-	// 	}		
-
+	//If result = 1 the user won the planet, otherwise the user lost it. 
+	//Below are the animations for when the user wins or looses
 	if ($scope.result == 1){
 		StarModel.addToProfile('wonPlanets',planet);
 		$scope.message = "You won!"
@@ -108,7 +110,7 @@ $scope.fightForPlanet = function(planet){
 	}
 };
 
-
+ 
 $scope.whatclass = function(planet){
 	for(i in StarModel.returnWonPlanets()){
 		if (planet.planet.name == StarModel.returnWonPlanets()[i].name){
@@ -122,7 +124,6 @@ $scope.whatclass = function(planet){
 	}
 	return "normalplanet"
 };
-
 
 
 $scope.open_popup = function(planet){
