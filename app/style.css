@@ -84,8 +84,15 @@ p{
 }
 
 .line{
-  border-bottom: 0.2px white solid;
+  /*border-bottom: 0.2px white solid;*/
   position:relative;
+
+}
+
+.box{
+  border:5px solid rgba(135,220,90,1);
+  border-radius:10px; 
+  box-shadow: 0px 0px 40px 6px rgba(135,220,90,0.95);
 }
 
 /* CREAT NEW CHARACHTER FEATURES */
