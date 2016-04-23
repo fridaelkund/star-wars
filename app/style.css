@@ -265,8 +265,18 @@ background-size: cover;
 .header{
   text-align: center;
   padding-top: 120px;
-  padding-bottom: 40px;
 }
+
+.instructBox{
+  height: 250px;
+  text-align: center;
+}
+
+
+img{
+  margin-bottom: 20px;
+}
+
  
 
 /* POP UP */ 
