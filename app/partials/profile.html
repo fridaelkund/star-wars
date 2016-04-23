@@ -11,19 +11,36 @@
 		</div>
 		<!-- Includes view of won planets. Planets are clickable and if clicked the pop up is opened -->
 		<div class="col-md-8">
-			<h3>Your planet collection</h3>
-			<div class="col-md-3 universe" ng-repeat="planet in wonplanets">
-				<div name="solarSystem" ng-class='whatclass(planet)' ng-click="open_popup(planet)">
-					<img src="josplanet.png" width="60px" height="60px">
-					<p>{{planet.planet.name}}</p>
+			<div class="col-md-12" ng-show="'{{wonplanets.length}}' !== '0'">
+				<h3>Your planet collection</h3>
+				<div class="col-md-3 universe" ng-repeat="planet in wonplanets">
+					<div name="solarSystem" ng-class='whatclass(planet)' ng-click="open_popup(planet)">
+						<img src="josplanet.png" width="60px" height="60px">
+						<p>{{planet.planet.name}}</p>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<h3>Planets you lost</h3>
+					<div class="col-md-3 universe" ng-repeat="planet in lostplanets">
+						<div name="solarSystem" ng-class='whatclass(planet)' ng-click="open_popup(planet)">
+							<img src="josplanet.png" width="60px" height="60px">
+							<p>{{planet.planet.name}}</p>
+						</div>
+					</div>
 				</div>
 			</div>
+
+			<div class="col-md-12" ng-hide="'{{wonplanets.length}}' !== '0'" style="margin-top:20px;">
+				<p>You have no planets yet. Go to the battle field to try winning some</p>
+			</div>
 		</div>
+
 		<!-- Includes view with avatar -->
-		<ng-include src="'partials/avatar.html'" ng-controller="inputCtrl"></ng-include>
+		<div class="col-md-4">
+			<ng-include src="'partials/avatar.html'" ng-controller="inputCtrl"></ng-include>
+		</div>
 		<div class="col-md-12" style="text-align:center;">
 			<a href="#/planets" class="btn" type="button">START GAME</a>
-
 		</div>
 	</div>
 </div>  <!-- End of profile page -->
@@ -31,7 +48,10 @@
 
 
 <!-- Pop up -->
-<div id="light" ng-click="close_popup()" class="white_content planet_info col-md-12">
+<div id="light" class="white_content planet_info col-md-12">
+	<div class="col-md-12 closeButton" style="text-align: right;">
+		<a ng-click="close_popup()" class="btn" type="button">X</a>
+	</div>
 	<div class="col-md-12 popup-center" style="text-align:center"> 
 		<h2> {{popup_name}}</h2>
 	</div>
@@ -43,7 +63,7 @@
 				<img src="images/diameter.png" height="300px" width="50px">
 			</h2>
 		</div>
-		<div class="col-md-6 popup-planet">
+		<div class="col-md-6 popup-planet" style="text-align: center;">
 			<img src="josplanet.png" alt="planet" height="300" width="300">		
 		</div>
 		<div class="col-md-3">
@@ -68,8 +88,8 @@
 		</div>
 		</div>
 	</div>
-	<div class="col-md-12 popup-center"><p>CLOSE BUTTON HERE </p></div>
+	
 </div> <!-- En of pop up -->
 
 <!-- Fade behind pop up -->
-<div id="fade" class="black_overlay"></div>
+<div id="fade" class="black_overlay" ng-click="close_popup()"></div>

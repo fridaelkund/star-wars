@@ -1,38 +1,49 @@
 <ng-include src="'partials/menu.html'"></ng-include>
-<div class="header">
-	<h1>Character</h1>
-	<p>Time to create your character! Select looks and hit save.</p> 
+
+
+<div class="container">
+	<div class="row">
+		<div class="header">
+			<h1>Character</h1>
+			<p>Time to create your character! Select looks and hit save.</p> 
+		</div>
+		<div class="col-md-8">
+			<div class="col-md-12">
+				<h3> Enter name:</h3>
+				<input type="text" class="form-control" placeholder="{{temp_name}}" id="nameInput" ng-model="name" ng-change="showName(name)" style="width:460px; margin-left:15px;">
+			</div>
+			<div class="col-md-12">
+				<h3> Select hair color: </h3>
+				<div class="scroll">
+		        	<div class="wide">  
+		            	<div  ng-repeat="(col, hex) in haircols" class="circle form-control" style="background-color:{{hex}}" ng-click="showHair(col)"></div> 
+		        	</div>
+		    	</div>
+		    </div>
+		    <div class="md-12">
+				<h3> Select eye color: </h3>
+				<div class="scroll">
+		        	<div class="wide">  
+		            	<div  ng-repeat="(col, hex) in eyecols" class="circle form-control" style="background-color:{{hex}}" ng-click="showEye(col)"></div> 
+		        	</div>
+		    	</div>
+		    </div>
+			<div class="col-md-12">
+				<h3> Select height: </h3>
+				<div class="row" style="margin-left:10px;">
+					<output for="height-input" id="height">150</output>
+					<input type="range" min="100" max="200" value="150" id="height-input" step="1" ng-model="height" ng-change="showHeight(height)" style="width:460px;">
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-4">
+			<ng-include src="'partials/avatar.html'" style="margin-top:0px;"></ng-include>
+		</div>
+
+		<div class="col-md-12" style="text-align:center;">
+			<a href="#/profile" class="btn" id="save-btn" type="button" ng-show="location.hash === '#/new-char'" ng-click="save()">SAVE</a>
+		</div>
 	</div>
-<div class="row col-md-12">
-	<div class="col-md-8">
-
-	<h3> Enter name:</h3>
-	<input type="text" class="form-control" placeholder="{{temp_name}}" id="nameInput" ng-model="name" ng-change="showName(name)" style="width:460px; margin-left:15px;">
-
-	<h3> Select hair color: </h3>
-	<div class="scroll">
-        <div class="wide">  
-            <div  ng-repeat="(col, hex) in haircols" class="circle form-control" style="background-color:{{hex}}" ng-click="showHair(col)"></div> 
-        </div>
-    </div>
-	
-	<h3> Select eye color: </h3>
-	<div class="scroll">
-        <div class="wide">  
-            <div  ng-repeat="(col, hex) in eyecols" class="circle form-control" style="background-color:{{hex}}" ng-click="showEye(col)"></div> 
-        </div>
-    </div>
-	
-	<h3> Select height: </h3>
-	<div class="row" style="margin-left:10px;">
-	<output for="height-input" id="height">150</output>
-	<input type="range" min="100" max="200" value="150" id="height-input" step="1" ng-model="height" ng-change="showHeight(height)" style="width:460px;">
-	</div>
-
 </div>
 
-<div ng-include src="'partials/avatar.html'" style="margin-top:0px;"></ng-include>
-
-</div>
-
-</div>
