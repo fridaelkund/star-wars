@@ -35,15 +35,15 @@
 			</div>
 		</div>
 
-		<div class="avatarWindow col-md-4">
+		<!-- <div class="avatarWindow col-md-4">
       		<a href="#/new-char" class="btn" id="avatar-btn" type="button">
           		<span class="glyphicon glyphicon-pencil"></span>
-      		</a>
+      		</a> -->
 			<ng-include src="'partials/avatar.html'" ng-controller="inputCtrl"></ng-include>
-			<div class="col-md-12">
+			<!-- <div class="col-md-12">
         		<p style="padding-top:10px; font-size:24px;">{{profil.name}}</p>
       		</div>
-		</div>
+		</div> -->
 
 		<div class="col-md-12" style="text-align:center;" ng-show="location.hash !== '#/new-char'" >
 			<a href="#/planets" class="btn" type="button">START GAME</a>
