@@ -1,5 +1,6 @@
  body{
 	background-image: url("images/spaceblack.jpg");
+  width: 100%;
  }
 
  @font-face{
@@ -14,6 +15,9 @@
 
 .container-fluid{
   height:100%;
+  padding-bottom: 40px;
+  width: 100%;
+  overflow: hidden;
 }
 
 /* TEXT */ 
