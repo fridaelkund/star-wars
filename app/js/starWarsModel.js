@@ -166,9 +166,14 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 
 //Fortsättning här imorgon /Josmol
 	this.savePlanets = function(){
+		if(profile.name === ""){
+			localStorage.removeItem(profile.name);
+		}
+		else{
 		console.log("i save planets" ,profile);
 		localStorage.removeItem(profile.name);
-		localStorage.setItem(profile.name, JSON.stringify(profile));		
+		localStorage.setItem(profile.name, JSON.stringify(profile));
+		}		
 	}
 
 // Tävlingsfunktion som avgör om spelaren vinner eller inte
@@ -200,7 +205,11 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 	}
 
 	this.saveLocalStorage = function(){
-		localStorage.setItem(profile.name, JSON.stringify(profile));
+		if(profile.name == ""){
+
+		}
+		else{
+			localStorage.setItem(profile.name, JSON.stringify(profile));}
 	}
 
 	this.savePlanetsLocalStorage = function(){

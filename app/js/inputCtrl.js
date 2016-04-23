@@ -77,7 +77,7 @@ $scope.showHeight=function(height){
 
 // Getting all characters from local storage
 $scope.getAllLocals = function(){
-	if(StarModel.getLocalStorage().length === 0){
+	if(StarModel.getLocalStorage().length == 0){
 		$scope.allLocals = null;
 	}
 	else{
