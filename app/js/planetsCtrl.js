@@ -29,39 +29,30 @@ $scope.getPlanets = function(){
 
 			//First we check that the planet doesn't exist among the won planets
 			for(j in $scope.wonPlanets){
-				console.log("the won planet we're at",$scope.wonPlanets[j].planet);
-				console.log("the habitants planet we're at", $scope.habitantsOnPlanets[i].planet);
 				
 				//If the planet in habitantsOnPlanets and the planet in wonPlanets match we don't want to proceed
 				//the $scope.add variable os set to false, we don't want to add it among the planets for the game since it's already won
 				if($scope.habitantsOnPlanets[i].planet.name === $scope.wonPlanets[j].planet.name){
-					console.log($scope.habitantsOnPlanets[i].planet.name, "exists among won planets")
 					$scope.add = false;
-					console.log("add-variable is", $scope.add);
 				}
 			}
 
 			//Then we check that the planet doesn't exist among the lost planets
 			for(n in $scope.lostPlanets){
-					console.log("the lost planet we're at", $scope.lostPlanets[n]);
-					console.log("the habitants planet we're at", $scope.habitantsOnPlanets[i].planet);
 
 				//If the planet in habitantsOnPlanets and the planet in lostPlanets match we don't want to proceed
 				//the $scope.add variable os set to false, we don't want to add it among the planets for the game since it's already won
 				if($scope.habitantsOnPlanets[i].planet.name === $scope.lostPlanets[n].planet.name){
-					console.log($scope.habitantsOnPlanets[i].planet.name, "exists among lost planets");
 					$scope.add = false;
-					console.log("add-variable is", $scope.add);
 				}
 			}
 			//Finally we check if the add-variable is true. If it is it means we should add it to ourPlanets
 			if($scope.add == true){
-				console.log('the planet that we add is', $scope.habitantsOnPlanets[i].planet.name); 
 				$scope.ourPlanets.push($scope.habitantsOnPlanets[i])
 			}
 		}
 	}
-	console.log("These are the planets to be displayed in the game", $scope.ourPlanets);
+	
 }
 
 
@@ -76,14 +67,12 @@ $scope.fightForPlanet = function(planet){
 	//This makes sure the user can't play again on the planet
 	for(i in $scope.wonPlanets){
 		if(planet == $scope.wonPlanets[i]){
-			console.log("You already won! :)")
 			return
 			}
 		}
 	//This makes sure the user can't play again on the planet
 	for(i in $scope.lostPlanets){
 		if(planet == $scope.lostPlanets[i]){
-			console.log("You already lost! :(")
 			return
 			}
 		}		

@@ -186,10 +186,12 @@ input[type=range]::-webkit-slider-thumb {
 
 /* PLANET GAME */ 
 .planetPlan{
-  width: 100px;
+  width: auto;
   height: 100px;
   background-image: url(images/josplanet.png);
   background-size: 100px 100px;
+  background-repeat: no-repeat;
+  background-position: center;
   text-align: center;
   color: white;
   padding-top:20%;
@@ -205,12 +207,14 @@ filter: brightness(200%);
 filter: brightness(10%);
 }*/
 
-.normalplanet{
-  width: 100px;
-  height: 100px;
-  background-image: url(images/josplanet.png);
-  background-size: 100px 100px;
-}
+/*.normalplanet{
+    width: auto;
+    height: 100px;
+    background-image: url(images/josplanet.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100px 100px;
+}*/
 /* PLANET GAME DONE */ 
 
 /* SELECT MY CHARACHTERS */ 

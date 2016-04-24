@@ -8,7 +8,7 @@
 		<div class="header">
 			<h1>profile</h1>
 			<p>Here's your profile. Your cute avatar and the imperium you've taken over.</p>
-			<p>Click on a planet to read more about it!</p> 
+			<p ng-show="'{{wonPlanets.length}}' !== '0'">Click on a planet to read more about it!</p> 
 		</div>
 		<!-- Includes view of won planets. Planets are clickable and if clicked the pop up is opened -->
 		<div class="col-md-8">
@@ -36,15 +36,8 @@
 			</div>
 		</div>
 
-		<div class="avatarWindow col-md-4">
-      		<a href="#/new-char" class="btn" id="avatar-btn" type="button">
-          		<span class="glyphicon glyphicon-pencil"></span>
-      		</a>
-				<ng-include src="'partials/avatar.html'" ng-controller="inputCtrl"></ng-include>
-			<div class="col-md-12">
-        		<p style="padding-top:10px; font-size:24px;">{{profil.name}}</p>
-      		</div>
-		</div>
+		<ng-include src="'partials/avatar.html'" ng-controller="inputCtrl"></ng-include>
+
 
 		<div class="col-md-12" style="text-align:center;" ng-show="location.hash !== '#/new-char'" >
 			<a href="#/planets" class="btn" type="button">START GAME</a>

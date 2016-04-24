@@ -87,7 +87,6 @@ $scope.getProfile=function(loc){
 	$location.path("/profile");
 
 	$scope.profil = StarModel.returnProfile();
-	console.log($scope.profil);
 };
 
 // Saving profile to Star Model and localStorage 

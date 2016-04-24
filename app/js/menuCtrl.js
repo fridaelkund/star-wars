@@ -23,9 +23,9 @@ $scope.loading = function(startwars){
 		
 		var t2 = new TimelineMax();
 		t2.to('#loading-message', 0.001, {text:{value:"Loading data..."}, delay:3});
-		t2.to('#loading-message', 0.001, {text:{value:"Getting the force..."}, delay:3});
-		t2.to('#loading-message', 0.001, {text:{value:"Sharpen laser swords..."}, delay:3});
+		t2.to('#loading-message', 0.001, {text:{value:"Sharpen light sabers..."}, delay:3});
 		t2.to('#loading-message', 0.001, {text:{value:"Filling up spaceships..."}, delay:3});
+		t2.to('#loading-message', 0.001, {text:{value:"Charging the force..."}, delay:3});
 
 		// Playing Star Wars-intro while loading to get into the right mode. 
 		document.getElementById('audio1').play(startwars);
@@ -45,13 +45,13 @@ $scope.timeToPlay = function(){
 	var t1 = new TimelineMax({delay:2});
 		t1.to("#introtext", 1, {'opacity':0, 'scale':0});
 		t1.to("#introplanet", 1, {y:-241}, "-=0.25");
-		t1.to('#audio1', 2, {'volume':0});
+		t1.to('#audio1', 2, {'volume':0}, "-=1");
 		t1.play();
 	
 		$scope.loading = false;
 
 };
-
+//Animate the menu on the start-page
 $scope.animateMenu = function(){
 	if($scope.path === '/home'){
 	TweenMax.from('#leftMenu', 0.8, {'x':'-100%', 'delay':2})

@@ -9,7 +9,7 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 	
 	var profile = {"name": "", "eye": "", "hair": "", "height": "", "wonPlanets": [], "lostPlanets": []};
 	var tempData = [];
-	var q = null; // The deferrer object which we define later.
+	var q = null; // The deferrer object
 
 
 // ------------- Fetching data from API -----------------
@@ -17,31 +17,23 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
     // variable from the _previous_ call!
     var fetchFromUrl = function(url, data) {
         if (data !== null) {
-        	console.log("Adding data to tempData:", data);
         	tempData = tempData.concat(data);
         }
-        // Make request! (Jedi style preferably)
+        
         var tempReq = $http({
         	method: 'GET',
         	url: url
         });
-        // We must wait for the response as we need the next url!
+        // We must wait for the response
         tempReq.then(function successCallback(response) {
         	var results = response.data.results;
-        	console.log("Got this data:", results);
 
         	// Check if we have a next page
         	if (response.data.next !== null) {
-			// Oh yes. We have data. Big data.
-			console.log("More is available at", response.data.next);
-			// Call again with the results as data input to build the
-			// tempData result array with
+
 			fetchFromUrl(response.data.next, results);
 		} else {
 			// We have no more data to fetch! Resolve the promise.
-			// (The wookie has served us all data we need. We thank
-			// him/her and tell our system that the data is ready!)
-        	console.log("No more data!", tempData);
         	q.resolve(tempData);
         }
         });
@@ -53,7 +45,6 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 
         // Start with null as data!
         fetchFromUrl(url, null);
-        console.log(q.promise);
         return q.promise;
        };
 
@@ -62,16 +53,13 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 
 	//adds all fetched planets in the array habitantsOnPlanets to store them there
     this.addPlanets = function(planets){
-    	console.log("Time to addPlanets")
     	for(i in planets){
     		habitantsOnPlanets.push({"planet": planets[i], "habitants": []});
     	}
-    	console.log("All planets:", habitantsOnPlanets);
     }
 
     //Adds all fetched people in the array habitantsOnPlanets sorted by the planet they live at
     this.addPeople = function(people){
-    	console.log("Time to addPeople")
     	for(i in people){
     		for(j in habitantsOnPlanets){
     			if(people[i].homeworld == habitantsOnPlanets[j].planet.url){
@@ -79,7 +67,6 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
     			}
     		}
     	}
-    	console.log("All planets have habitants!", habitantsOnPlanets);
     }
 
 
@@ -95,14 +82,12 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 	// and adds the points to tempPoints. Then a 'bestMatch' is being added to habitantsOnPlanets
 	//saying which habitant on that planet the user is most alike
 	this.matchMaking = function(){
-		console.log("Start match making!", habitantsOnPlanets)
 		for(i in habitantsOnPlanets){
-			console.log("In habitants on planets", habitantsOnPlanets[i]);
 			var tempPerson= null;
 			var tempPoints = 0;
 			
 			for(j in habitantsOnPlanets[i].habitants){
-				console.log("In habitants");
+				
 				var lookAlikePoints = 0;
 				
 				if(habitantsOnPlanets[i].habitants[j].eye_color == profile.eye){
@@ -125,7 +110,7 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 			}
 			habitantsOnPlanets[i].lookAlike = {"bestMatch":tempPerson, "points":(tempPoints/=4)*100};	
 		}
-		console.log("We have a match", habitantsOnPlanets);
+		
 	};
 
 	//Gaming-function that determains weather or not the user wins using the odds of winning as input
@@ -173,12 +158,8 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 	this.getLocalStorage = function(){
 		var allLocals = [];
 		for(i in localStorage){
-			console.log('loopar igenom', i);
-			if(i === "planeter"){
-				console.log('planet')
-			}
-			else{
-			allLocals.push(JSON.parse(localStorage.getItem([i])));
+			if(i !== "planeter"){
+				allLocals.push(JSON.parse(localStorage.getItem([i])));
 			}
 		}
 		return allLocals;
@@ -192,7 +173,6 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 			localStorage.removeItem(profile.name);
 		}
 		else{
-			console.log("saving profile to localStorage" ,profile);
 			localStorage.removeItem(profile.name);
 			localStorage.setItem(profile.name, JSON.stringify(profile));
 		}

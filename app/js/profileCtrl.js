@@ -11,7 +11,6 @@ $scope.lostPlanets = $scope.profil.lostPlanets;
 
 //Opens pop up window and presents data about the planet being clicked
 $scope.open_popup = function(planet){
-	console.log("PLANET", planet.planet.population);
 	$scope.popup_population = planet.planet.population;
 	$scope.popup_name = planet.planet.name;
 	$scope.popup_terrain = planet.planet.terrain;

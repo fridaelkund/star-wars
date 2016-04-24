@@ -5,34 +5,29 @@
 	<div class="row" ng-hide="'{{profil.name}}' === ''">
 		<div class="header">
 			<h1>battlefield</h1> 
-			<p>Select which planet to conquer by clicking it.</p>
+			<p>Select which planet to conquer by clicking it. The chance to win each planet is displayed in %</p>
 		</div>
 
 		<div class="col-md-8" ng-init="getPlanets()">
 			<div class="col-md-12" ng-show="'{{ourPlanets.length}}' !== '0'">
 				<div class="universe col-md-3" ng-repeat="planet in ourPlanets track by $index">
-					<div class="planetPlan" 
+					<div class="planetPlan" style="margin:0px;" 
 						id="{{planet.planet.name.split(' ').join('')}}" 
 						name="planetButton" 
 						ng-click="fightForPlanet(planet)" 
-						ng-class='whatclass(planet)'><p id="{{planet.planet.name.split(' ').join('')+'status'}}">{{planet.lookAlike.points}}%</p>
+						ng-class='whatclass(planet)'><p id="{{planet.planet.name.split(' ').join('')+'status'}}" style="margin-top:10px;">{{planet.lookAlike.points}}%</p>
 					</div>
-						<p id="{{planet.planet.name.split(' ').join('')+'text'}}">{{planet.planet.name}}</p>
+						<p id="{{planet.planet.name.split(' ').join('')+'text'}}" style="text-align:center;margin-top:10px;">{{planet.planet.name}}</p>
     			</div>
     		</div>
     		<div class="col-md-12" ng-hide="'{{ourPlanets.length}}' !== '0'">
 				<p>There are no planets left. You have either won or lost all availiable planets.</p>
     		</div>
     	</div>
-    	<div class="avatarWindow col-md-4">
-      		<a href="#/new-char" class="btn" id="avatar-btn" type="button">
-         		<span class="glyphicon glyphicon-pencil"></span>
-      		</a>
-			<ng-include src="'partials/avatar.html'" ng-controller="inputCtrl"></ng-include>
-			<div class="col-md-12">
-        		<p style="padding-top:10px; font-size:24px;">{{profil.name}}</p>
-      		</div>
+
+			<ng-include src="'partials/avatar.html'"></ng-include>
+
 		</div>
 	</div>
-</div>
+
  
