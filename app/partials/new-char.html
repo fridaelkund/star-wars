@@ -37,13 +37,13 @@
 			</div>
 		</div>
 
-		<!-- <div class="avatarWindow col-md-4" style="text-align: center;">
-      		<div style="height:54px"></div> -->
+		<div class="avatarWindow col-md-4" style="text-align: center;">
+      		<div style="height:54px"></div>
 			<ng-include src="'partials/avatar.html'" ng-controller="inputCtrl"></ng-include>
-		<!-- 	<div class="col-md-12">
+			<div class="col-md-12">
         		<p style="padding-top:10px; font-size:24px;">{{avatar_name}}</p>
       		</div>
-		</div> -->
+		</div>
 
 		<div class="col-md-12" id="save-btn" ng-show="location.hash !== '#/profile'">
 			<a href="#/profile" class="btn" type="button" ng-show="location.hash === '#/new-char'" ng-click="saveProfile()">SAVE</a>

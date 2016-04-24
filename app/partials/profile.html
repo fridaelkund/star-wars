@@ -2,12 +2,13 @@
 <ng-include src="'partials/error.html'" ng-show="'{{profil.name}}' === ''"></ng-include>
 
 <!-- Starts loading profile information -->
-<div class="container">
+<div class="container" ng-init="getAvatar()">
 	<!-- If user has a profile the profile is being shown -->
 	<div class="row" ng-hide="'{{profil.name}}' === ''">
 		<div class="header">
 			<h1>profile</h1>
-			<p>Here's your profile. Your cute avatar and the imperium you've taken over.</p> 
+			<p>Here's your profile. Your cute avatar and the imperium you've taken over.</p>
+			<p>Click on a planet to read more about it!</p> 
 		</div>
 		<!-- Includes view of won planets. Planets are clickable and if clicked the pop up is opened -->
 		<div class="col-md-8">
@@ -35,15 +36,15 @@
 			</div>
 		</div>
 
-		<!-- <div class="avatarWindow col-md-4">
+		<div class="avatarWindow col-md-4">
       		<a href="#/new-char" class="btn" id="avatar-btn" type="button">
           		<span class="glyphicon glyphicon-pencil"></span>
-      		</a> -->
-			<ng-include src="'partials/avatar.html'" ng-controller="inputCtrl"></ng-include>
-			<!-- <div class="col-md-12">
+      		</a>
+				<ng-include src="'partials/avatar.html'" ng-controller="inputCtrl"></ng-include>
+			<div class="col-md-12">
         		<p style="padding-top:10px; font-size:24px;">{{profil.name}}</p>
       		</div>
-		</div> -->
+		</div>
 
 		<div class="col-md-12" style="text-align:center;" ng-show="location.hash !== '#/new-char'" >
 			<a href="#/planets" class="btn" type="button">START GAME</a>
