@@ -3,7 +3,6 @@ StarWarsApp.controller('inputCtrl', function($scope, $location, StarModel){
 // ------------- storing data -----------------
 
 $scope.location = window.location;
-
 // Get list of hair and eye colors, in the form colors: hex-col
 $scope.eyecols=StarModel.eyecol;
 $scope.haircols = StarModel.haircol;
@@ -29,7 +28,7 @@ $scope.getAvatar = function(){
 	};
 
 	if($scope.profil.height == ""){
-		$scope.avatar_height = 100;
+		$scope.avatar_height = 150;
 	}
 	else{
 		$scope.avatar_height = $scope.profil.height;	

@@ -2,7 +2,7 @@
 <ng-include src="'partials/error.html'" ng-show="'{{profil.name}}' === ''"></ng-include>
 
 <!-- Starts loading profile information -->
-<div class="container" ng-init="getAvatar()">
+<div class="container" ng-init="getAvatar()" ng-controller="inputCtrl">
 	<!-- If user has a profile the profile is being shown -->
 	<div class="row" ng-hide="'{{profil.name}}' === ''">
 		<div class="header">
