@@ -24,6 +24,7 @@
 h1 {
   color:yellow;
   font-family: Star;
+  cursor:default;
 }
 
 h3{
@@ -31,11 +32,13 @@ h3{
   color:white;
   margin-left: 20px;
   margin-top: 0px;
+  cursor:default;
 }
 
 p{
   font-size: 15px;
   color:white;
+  cursor:default;
 }
 
 
@@ -195,6 +198,7 @@ input[type=range]::-webkit-slider-thumb {
   text-align: center;
   color: white;
   padding-top:20%;
+  cursor:pointer;
 }
 
 /*.wonplanet{
@@ -302,8 +306,12 @@ background-size: cover;
 
 img{
   margin-bottom: 20px;
+
 }
 
+.planetImg{
+  cursor: pointer;
+}
  
 
 /* POP UP */ 
@@ -351,6 +359,12 @@ img{
 }
 
 /* AVATAR */ 
+
+svg{
+  cursor: pointer;
+
+}
+
 #avatar{
   text-align: center;
   position: relative;
@@ -392,3 +406,5 @@ img{
 .intropad{
   padding-top: 500px;
 }
+
+

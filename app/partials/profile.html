@@ -16,7 +16,7 @@
 				<h3>Your planet collection</h3>
 				<div class="col-md-3 universe" ng-repeat="planet in wonPlanets">
 					<div name="solarSystem" ng-class='whatclass(planet)' ng-click="open_popup(planet)">
-						<img src="josplanet.png" width="60px" height="60px">
+						<img class="planetImg" src="josplanet.png" width="60px" height="60px">
 						<p>{{planet.planet.name}}</p>
 					</div>
 				</div>
@@ -24,7 +24,7 @@
 					<h3>Planets you lost</h3>
 					<div class="col-md-3 universe" ng-repeat="planet in lostPlanets">
 						<div name="solarSystem" ng-class='whatclass(planet)' ng-click="open_popup(planet)">
-							<img src="josplanet.png" width="60px" height="60px">
+							<img class="planetImg" src="josplanet.png" width="60px" height="60px">
 							<p>{{planet.planet.name}}</p>
 						</div>
 					</div>
