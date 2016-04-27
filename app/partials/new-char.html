@@ -14,11 +14,11 @@
 			</div>
 			<div class="col-md-12">
 				<h3> Select hair color: </h3> 
-		            	<div ng-repeat="(col, hex) in haircols" class="circle form-control" style="background-color:{{hex}}" ng-click="showHair(col)"></div> 
+		            	<div id="newChar" ng-repeat="(col, hex) in haircols" class="circle form-control" style="background-color:{{hex}}" ng-click="showHair(col)"></div> 
 		    </div>
 		    <div class="col-md-12">
 				<h3> Select eye color: </h3>
-		            	<div ng-repeat="(col, hex) in eyecols" class="circle form-control" style="background-color:{{hex}}" ng-click="showEye(col)"></div> 
+		            	<div id="newChar"ng-repeat="(col, hex) in eyecols" class="circle form-control" style="background-color:{{hex}}" ng-click="showEye(col)"></div> 
 		    </div>
 			<div class="col-md-12">
 				<h3> Select height: </h3>

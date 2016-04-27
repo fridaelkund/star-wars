@@ -149,7 +149,9 @@ white-space: nowrap;
    text-align:center;
 }
 
-
+#newChar{
+  cursor: pointer;
+}
 
 
 /* SLIDER, HITTAT http://www.cssportal.com/style-input-range/ */
@@ -233,16 +235,19 @@ filter: brightness(10%);
   border:1px solid white;
   text-align:center;
   height: 400px;
+  cursor: pointer;
 }
 
 
 #plus{
   margin-top:30%;
   font-size:40px;
+  cursor: pointer;
 }
 
 #add{
   font-size:30px;
+  cursor: pointer;
 }
 
 #locName{
