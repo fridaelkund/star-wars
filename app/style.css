@@ -366,7 +366,7 @@ img{
 /* AVATAR */ 
 
 svg{
-  cursor: pointer;
+  
 
 }
 
@@ -385,8 +385,11 @@ svg{
 
 .avatarWindow{
   text-align: center;
+  
 }
-
+.profileAvatar{
+  cursor: default;
+}
 #save-btn{
   position: relative;
   margin-bottom: 20px;
