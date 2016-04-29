@@ -5,9 +5,6 @@ StarWarsApp.controller('menuCtrl', function($scope, $timeout, $location, StarMod
 $scope.profil = StarModel.returnProfile();
 $scope.path = $location.$$path;
 
-var planetUrl = "http://swapi.co/api/planets/";
-var peopleUrl = "http://swapi.co/api/people/";
-
 // ------------- starting page -----------------
 
 // checking if user has previous api-response in local storage.
@@ -15,7 +12,6 @@ var peopleUrl = "http://swapi.co/api/people/";
 // people and planets from API. 
 $scope.loading = function(startwars){	
 	$scope.loading = true;
-
 	// While waiting we're setting loading-variable to true and hiding play-button
 	// If no planets or people in local storage, we have to get them from API 
 	if(StarModel.checkLocalStorage() == false){
@@ -38,6 +34,9 @@ $scope.loading = function(startwars){
 	}
 };
 
+$scope.pauseAudio = function(){
+	TweenMax.to('#audio1',0.2, {'volume':0});
+}
 // Animations to remove intro-text, loadingmessage and creating menu
 $scope.timeToPlay = function(){
 	TweenMax.to('#loading-message', 1, {opacity:0});
@@ -67,7 +66,7 @@ $scope.animateMenu = function(){
 // Fetching planets from API by calling fetchAll of planetUrl from model.
 // Waiting for respons and then adding planets to list of planets in model 
 $scope.fetchPlanets = function(){
-	StarModel.fetchAll(planetUrl).then(function(response){
+	StarModel.fetchAll(StarModel.planetUrl).then(function(response){
 		$scope.planets = response;
 	// Planets are done! Save in planet-list in model!  
 		StarModel.addPlanets($scope.planets);
@@ -78,7 +77,7 @@ $scope.fetchPlanets = function(){
 };
 
 $scope.fetchPeople = function(){
-	StarModel.fetchAll(peopleUrl).then(function(response){
+	StarModel.fetchAll(StarModel.peopleUrl).then(function(response){
 		$scope.people = response;
 
 	// People are done! Save each person to their homeplanet in list of planets model. 

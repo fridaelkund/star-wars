@@ -121,7 +121,7 @@ $scope.getAllLocals = function(){
 
 // Deleting character, both from profile and local storage 
 $scope.killChar=function(loc){
-	localStorage.removeItem(loc.name);
+	StarModel.removeFromLocalStorage(loc.name);
 	StarModel.clearProfile();
 	$scope.allLocals = StarModel.getLocalStorage();
 }

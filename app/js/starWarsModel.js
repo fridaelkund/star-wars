@@ -11,6 +11,8 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 	var tempData = [];
 	var q = null; // The deferrer object
 
+	this.planetUrl = "http://swapi.co/api/planets/";
+	this.peopleUrl = "http://swapi.co/api/people/";
 
 // ------------- Fetching data from API -----------------
     // The main function which builds the tempData
@@ -199,6 +201,10 @@ StarWarsApp.factory('StarModel',function ($resource, $http, $q){
 			return true
 		}
 	};
+
+	this.removeFromLocalStorage = function(name){
+		localStorage.removeItem(name);
+	}
 
 // ------------- small database -----------------
 
